@@ -143,8 +143,10 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .noidea { flex: none; width: 1.45em; height: 1.45em; border-radius: 50%; background: var(--panel-lo); }
 .menu .md { min-height: 0; overflow-y: auto; scrollbar-width: none; padding: .1em .3em .2em .6em; border-left: .1em dashed var(--panel-lo); font-size: .9em; line-height: 1.08; }
 .menu.side { right: .5em; top: .5em; width: 12.5em; max-height: 13em; }
-.menu.grid { right: .5em; bottom: .5em; width: 15em; height: 4.75em; z-index: 31; }
-.menu.grid .ml { display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: .1em .2em; }
+.menu.grid { right: .5em; bottom: .5em; width: 19.6em; height: 4.75em; z-index: 31; }
+.menu.grid .ml { display: grid; grid-template-columns: repeat(3, 1fr); align-content: center; gap: .1em .15em; }
+.menu.grid .opt { font-size: .84em; padding: .12em .3em .14em; }
+.menu.grid .opt:nth-child(n+5) { color: var(--ink2); }
 .menu.detail, .menu.page { display: grid; grid-template-columns: 12em minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); z-index: 32; }
 .menu.detail { left: .5em; right: .5em; bottom: .5em; height: 11.6em; }
 .menu.page { inset: .5em; z-index: 22; }
@@ -192,17 +194,15 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 
 /* ---------- disputa ---------- */
 .battle { position: absolute; inset: 0; z-index: 5; overflow: hidden; --kc: #e2a13a; }
-.battle .sky { position: absolute; inset: 0; background:
-  repeating-linear-gradient(0deg, rgba(255, 255, 255, .22) 0 .22em, transparent .22em .66em),
-  linear-gradient(color-mix(in srgb, var(--kc) 55%, #fff) 0%, color-mix(in srgb, var(--kc) 18%, #fff4d6) 62%, color-mix(in srgb, var(--kc) 40%, #fff4d6) 100%); }
+.battle .sky { position: absolute; inset: 0; background-color: color-mix(in srgb, var(--kc) 30%, #fff4d6); background-size: cover; background-position: 50% 62%; image-rendering: pixelated; }
 .plat { position: absolute; border-radius: 50%; background: color-mix(in srgb, var(--kc) 62%, #fff); box-shadow: 0 0 0 .13em var(--line), inset 0 -.4em 0 0 rgba(0, 0, 0, .16), inset 0 .25em 0 0 rgba(255, 255, 255, .35); }
-.pf { right: .8em; top: 6.3em; width: 13em; height: 2.7em; }
-.pm { left: .3em; bottom: 4.9em; width: 16em; height: 3.2em; }
+.pf { right: 1.1em; top: 8.45em; width: 12.2em; height: 2.1em; }
+.pm { left: .1em; bottom: 4.5em; width: 13.4em; height: 2.6em; }
 .fig { position: absolute; }
 .fig canvas, .fig img { display: block; width: 100%; height: auto; }
-.foe { right: 3.2em; top: -.4em; width: 8.4em; animation: in-r .5s steps(8) both; }
-.me { left: 1.6em; bottom: 6.3em; width: 8.4em; animation: in-l .5s steps(8) both; }
-.ou { left: 10.2em; bottom: 6.5em; width: 4.4em; animation: in-l .7s steps(8) both, bob 1.2s .7s steps(2) infinite; }
+.foe { right: 3.4em; top: .1em; width: 7.6em; animation: in-r .5s steps(8) both; }
+.me { left: 1.3em; bottom: 5.45em; width: 8.2em; animation: in-l .5s steps(8) both; }
+.ou { left: 9.9em; bottom: 5.7em; width: 4em; animation: in-l .7s steps(8) both, bob 1.2s .7s steps(2) infinite; }
 .wild .foe { right: 4.6em; top: 1.3em; width: 6em; }
 .wild .fbox .bar { display: none; }
 .wild .foe img { width: 100%; height: auto; animation: hop .7s steps(3) infinite; }
@@ -263,6 +263,7 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .tall .got { white-space: normal; width: 18em; }
 .tall .menu.side { width: 13.5em; max-height: 20em; }
 .tall .menu.grid { left: .5em; width: auto; height: 5.85em; }
+.tall .menu.grid .opt { font-size: .98em; }
 .tall .menu.detail, .tall .menu.page { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
 .tall .menu.detail { height: 20em; }
 .tall .menu.detail .mt, .tall .menu.page .mt { grid-column: 1; }
@@ -282,13 +283,13 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .tall .cast .pimg:nth-child(2), .tall .cast .pimg:nth-child(3) { width: 4.3em; height: 4.3em; }
 .tall .menu.titlem { bottom: 2.4em; }
 .tall .fbox { left: .5em; top: 2.1em; width: 13.5em; }
-.tall .foe { right: 1.3em; top: 5.6em; width: 8.2em; }
-.tall .pf { right: .1em; top: 12.1em; width: 11.6em; height: 2.5em; }
+.tall .foe { right: 1em; top: 5.3em; width: 7.4em; }
+.tall .pf { right: .1em; top: 13.4em; width: 10em; height: 1.9em; }
 .tall .wild .foe { right: 2.6em; top: 7.4em; width: 5.6em; }
 .tall .mbox { right: .5em; bottom: 6.85em; width: 13.5em; }
-.tall .me { left: .7em; bottom: 11.9em; width: 7.6em; }
-.tall .ou { left: 8.6em; bottom: 11.9em; width: 3.9em; }
-.tall .pm { left: .1em; bottom: 10.8em; width: 13.4em; height: 2.6em; }
+.tall .me { left: .4em; bottom: 10.9em; width: 7.4em; }
+.tall .ou { left: 7.9em; bottom: 11em; width: 3.4em; }
+.tall .pm { left: 0; bottom: 10.2em; width: 12em; height: 2em; }
 .tall .shot.to-foe { animation-name: tofoe-t; }
 .tall .shot.to-me { animation-name: tome-t; }
 @keyframes tofoe-t { from { left: 6em; bottom: 15em; transform: scale(.6); } to { left: 13em; bottom: 21em; transform: scale(1.3) rotate(360deg); } }
@@ -809,7 +810,8 @@ root.FASongs = SONGS;
 })(typeof window !== 'undefined' ? window : globalThis);
 
 /* Metafísica Advance — gráficos. Todo el pixel art se dibuja por código en lienzos pequeños:
-   baldosas, edificios, personajes del mapa, retratos con emociones, Ousía y las criaturas-idea de cada carta. */
+   baldosas, edificios, personajes del mapa, retratos y figuras de cuerpo entero con emociones, Ousía,
+   fondos de disputa y las criaturas-idea de cada carta. */
 const GFX = (function () {
 'use strict';
 const INK = '#1d1438';
@@ -822,6 +824,7 @@ function shade(hex, f) {
   const ch = s => { const v = n >> s & 255; return Math.max(0, Math.min(255, Math.round(f < 0 ? v * (1 + f) : v + (255 - v) * f))); };
   return '#' + ((1 << 24) | ch(16) << 16 | ch(8) << 8 | ch(0)).toString(16).slice(1);
 }
+const SHADOW = 'rgba(20,16,50,.26)';
 
 /* ---------- búfer de píxeles ---------- */
 function px(w, h) {
@@ -838,6 +841,8 @@ function px(w, h) {
       }
       return B;
     },
+    /* contorno de una elipse (anillos, órbitas) */
+    ring(cx, cy, rx, ry, c) { for (let a = 0; a < 64; a++) B.p(cx + Math.cos(a / 64 * 6.2832) * rx, cy + Math.sin(a / 64 * 6.2832) * ry, c); return B; },
     l(x0, y0, x1, y1, c) {
       const n = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0)) || 1;
       for (let i = 0; i <= n; i++) B.p(Math.round(x0 + (x1 - x0) * i / n), Math.round(y0 + (y1 - y0) * i / n), c);
@@ -854,17 +859,28 @@ function px(w, h) {
       add.forEach(i => { d[i] = c; });
       return B;
     },
+    /* pinta solo donde no hay nada (sombras bajo los pies) */
+    under(cx, cy, rx, ry, c) {
+      for (let y = Math.floor(cy - ry); y <= cy + ry; y++) for (let x = Math.floor(cx - rx); x <= cx + rx; x++) {
+        const dx = (x + .5 - cx) / rx, dy = (y + .5 - cy) / ry;
+        if (dx * dx + dy * dy <= 1 && !B.g(x, y)) B.p(x, y, c);
+      }
+      return B;
+    },
     over(S, ox, oy) { for (let y = 0; y < S.h; y++) for (let x = 0; x < S.w; x++) { const c = S.g(x, y); if (c) B.p(x + (ox || 0), y + (oy || 0), c); } return B; },
-    draw(ctx, flip) {
-      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    draw(ctx, flip, y0, y1) {
+      for (let y = y0 || 0; y < (y1 || h); y++) for (let x = 0; x < w; x++) {
         const c = d[y * w + x];
-        if (c) { ctx.fillStyle = c; ctx.fillRect(flip ? w - 1 - x : x, y, 1, 1); }
+        if (c) { ctx.fillStyle = c; ctx.fillRect(flip ? w - 1 - x : x, y - (y0 || 0), 1, 1); }
       }
     },
-    canvas(flip) { const c = cv(w, h); B.draw(c.getContext('2d'), flip); return c; }
+    canvas(flip) { const c = cv(w, h); B.draw(c.getContext('2d'), flip); return c; },
+    /* solo las filas y0..y1 */
+    slice(y0, y1) { const c = cv(w, y1 - y0); B.draw(c.getContext('2d'), false, y0, y1); return c; }
   };
   return B;
 }
+const bits = (B, rows, x, y, c, s) => { s = s || 1; rows.forEach((row, j) => { for (let i = 0; i < row.length; i++) if (row[i] === 'x') B.r(x + i * s, y + j * s, s, s, c); }); return B; };
 
 /* ---------- temas de cada región ---------- */
 const GLYPH = [
@@ -879,186 +895,272 @@ const GLYPH = [
   ['x...x', '.x.x.', '..x..', '..x..', '..x..'],   // bifurcación
   ['x.x.x', 'x.x.x', 'xxxxx', 'xxxxx', '.....']    // corona
 ];
+/* objetos que dan su tema a cada casa: icono de 5×5 para el letrero y para el objeto del interior */
+const ICONS = {
+  hearth: ['..x..', '.xx..', '.xxx.', 'xxxxx', '.xxx.'], teapot: ['x.x.x', '.....', 'xxxx.', 'xxxxx', '.xx..'],
+  mold: ['.xxx.', '..x..', '.xxx.', 'xxxxx', '.xxx.'], apple: ['..x..', '.xxx.', 'xxxxx', 'xxxxx', '.x.x.'],
+  abacus: ['xxxxx', 'x.x.x', 'xxxxx', 'x.x.x', 'xxxxx'], billiard: ['.xxx.', 'xx.xx', 'x.x.x', 'xx.xx', '.xxx.'],
+  domino: ['xxxxx', 'x.x.x', 'xxxxx', 'x...x', 'xxxxx'], clock: GLYPH[4], bone: ['xx.xx', '.xxx.', '..x..', '.xxx.', 'xx.xx'],
+  ship: GLYPH[5], globe: ['.xxx.', 'x.x.x', 'xxxxx', 'x.x.x', '.xxx.'], novel: ['xxxxx', 'x.x.x', 'x.x.x', 'x.x.x', 'xxxxx'],
+  chair: ['x....', 'x....', 'xxxxx', 'x...x', 'x...x'], blocks: GLYPH[7], scale: ['..x..', 'xxxxx', 'x.x.x', '..x..', '.xxx.'],
+  brain: ['.xxx.', 'xxxxx', 'x.x.x', 'xxxxx', '.x.x.']
+};
 const THEMES = [
-  { g: '#5cb85c', p: '#e8d39a', t: '#2f8a4a', w: '#4d95ff', acc: '#e03a2f', roof: ['#c9483c', '#a8632a'] },
-  { g: '#7cc46a', p: '#f0e2b6', t: '#3b8f52', w: '#5aa8ff', acc: '#e2a13a', roof: ['#d9843a', '#c9483c'] },
-  { g: '#63c7a6', p: '#dfe7ef', t: '#2f8f8a', w: '#3f8fe8', acc: '#3b8fe0', roof: ['#4f6fd0', '#7a58c9'] },
-  { g: '#c6c05a', p: '#ecd2a0', t: '#c9742a', w: '#4d95ff', acc: '#d9542f', roof: ['#a8432a', '#8a5a2a'] },
-  { g: '#8fb88a', p: '#e6d9e8', t: '#6a5aa8', w: '#5a7fe0', acc: '#8a5ad0', roof: ['#6a47b8', '#4a6fb0'] },
-  { g: '#6fcf8f', p: '#f2e6b8', t: '#2f9f6f', w: '#2f8fd0', acc: '#1fa8b8', roof: ['#2a7fb8', '#d0603a'] },
-  { g: '#9fd08a', p: '#f3e0ea', t: '#d06aa0', w: '#7a8fff', acc: '#d04a9a', roof: ['#b84a8a', '#7a5ad0'] },
-  { g: '#8ccf5a', p: '#e9dcc0', t: '#3f9f4f', w: '#4d95ff', acc: '#e0a020', roof: ['#d04a3a', '#3a7fd0'] },
-  { g: '#5aa890', p: '#d9dccb', t: '#2a6f6a', w: '#3a6fc0', acc: '#3ab0a0', roof: ['#3a5a8a', '#8a4a6a'] },
-  { g: '#cfe3ea', p: '#f6f6f6', t: '#7f9fb0', w: '#8fc0e8', acc: '#ffcf2e', roof: ['#5a5a7a', '#5a5a7a'] }
+  { g: '#5cb85c', p: '#e8d39a', t: '#2f8a4a', w: '#4d95ff', acc: '#e03a2f', roof: ['#c9483c', '#a8632a'], sky: '#8fd0ff' },
+  { g: '#7cc46a', p: '#f0e2b6', t: '#3b8f52', w: '#5aa8ff', acc: '#e2a13a', roof: ['#d9843a', '#c9483c'], sky: '#a8dcff' },
+  { g: '#63c7a6', p: '#dfe7ef', t: '#2f8f8a', w: '#3f8fe8', acc: '#3b8fe0', roof: ['#4f6fd0', '#7a58c9'], sky: '#9fe6f0' },
+  { g: '#c6c05a', p: '#ecd2a0', t: '#c9742a', w: '#4d95ff', acc: '#d9542f', roof: ['#a8432a', '#8a5a2a'], sky: '#ffd9a0' },
+  { g: '#8fb88a', p: '#e6d9e8', t: '#6a5aa8', w: '#5a7fe0', acc: '#8a5ad0', roof: ['#6a47b8', '#4a6fb0'], sky: '#c9b6f0' },
+  { g: '#6fcf8f', p: '#f2e6b8', t: '#2f9f6f', w: '#2f8fd0', acc: '#1fa8b8', roof: ['#2a7fb8', '#d0603a'], sky: '#9fe0f0' },
+  { g: '#9fd08a', p: '#f3e0ea', t: '#d06aa0', w: '#7a8fff', acc: '#d04a9a', roof: ['#b84a8a', '#7a5ad0'], sky: '#ffc4e0' },
+  { g: '#8ccf5a', p: '#e9dcc0', t: '#3f9f4f', w: '#4d95ff', acc: '#e0a020', roof: ['#d04a3a', '#3a7fd0'], sky: '#a8dcff' },
+  { g: '#5aa890', p: '#d9dccb', t: '#2a6f6a', w: '#3a6fc0', acc: '#3ab0a0', roof: ['#3a5a8a', '#8a4a6a'], sky: '#7fb0d0' },
+  { g: '#cfe3ea', p: '#f6f6f6', t: '#7f9fb0', w: '#8fc0e8', acc: '#ffcf2e', roof: ['#5a5a7a', '#5a5a7a'], sky: '#d6ecff' }
 ];
 THEMES.forEach((t, i) => { t.id = i; t.glyph = GLYPH[i]; });
 
-/* ---------- baldosas (16×16) ---------- */
+/* ---------- baldosas (16×16). Cada entrada es una lista: variantes, o los dos cuadros de una animación ---------- */
 const tcache = {};
 function tileset(k) {
   if (tcache[k]) return tcache[k];
   const th = THEMES[k], R = rng(hash('tiles' + k)), T = {};
+  const stone = '#b9b4c8', wood = '#8a5a2a', gD = shade(th.g, -.14), gL = shade(th.g, .2);
   const sp = (B, c, n) => { for (let i = 0; i < n; i++) B.p(R() * 16, R() * 16, c); return B; };
-  const grass = () => {
-    const B = px(16, 16).r(0, 0, 16, 16, th.g), d = shade(th.g, -.13), l = shade(th.g, .2);
-    for (let i = 0; i < 6; i++) { const x = R() * 14 | 0, y = R() * 14 | 0; B.p(x, y + 1, d).p(x + 1, y, d); if (i % 2) B.p(x + 2, y + 1, l); }
+  const grass = v => {
+    const B = px(16, 16).r(0, 0, 16, 16, th.g);
+    for (let i = 0; i < 6; i++) { const x = R() * 14 | 0, y = R() * 14 | 0; B.p(x, y + 1, gD).p(x + 1, y, gD); if (i % 2) B.p(x + 2, y + 1, gL); }
+    if (v === 1) { const x = 3 + (R() * 9 | 0), y = 4 + (R() * 8 | 0), c = R() < .5 ? '#ffffff' : '#ffe680'; B.p(x, y - 1, c).p(x - 1, y, c).p(x + 1, y, c).p(x, y + 1, c).p(x, y, '#ffb000'); }
+    else if (v === 2) { const x = 4 + (R() * 8 | 0), y = 4 + (R() * 8 | 0); B.p(x, y, gL).p(x + 1, y - 1, gL).p(x + 2, y, gL).p(x + 1, y + 1, shade(th.g, -.3)).p(x + 1, y, shade(th.g, .35)); }
+    else if (v === 3) { const x = 4 + (R() * 8 | 0), y = 6 + (R() * 6 | 0); B.r(x, y, 3, 2, stone).p(x, y, shade(stone, .4)).p(x + 2, y + 1, shade(stone, -.3)); }
     return B;
   };
-  const two = f => [f(0).canvas(), f(1).canvas()];
-  const stone = '#b9b4c8', wood = '#8a5a2a';
-  T['.'] = two(grass);
-  T[','] = two(() => {
-    const B = grass(), d = shade(th.g, -.4), m = shade(th.g, -.22), l = shade(th.g, .28);
+  const many = (n, f) => { const a = []; for (let i = 0; i < n; i++) a.push(f(i).canvas()); return a; };
+  T['.'] = many(4, grass);
+  /* hierba alta: matas de hojas sobre un fondo más oscuro */
+  T[','] = many(2, v => {
+    const base = shade(th.g, -.16), d = shade(th.g, -.45), m = shade(th.g, -.28), l = shade(th.g, .3), B = px(16, 16).r(0, 0, 16, 16, base);
     for (let j = 0; j < 3; j++) for (let i = 0; i < 4; i++) {
-      const x = i * 4 + (j % 2 ? 2 : 0) - 1, y = 1 + j * 5;
-      B.p(x, y + 1, l).p(x, y + 2, m).p(x, y + 3, d).p(x + 1, y + 2, m).p(x + 1, y + 3, d)
-        .p(x + 2, y, l).p(x + 2, y + 1, m).p(x + 2, y + 2, m).p(x + 2, y + 3, d).p(x + 3, y + 2, m).p(x + 3, y + 3, d);
+      const x = i * 4 + (j % 2 ? 2 : 0) + (v && j === 1 ? -1 : 0) - 1, y = j * 5 + 1;
+      B.p(x + 1, y, l).p(x, y + 1, m).p(x + 1, y + 1, th.g).p(x + 2, y + 1, m).p(x + 3, y, l).p(x, y + 2, d).p(x + 1, y + 2, m).p(x + 2, y + 2, d).p(x + 3, y + 1, th.g).p(x + 3, y + 2, d).p(x + 1, y + 3, d).p(x + 2, y + 3, d);
     }
     return B;
   });
-  T['='] = two(() => sp(sp(px(16, 16).r(0, 0, 16, 16, th.p), shade(th.p, -.12), 7), shade(th.p, .35), 4));
-  T.T = two(() => {
-    const C = px(16, 16), d = shade(th.t, -.3), l = shade(th.t, .28);
-    C.r(7, 11, 2, 4, '#7a4a22').p(6, 14, '#7a4a22').p(9, 14, '#7a4a22');
-    C.e(8, 6.5, 7, 6, d).e(7.5, 5.6, 5.6, 4.5, th.t).e(6, 4, 2.4, 1.6, l);
-    C.p(10, 8, d).p(5, 9, d).p(11, 5, l);
-    return grass().over(C.outline(INK));
+  T['='] = many(3, v => {
+    const B = sp(sp(px(16, 16).r(0, 0, 16, 16, th.p), shade(th.p, -.1), 8), shade(th.p, .4), 5);
+    if (v) { const x = 3 + (R() * 9 | 0), y = 3 + (R() * 9 | 0); B.r(x, y, 2, 2, shade(th.p, -.22)).p(x, y, shade(th.p, -.08)); }
+    return B;
   });
+  /* árbol de 16×24: la copa sobresale 8 px hacia la baldosa de arriba y se dibuja por encima de los personajes */
+  const trees = [0, 1].map(v => {
+    const C = px(16, 24), d = shade(th.t, -.32), m = th.t, l = shade(th.t, .22), ll = shade(th.t, .42), tr = '#7a4a22';
+    C.r(6, 16, 4, 6, tr).r(6, 16, 1, 6, shade(tr, .3)).r(9, 16, 1, 6, shade(tr, -.3)).p(5, 21, tr).p(10, 21, tr);
+    C.e(8, 10, 7.6, 8, d).e(7.6, 9, 6.6, 6.8, m).e(6.4, 6.6, 4, 3.6, l).e(5.6 + v, 5.2, 1.8, 1.3, ll);
+    C.e(11.5, 11.5, 2.2, 1.8, l).e(4.5, 12.5, 1.8, 1.4, l).p(9, 14, d).p(6, 15, d).p(12, 8, d).p(3, 9, d).p(8 + v, 3, ll);
+    return C.outline(INK);
+  });
+  T.T = trees.map(C => { const B = grass(0); B.e(8, 14, 6, 2, shade(th.g, -.3)); return px(16, 16).over(B).over(C, 0, -8).canvas(); });
+  T.Ttop = trees.map(C => C.slice(0, 8));
   T['~'] = [0, 1].map(f => {
-    const B = px(16, 16).r(0, 0, 16, 16, th.w), l = shade(th.w, .4), o = f * 3;
-    B.r(2 + o, 4, 4, 1, l).r((10 + o) % 14, 11, 4, 1, l).r(6 + o, 8, 2, 1, shade(th.w, .18));
+    const B = px(16, 16).r(0, 0, 16, 16, th.w), l = shade(th.w, .4), dd = shade(th.w, -.12), o = f * 3;
+    B.r(2 + o, 4, 4, 1, l).r((10 + o) % 14, 11, 4, 1, l).r(6 + o, 8, 2, 1, shade(th.w, .18)).r((12 + o) % 15, 2, 2, 1, dd).r((3 + o) % 13, 13, 3, 1, dd).p((9 + o * 2) % 16, 6, '#ffffff');
     return B.canvas();
   });
   T.f = [0, 1].map(f => {
-    const B = grass();
-    [[3, 4, '#ff6b8a'], [11, 7, '#ffd23e'], [5, 12, '#ffffff']].forEach(([x, y, c], i) => {
+    const B = grass(0);
+    [[3, 4, '#ff6b8a'], [11, 6, '#ffd23e'], [6, 12, '#ffffff'], [13, 12, '#c58bff']].forEach(([x, y, c], i) => {
       const yy = y + ((f + i) % 2);
-      B.p(x, yy - 1, c).p(x - 1, yy, c).p(x + 1, yy, c).p(x, yy + 1, c).p(x, yy, '#ffb000').p(x, yy + 2, shade(th.g, -.4));
+      B.p(x, yy - 1, c).p(x - 1, yy, c).p(x + 1, yy, c).p(x, yy + 1, c).p(x, yy, '#ffb000').p(x, yy + 2, shade(th.g, -.4)).p(x + 1, yy + 2, shade(th.g, -.25));
     });
     return B.canvas();
   });
-  T['#'] = two(() => {
+  T['#'] = many(1, () => {
     const C = px(16, 16);
-    C.r(0, 7, 16, 2, wood).r(0, 11, 16, 2, wood).r(0, 7, 16, 1, shade(wood, .3)).r(2, 4, 3, 10, wood).r(11, 4, 3, 10, wood).r(2, 4, 3, 1, shade(wood, .35)).r(11, 4, 3, 1, shade(wood, .35));
-    return grass().over(C.outline(INK));
+    C.r(0, 7, 16, 2, wood).r(0, 11, 16, 2, wood).r(0, 7, 16, 1, shade(wood, .3)).r(0, 11, 16, 1, shade(wood, .3)).r(2, 4, 3, 10, wood).r(11, 4, 3, 10, wood).r(2, 4, 3, 1, shade(wood, .4)).r(11, 4, 3, 1, shade(wood, .4)).r(4, 5, 1, 9, shade(wood, -.25)).r(13, 5, 1, 9, shade(wood, -.25));
+    return grass(0).e(8, 14, 6, 1.5, shade(th.g, -.25)).over(C.outline(INK));
   });
-  T.o = two(() => {
+  T.o = many(1, () => {
     const C = px(16, 16);
-    C.e(8, 10, 6, 4.5, shade(stone, -.25)).e(7.5, 9, 5, 3.5, stone).e(6, 8, 2, 1.2, shade(stone, .4));
-    return grass().over(C.outline(INK));
+    C.e(8, 10, 6, 4.5, shade(stone, -.28)).e(7.5, 9, 5, 3.5, stone).e(6, 8, 2.2, 1.3, shade(stone, .45)).p(10, 10, shade(stone, -.2)).p(9, 11, shade(stone, -.2)).p(4, 12, gD).p(12, 13, gL);
+    return grass(0).e(8, 13.5, 6.5, 1.8, shade(th.g, -.28)).over(C.outline(INK));
   });
-  T.S = two(() => {
+  T.S = many(1, () => {
     const C = px(16, 16);
-    C.r(7, 10, 2, 5, wood).r(2, 3, 12, 7, '#d9a85a').r(2, 9, 12, 1, shade('#d9a85a', -.3)).r(4, 5, 8, 1, INK).r(4, 7, 6, 1, INK);
-    return grass().over(C.outline(INK));
+    C.r(7, 10, 2, 5, wood).r(2, 3, 12, 7, '#d9a85a').r(2, 3, 12, 1, shade('#d9a85a', .35)).r(2, 9, 12, 1, shade('#d9a85a', -.3)).r(4, 5, 8, 1, INK).r(4, 7, 6, 1, INK).p(3, 4, wood).p(12, 4, wood);
+    return grass(0).e(8, 14.5, 4, 1.2, shade(th.g, -.28)).over(C.outline(INK));
   });
-  T.D = two(() => {
+  T.D = many(1, () => {
     const C = px(16, 16);
-    C.r(3, 12, 10, 3, shade(stone, -.25)).r(4, 1, 8, 11, stone).r(4, 1, 8, 1, shade(stone, .45)).r(11, 2, 1, 10, shade(stone, -.2));
-    th.glyph.forEach((row, y) => { for (let x = 0; x < 5; x++) if (row[x] === 'x') C.p(5 + x, 3 + y, th.acc).p(5 + x, 4 + y, shade(th.acc, -.3)); });
-    th.glyph.forEach((row, y) => { for (let x = 0; x < 5; x++) if (row[x] === 'x') C.p(5 + x, 3 + y, th.acc); });
-    return grass().over(C.outline(INK));
+    C.r(2, 13, 12, 2, shade(stone, -.3)).r(3, 11, 10, 2, shade(stone, -.15)).r(4, 1, 8, 10, stone).r(4, 1, 8, 1, shade(stone, .5)).r(4, 1, 1, 10, shade(stone, .25)).r(11, 2, 1, 9, shade(stone, -.22));
+    bits(C, th.glyph, 6, 4, shade(th.acc, -.35)); bits(C, th.glyph, 5, 3, th.acc);
+    return grass(0).e(8, 14.5, 7, 1.5, shade(th.g, -.28)).over(C.outline(INK));
   });
   /* puente: camino con agua arriba o abajo */
-  T.b = two(() => {
+  T.b = many(1, () => {
     const B = px(16, 16).r(0, 0, 16, 16, '#b07a3a');
     for (let x = 3; x < 16; x += 4) B.r(x, 0, 1, 16, shade('#b07a3a', -.3));
-    return B.r(0, 0, 16, 2, '#7a4a22').r(0, 14, 16, 2, '#7a4a22').r(0, 1, 16, 1, '#d9a85a');
+    return B.r(0, 0, 16, 2, '#7a4a22').r(0, 14, 16, 2, '#7a4a22').r(0, 1, 16, 1, '#d9a85a').r(0, 13, 16, 1, shade('#b07a3a', -.2)).p(1, 6, '#d9a85a').p(9, 9, '#d9a85a');
   });
   /* interior de las ágoras */
-  const fl = shade(th.acc, .72), wl = shade(th.acc, -.45);
-  T._ = two(() => px(16, 16).r(0, 0, 16, 16, fl).r(0, 15, 16, 1, shade(fl, -.12)).r(15, 0, 1, 16, shade(fl, -.12)).p(3, 4, shade(fl, -.08)).p(10, 9, shade(fl, -.08)));
-  T[':'] = two(() => px(16, 16).r(0, 0, 16, 16, th.acc).r(0, 0, 1, 16, shade(th.acc, .35)).r(15, 0, 1, 16, shade(th.acc, .35)).r(7, 3, 2, 2, shade(th.acc, .35)).r(7, 11, 2, 2, shade(th.acc, .35)));
-  T.W = two(() => {
+  const fl = shade(th.acc, .74), fl2 = shade(th.acc, .62), wl = shade(th.acc, -.45);
+  T._ = many(2, v => px(16, 16).r(0, 0, 16, 16, v ? fl : fl2).r(0, 15, 16, 1, shade(fl, -.16)).r(15, 0, 1, 16, shade(fl, -.16)).r(0, 0, 16, 1, shade(fl, .5)).p(3, 4, shade(fl, -.1)).p(10, 9, shade(fl, -.1)));
+  T[':'] = many(1, () => px(16, 16).r(0, 0, 16, 16, th.acc).r(0, 0, 1, 16, shade(th.acc, .4)).r(15, 0, 1, 16, shade(th.acc, .4)).r(1, 0, 1, 16, shade(th.acc, -.2)).r(14, 0, 1, 16, shade(th.acc, -.2)).r(7, 3, 2, 2, shade(th.acc, .4)).r(7, 11, 2, 2, shade(th.acc, .4)));
+  T.W = many(1, () => {
     const B = px(16, 16).r(0, 0, 16, 16, wl), d = shade(wl, -.3);
-    B.r(0, 0, 16, 2, shade(wl, .3)).r(0, 7, 16, 1, d).r(0, 15, 16, 1, d).r(4, 2, 1, 5, d).r(12, 2, 1, 5, d).r(8, 8, 1, 7, d);
+    return B.r(0, 0, 16, 2, shade(wl, .3)).r(0, 7, 16, 1, d).r(0, 15, 16, 1, d).r(4, 2, 1, 5, d).r(12, 2, 1, 5, d).r(8, 8, 1, 7, d).p(1, 3, shade(wl, .15)).p(9, 10, shade(wl, .15));
+  });
+  T.c = many(1, () => {
+    const C = px(16, 16);
+    C.r(3, 12, 10, 3, shade(stone, -.25)).r(3, 0, 10, 2, shade(stone, .3)).r(5, 2, 6, 10, stone).r(6, 2, 1, 10, shade(stone, .45)).r(9, 2, 1, 10, shade(stone, -.2)).r(8, 2, 1, 10, shade(stone, -.08));
+    return px(16, 16).r(0, 0, 16, 16, fl).e(8, 14.5, 6, 1.5, shade(fl, -.25)).over(C.outline(INK));
+  });
+  /* interior de las casas: madera, papel tapiz y muebles */
+  const pl = '#c98f55', wp = shade(th.acc, .58), wpD = shade(th.acc, .38);
+  const plank = () => { const B = px(16, 16).r(0, 0, 16, 16, pl); for (let y = 3; y < 16; y += 4) B.r(0, y, 16, 1, shade(pl, -.22)); B.r(5, 0, 1, 3, shade(pl, -.22)).r(12, 4, 1, 3, shade(pl, -.22)).r(2, 8, 1, 3, shade(pl, -.22)).r(9, 12, 1, 3, shade(pl, -.22)).p(8, 1, shade(pl, .25)).p(3, 5, shade(pl, .25)).p(13, 9, shade(pl, -.12)); return B; };
+  const wall = () => { const B = px(16, 16).r(0, 0, 16, 16, wp); for (let x = 2; x < 16; x += 4) B.r(x, 2, 1, 11, wpD); return B.r(0, 0, 16, 2, shade(th.acc, -.3)).r(0, 13, 16, 3, '#7a4a22').r(0, 13, 16, 1, '#96602e'); };
+  T.hx = many(1, () => px(16, 16).r(0, 0, 16, 16, '#5a3516').r(0, 0, 16, 1, '#7a4a22').r(0, 15, 16, 1, '#3a2412').r(0, 0, 1, 16, '#7a4a22').r(15, 0, 1, 16, '#3a2412').r(4, 4, 8, 8, '#6a3f1c'));   // muros laterales, vistos desde arriba
+  T.hf = many(1, plank);
+  T.hw = many(1, wall);
+  T.hr = many(1, () => plank().r(0, 0, 16, 16, th.acc).r(0, 0, 16, 1, shade(th.acc, -.3)).r(0, 15, 16, 1, shade(th.acc, -.3)).r(2, 2, 12, 12, shade(th.acc, .18)).r(4, 4, 8, 8, th.acc).r(7, 7, 2, 2, '#fff4d6'));
+  T.N = many(1, () => wall().r(2, 2, 12, 10, INK).r(3, 3, 10, 8, '#8fd3ff').r(3, 3, 10, 3, '#d6f1ff').r(7, 3, 2, 8, '#fff4d6').r(3, 6, 10, 1, '#fff4d6').r(3, 3, 2, 8, th.acc).r(11, 3, 2, 8, th.acc));
+  T.B = many(2, v => {
+    const B = wall().r(0, 1, 16, 15, '#6a3f1c').r(1, 2, 14, 13, '#3a2412');
+    const cols = ['#c9382f', '#3b8fe0', '#2f9950', '#ffcf2e', '#8a5ad0', '#f4f4fa', '#d9843a'];
+    [2, 7, 12].forEach((y, j) => { let x = 1; while (x < 14) { const w2 = 1 + ((x * 3 + j * 5 + v) % 2), c = cols[(x * 2 + j * 3 + v) % 7]; B.r(x, y, w2, 4, c).r(x, y, w2, 1, shade(c, .35)); x += w2 + ((x + j) % 4 === 0 ? 1 : 0); } B.r(1, y + 4, 14, 1, '#96602e'); });
     return B;
   });
-  T.c = two(() => {
+  T.E = many(1, () => plank().r(1, 1, 14, 14, INK).r(2, 2, 12, 12, '#7a4a22').r(3, 3, 10, 4, '#ffffff').r(4, 4, 8, 2, '#e6e2f0').r(3, 7, 10, 7, th.acc).r(3, 7, 10, 1, shade(th.acc, .35)).r(3, 12, 10, 1, shade(th.acc, -.25)));
+  T.V = many(1, () => {
     const C = px(16, 16);
-    C.r(3, 12, 10, 3, shade(stone, -.25)).r(3, 0, 10, 2, shade(stone, .3)).r(5, 2, 6, 10, stone).r(6, 2, 1, 10, shade(stone, .45)).r(9, 2, 1, 10, shade(stone, -.2));
-    return px(16, 16).r(0, 0, 16, 16, fl).over(C.outline(INK));
+    C.r(5, 10, 6, 5, '#c9703a').r(4, 10, 8, 1, '#e08a4a').r(10, 11, 1, 4, '#a85a2a').e(8, 6, 4.5, 4.5, '#2f8a4a').e(6.5, 4.5, 2, 2, '#5cb85c').e(10.5, 7, 1.6, 1.4, '#5cb85c').p(8, 2, '#2f8a4a').p(4, 8, '#2f8a4a').p(12, 4, '#2f8a4a');
+    return plank().e(8, 14.5, 5, 1.2, shade(pl, -.3)).over(C.outline(INK));
+  });
+  T.P = many(1, () => {
+    const C = px(16, 16);
+    C.r(1, 8, 14, 4, '#96602e').r(1, 8, 14, 1, '#c98f55').r(2, 12, 2, 3, '#6a3f1c').r(12, 12, 2, 3, '#6a3f1c');
+    return plank().e(8, 14.5, 7, 1.2, shade(pl, -.3)).over(C.outline(INK));
   });
   T.anim = { '~': 1, f: 1 };
   T.th = th;
-  /* libro que guarda una carta, signo de exclamación */
+  /* libro que guarda una carta, signo de exclamación, sombra de los personajes */
   T.item = [0, 1].map(f => {
     const C = px(16, 16), y = 4 + f;
-    C.r(4, y, 9, 9, '#c9382f').r(4, y, 2, 9, '#8f201a').r(6, y + 8, 7, 1, '#fff4d6').r(8, y + 2, 3, 3, '#ffcf2e').p(9, y + 3, '#fff');
-    return C.outline(INK).canvas();
+    C.r(4, y, 9, 9, '#c9382f').r(4, y, 2, 9, '#8f201a').r(6, y + 8, 7, 1, '#fff4d6').r(8, y + 2, 3, 3, '#ffcf2e').p(9, y + 3, '#fff').p(12, y + 1, '#ff8a7a');
+    return C.outline(INK).under(8.5, 14.5, 5, 1.3, SHADOW).canvas();
   });
   const X = px(12, 14);
   X.e(6, 6, 5.5, 5.5, '#fff').r(5, 2, 2, 5, '#e03a2f').r(5, 8, 2, 2, '#e03a2f').p(5, 11, '#fff').p(4, 12, '#fff');
   T.bang = X.outline(INK).canvas();
+  T.shadow = px(12, 4).e(6, 2, 6, 2, SHADOW).canvas();
   return (tcache[k] = T);
+}
+/* objeto temático de una casa: el icono de su letrero, en grande, sobre la mesa */
+const prcache = {};
+function prop(id, k) {
+  const key = id + k;
+  if (prcache[key]) return prcache[key];
+  const C = px(16, 16), c = THEMES[k].acc;
+  bits(C, ICONS[id] || GLYPH[0], 3, 0, c, 2); bits(C, (ICONS[id] || GLYPH[0]).slice(0, 1), 3, 0, shade(c, .45), 2);
+  C.swap(c, shade(c, -.28), (x, y) => x > 9 && y > 2);
+  return (prcache[key] = C.outline(INK).canvas());
 }
 
 /* ---------- edificios: w baldosas de ancho, 3 de alto; la puerta queda abajo, en la columna del medio ---------- */
-function building(kind, w, k) {
-  const th = THEMES[k], W = w * 16, B = px(W, 48);
+function building(kind, w, k, icon) {
+  const th = THEMES[k], W = w * 16, B = px(W, 48), dcol = Math.floor(w / 2), cx = dcol * 16 + 8;
   const roof = kind === 'G' ? th.acc : kind === 'L' ? '#3b6fd0' : th.roof[hash(kind) % 2];
-  const wall = kind === 'G' ? '#f3ead2' : '#f6e7c1', dcol = Math.floor(w / 2);
-  B.r(0, 18, W, 30, wall).r(0, 18, W, 3, shade(wall, -.22)).r(0, 44, W, 4, shade(wall, -.32));
-  B.r(0, 0, W, 19, roof).r(0, 0, W, 2, shade(roof, .3)).r(0, 16, W, 3, shade(roof, -.38));
-  for (let y = 5; y < 16; y += 4) { B.r(0, y, W, 1, shade(roof, -.2)); for (let x = (y % 8 ? 3 : 7); x < W; x += 8) B.r(x, y - 3, 1, 3, shade(roof, -.2)); }
+  const wall = kind === 'G' ? '#f3ead2' : '#f6e7c1', beam = '#8a5a2a', stone = '#b9b4c8';
+  /* muro, vigas y zócalo de piedra */
+  B.r(0, 18, W, 30, wall).r(0, 18, W, 4, shade(wall, -.24)).r(0, 42, W, 6, stone).r(0, 42, W, 1, shade(stone, .4));
+  for (let x = 0; x < W; x += 6) B.r(x + (x % 12 ? 3 : 0), 44, 1, 4, shade(stone, -.25));
+  if (kind !== 'G') { for (let i = 0; i <= w; i++) B.r(Math.min(W - 2, i * 16), 20, 2, 22, beam); B.r(0, 22, W, 1, shade(beam, -.2)); }
+  /* tejado de tejas alternadas */
+  B.r(0, 1, W, 19, roof).r(0, 1, W, 2, shade(roof, .35)).r(0, 17, W, 3, shade(roof, -.4));
+  for (let y = 4, j = 0; y < 17; y += 3, j++) { B.r(0, y + 2, W, 1, shade(roof, -.22)); for (let x = (j % 2 ? 0 : 3); x < W; x += 6) B.r(x, y, 1, 2, shade(roof, -.22)).p(x + 2, y, shade(roof, .22)); }
+  B.p(0, 1, null).p(1, 1, null).p(0, 2, null).p(W - 1, 1, null).p(W - 2, 1, null).p(W - 1, 2, null);
   for (let i = 0; i < w; i++) {
     const x = i * 16;
     if (i === dcol) {
-      B.r(x + 2, 30, 12, 18, INK).r(x + 3, 31, 10, 17, '#7a4a22').r(x + 4, 32, 8, 7, '#96602e').r(x + 4, 40, 8, 7, '#96602e').p(x + 11, 40, '#ffcf2e');
-      if (kind === 'G') B.r(x + 1, 27, 14, 3, th.acc).r(x + 1, 27, 14, 1, shade(th.acc, .4));
-    } else if (kind === 'G' && (i === dcol - 1 || i === dcol + 1)) {
-      B.r(x + 5, 22, 6, 22, '#d9d4e6').r(x + 6, 22, 1, 22, '#fff').r(x + 9, 22, 1, 22, '#a39cc0').r(x + 4, 21, 8, 2, '#fff').r(x + 4, 43, 8, 2, '#a39cc0');
+      B.r(x + 1, 28, 14, 20, INK).r(x + 2, 29, 12, 19, '#5a3516').r(x + 3, 30, 10, 18, '#7a4a22').r(x + 4, 31, 8, 7, '#96602e').r(x + 4, 39, 8, 8, '#96602e').r(x + 4, 31, 8, 1, '#b07a3a').r(x + 4, 39, 8, 1, '#b07a3a').r(x + 10, 40, 2, 2, '#ffcf2e');
+      B.r(x, 46, 16, 2, shade(stone, .3)).r(x, 47, 16, 1, shade(stone, -.2));
+    } else if (kind === 'G') {
+      B.r(x + 4, 22, 8, 21, '#d9d4e6').r(x + 5, 22, 1, 21, '#ffffff').r(x + 7, 22, 1, 21, '#c3bdd6').r(x + 10, 22, 2, 21, '#a39cc0').r(x + 3, 20, 10, 2, '#ffffff').r(x + 3, 22, 10, 1, '#c3bdd6').r(x + 3, 42, 10, 2, '#a39cc0');
     } else {
-      B.r(x + 3, 25, 10, 10, INK).r(x + 4, 26, 8, 8, '#8fd3ff').r(x + 4, 26, 8, 2, '#d6f1ff').r(x + 7, 26, 1, 8, wall).r(x + 4, 30, 8, 1, wall);
+      B.r(x + 2, 24, 12, 12, INK).r(x + 3, 25, 10, 10, '#8fd3ff').r(x + 3, 25, 10, 3, '#d6f1ff').r(x + 7, 25, 2, 10, wall).r(x + 3, 29, 10, 1, wall).p(x + 4, 31, '#ffffff').p(x + 5, 32, '#ffffff');
+      B.r(x + 1, 24, 2, 12, kind === 'L' ? '#3b6fd0' : th.acc).r(x + 13, 24, 2, 12, kind === 'L' ? '#3b6fd0' : th.acc);
+      B.r(x + 2, 36, 12, 3, '#8a5a2a').r(x + 3, 35, 10, 2, '#3f9f4f').p(x + 4, 34, '#ff6b8a').p(x + 7, 34, '#ffd23e').p(x + 10, 34, '#ffffff').p(x + 12, 35, '#ff6b8a');
     }
   }
-  /* insignia en el tejado */
-  const cx = dcol * 16 + 8;
   if (kind === 'G') {
-    B.e(cx, 9, 7, 7, INK).e(cx, 9, 6, 6, '#fff4d6');
-    th.glyph.forEach((row, y) => { for (let x = 0; x < 5; x++) if (row[x] === 'x') B.p(cx - 3 + x, 6 + y, shade(th.acc, -.25)); });
+    /* frontón de templo con el signo de la región */
+    for (let i = 0; i < 9; i++) B.r(cx - 20 + i * 2, 17 - i * 2, 40 - i * 4, 2, i % 2 ? '#fff4d6' : '#f3ead2');
+    B.r(cx - 22, 18, 44, 2, '#ffffff').e(cx, 11, 6, 6, INK).e(cx, 11, 5, 5, th.acc);
+    bits(B, th.glyph, cx - 3, 8, '#fff4d6');
+    B.r(dcol * 16 + 1, 25, 14, 3, th.acc).r(dcol * 16 + 1, 25, 14, 1, shade(th.acc, .4));
   } else if (kind === 'L') {
-    B.r(cx - 6, 5, 12, 9, INK).r(cx - 5, 6, 5, 7, '#fff4d6').r(cx, 6, 5, 7, '#fff4d6').r(cx - 4, 8, 3, 1, '#8b90b8').r(cx + 1, 8, 3, 1, '#8b90b8').r(cx - 4, 10, 3, 1, '#8b90b8').r(cx + 1, 10, 3, 1, '#8b90b8');
+    B.r(cx - 8, 3, 16, 12, INK).r(cx - 7, 4, 7, 10, '#fff4d6').r(cx, 4, 7, 10, '#fff4d6').r(cx - 1, 4, 2, 10, '#c9382f');
+    for (let y = 6; y < 13; y += 2) B.r(cx - 6, y, 4, 1, '#8b90b8').r(cx + 2, y, 4, 1, '#8b90b8');
+    for (let x = dcol * 16; x < dcol * 16 + 16; x += 4) B.r(x, 24, 2, 4, '#ffffff').r(x + 2, 24, 2, 4, '#3b6fd0');
   } else {
-    B.r(cx + 12 > W - 6 ? cx - 14 : cx + 8, 0, 5, 9, '#8a6a5a').r(cx + 12 > W - 6 ? cx - 14 : cx + 8, 0, 5, 2, '#5a4038');
+    /* chimenea y letrero colgante con el tema de la casa */
+    const chx = dcol * 16 + (w > 2 ? 22 : -10);
+    B.r(chx, 0, 6, 10, '#8a6a5a').r(chx, 0, 6, 2, '#5a4038').r(chx, 2, 1, 8, '#a8887a').r(chx + 3, 5, 2, 1, '#6a4a3a');
+    if (icon && ICONS[icon]) { B.r(cx - 6, 19, 12, 9, INK).r(cx - 5, 20, 10, 7, '#fff4d6'); bits(B, ICONS[icon], cx - 2, 21, shade(th.acc, -.3)); }
   }
-  B.r(0, 0, W, 1, INK).r(0, 47, W, 1, INK).r(0, 0, 1, 48, INK).r(W - 1, 0, 1, 48, INK);
+  B.r(0, 47, W, 1, INK).r(0, 3, 1, 45, INK).r(W - 1, 3, 1, 45, INK).r(2, 0, W - 4, 1, INK).p(1, 1, INK).p(0, 2, INK).p(W - 2, 1, INK).p(W - 1, 2, INK);
   return B.canvas();
 }
 
 /* ---------- personajes del mapa (16×20, tres cuadros por dirección) ---------- */
+const HATC = { helmet: '#ffcf2e', sailor: '#f4f4fa' };
 function chr(p, dir, f) {
-  const B = px(16, 20), sk = p.sk, hr = p.h, cl = p.cl, pn = p.pn || '#3a3566', shoe = '#2a1f4d', hs = p.hs, bc = p.bc || hr;
-  const side = dir === 'left', up = dir === 'up', robe = p.cs === 'toga' || p.cs === 'robe', big = hs === 'long' || hs === 'wig' || hs === 'wild';
-  const a = f === 1 ? 1 : 0, b = f === 2 ? 1 : 0;
+  const B = px(16, 20), sk = p.sk, hr = p.h, cl = p.cl, cs = p.cs, hs = p.hs, bc = p.bc || hr, shoe = p.shoe || '#2a1f4d';
+  const pn = cs === 'overalls' ? cl : p.pn || '#3a3566', top = cs === 'overalls' ? p.inn || '#f4f4fa' : cl;
+  const side = dir === 'left', up = dir === 'up', robe = cs === 'toga' || cs === 'robe' || cs === 'dress', big = ['long', 'wig', 'wild', 'dreads', 'bob', 'afro'].includes(hs);
+  const a = f === 1 ? 1 : 0, b = f === 2 ? 1 : 0, hat = p.hat || HATC[p.hatk] || '#3a3566';
   if (side) {
     if (f === 1) B.r(4, 15, 3, 3, pn).r(9, 15, 3, 3, pn).r(3, 18, 4, 1, shoe).r(9, 18, 4, 1, shoe);
     else B.r(6, 15, 4, 3, pn).r(5, 18, 5, 1, shoe);
   } else B.r(5, 15, 3, 3 - a, pn).r(8, 15, 3, 3 - b, pn).r(5, 18 - a, 3, 1, shoe).r(8, 18 - b, 3, 1, shoe);
-  if (robe) B.r(4, 10, 8, 7, cl).r(4, 16, 8, 1, shade(cl, -.22)); else B.r(4, 10, 8, 5, cl).r(4, 14, 8, 1, shade(cl, -.22));
+  if (robe) B.r(4, 10, 8, 7, cl).r(4, 16, 8, 1, shade(cl, -.22)); else B.r(4, 10, 8, 5, top).r(4, 14, 8, 1, shade(top, -.22));
+  if (cs === 'goth') B.r(3, 14, 10, 2, cl).r(3, 15, 10, 1, p.inn || '#8a5ad0');
+  if (cs === 'cape' && !side) B.r(3, 10, 1, 7, p.inn || '#ffcf2e').r(12, 10, 1, 7, p.inn || '#ffcf2e');
+  if (cs === 'cape' && up) B.r(4, 10, 8, 7, p.inn || '#ffcf2e');
   if (!up && !side) {
-    if (p.cs === 'lab') B.r(7, 10, 2, 5, p.inn || '#3ab0a0');
-    if (p.cs === 'suit' || p.cs === 'coat') B.r(7, 10, 2, 2, '#fff').r(7, 12, 2, 2, p.tie || '#c92a26');
-    if (p.cs === 'toga') B.l(4, 14, 10, 10, shade(cl, -.25));
+    if (cs === 'lab' || cs === 'punk') B.r(7, 10, 2, 5, p.inn || '#3ab0a0');
+    if (cs === 'suit' || cs === 'coat') B.r(7, 10, 2, 2, '#fff').r(7, 12, 2, 2, p.tie || '#c92a26');
+    if (cs === 'toga') B.l(4, 14, 10, 10, shade(cl, -.25));
+    if (cs === 'overalls') B.r(5, 11, 6, 4, cl).r(5, 10, 1, 1, cl).r(10, 10, 1, 1, cl);
+    if (cs === 'apron') B.r(5, 11, 6, 6, p.inn || '#fff4d6');
+    if (cs === 'sailor') B.r(4, 11, 8, 1, '#22386a').r(4, 13, 8, 1, '#22386a');
+    if (cs === 'track') B.r(7, 10, 1, 5, '#fff');
   }
-  if (side) B.r(7, 11, 2, 4, shade(cl, -.18)).r(7, 15, 2, 1, sk);
-  else B.r(3, 10, 1, 4 + a, cl).r(12, 10, 1, 4 + b, cl).p(3, 14 + a, sk).p(12, 14 + b, sk);
+  if (side) B.r(7, 11, 2, 4, shade(top, -.18)).r(7, 15, 2, 1, sk);
+  else B.r(3, 10, 1, 4 + a, top).r(12, 10, 1, 4 + b, top).p(3, 14 + a, sk).p(12, 14 + b, sk);
   B.e(8, 5.5, 5, 4.6, sk);
+  const shaved = hs === 'bald' || hs === 'mohawk';
   if (up) {
-    if (hs === 'bald') B.r(3, 6, 10, 3, hr); else B.e(8, 5, 5.3, 4.9, hr);
+    if (shaved) B.r(3, 6, 10, 3, hs === 'bald' ? hr : shade(sk, -.12)); else B.e(8, 5, 5.3, 4.9, hr);
     if (big) B.r(3, 5, 10, 7, hr);
   } else if (side) {
-    if (hs === 'bald') B.r(9, 5, 4, 3, hr); else { B.e(8, 3.2, 5.3, 3, hr); B.r(8, 2, 5, 6, hr); }
+    if (hs === 'bald') B.r(9, 5, 4, 3, hr); else if (!shaved) { B.e(8, 3.2, 5.3, 3, hr); B.r(8, 2, 5, 6, hr); }
     if (big) B.r(9, 5, 4, 7, hr);
   } else {
-    if (hs === 'bald') B.r(2, 5, 2, 3, hr).r(12, 5, 2, 3, hr); else B.e(8, 3.2, 5.3, 3, hr).r(3, 4, 1, 2, hr).r(12, 4, 1, 2, hr);
+    if (hs === 'bald') B.r(2, 5, 2, 3, hr).r(12, 5, 2, 3, hr); else if (!shaved) B.e(8, 3.2, 5.3, 3, hr).r(3, 4, 1, 2, hr).r(12, 4, 1, 2, hr);
     if (big) B.r(2, 4, 2, 8, hr).r(12, 4, 2, 8, hr);
+    if (hs === 'bob') B.r(4, 4, 8, 1, hr);
   }
   if (hs === 'bun') B.e(8, .8, 2.2, 1.6, hr);
-  if (hs === 'hat') B.r(3, 0, 10, 3, p.hat || '#3a3566').r(2, 3, 12, 1, p.hat || '#3a3566');
+  if (hs === 'mohawk') B.r(side ? 5 : 7, 0, side ? 7 : 2, 4, hr).r(side ? 6 : 7, 4, side ? 5 : 2, 1, hr);
+  if (hs === 'afro') B.e(8, 3.2, 6.6, 4.4, hr);
+  if (hs === 'spiky') B.p(4, 0, hr).p(7, -1, hr).r(6, 0, 2, 1, hr).p(10, 0, hr).p(12, 1, hr).p(3, 2, hr);
+  if (hs === 'twin' && !side) B.r(1, 5, 2, 6, hr).r(13, 5, 2, 6, hr);
+  if (hs === 'twin' && side) B.r(11, 5, 2, 6, hr);
+  if (hs === 'pony') B.r(side ? 12 : 13, 3, 2, 6, hr);
+  if (hs === 'hat') { if (p.hatk === 'helmet' || p.hatk === 'beanie') B.e(8, 2.6, 5.6, 3.2, hat).r(2, 4, 12, 1, shade(hat, -.2)); else B.r(3, 0, 10, 3, hat).r(2, 3, 12, 1, hat); if (p.hatk === 'beanie') B.r(7, -1, 2, 1, '#fff'); }
   if (!up) {
     if (side) { B.r(4, 6, 1, 2, INK); if (p.b && p.b < 3) B.r(3, 8, 4, p.b === 2 ? 4 : 2, bc); if (p.b === 3) B.r(3, 8, 2, 1, bc); }
-    else { B.r(6, 6, 1, 2, INK).r(9, 6, 1, 2, INK); if (p.b && p.b < 3) B.r(5, 8, 6, p.b === 2 ? 5 : 3, bc); if (p.b === 3) B.r(6, 8, 4, 1, bc); if (p.g) B.r(5, 6, 6, 1, INK); }
+    else { B.r(6, 6, 1, 2, INK).r(9, 6, 1, 2, INK); if (p.b && p.b < 3) B.r(5, 8, 6, p.b === 2 ? 5 : 3, bc); if (p.b === 3) B.r(6, 8, 4, 1, bc); if (p.g || (p.acc || []).includes('shades')) B.r(5, 6, 6, 1, INK); }
+    if ((p.acc || []).includes('phones') && !side) B.r(2, 5, 1, 3, '#e03a2f').r(13, 5, 1, 3, '#e03a2f');
   }
   return B.outline(INK);
 }
@@ -1076,14 +1178,14 @@ function ousiaSheet() {
   if (osheet) return osheet;
   const mk = (f, back) => {
     const B = px(16, 20), c = '#7fe3d0', y = 12 + f;
-    B.e(8, 5 + f, 2, 3.4, c).e(9.5, 3.5 + f, 1.2, 2, '#c9fff2').e(8, y, 5, 5, c).e(8, y + 1.5, 3.2, 2.6, '#c9fff2');
+    B.e(8, 5 + f, 2, 3.4, c).e(9.5, 3.5 + f, 1.2, 2, '#c9fff2').e(8, y, 5, 5, c).e(8, y + 1.5, 3.2, 2.6, '#c9fff2').e(10.5, y, 1.5, 3, '#3fb7a8');
     if (!back) B.r(5, y - 2, 2, 2, INK).r(9, y - 2, 2, 2, INK).p(5, y - 2, '#fff').p(9, y - 2, '#fff');
     return B.outline(INK).canvas();
   };
   return (osheet = { down: [mk(0), mk(1), mk(0)], left: [mk(0), mk(1), mk(0)], right: [mk(0), mk(1), mk(0)], up: [mk(0, 1), mk(1, 1), mk(0, 1)] });
 }
 
-/* ---------- retratos (48×48) con emociones ---------- */
+/* ---------- personas: retrato (48×48) o figura de cuerpo entero (60×76), con emociones ---------- */
 const EMOS = {
   neutral: { e: 'o', b: 'f', m: 's' }, alegre: { e: 'h', b: 'u', m: 'D' }, pensar: { e: 'l', b: 'q', m: 'f' }, sorpresa: { e: 'w', b: 'u', m: 'o' },
   enojo: { e: 'n', b: 'a', m: 'g' }, triste: { e: 'd', b: 's', m: 'r' }, picaro: { e: 'k', b: 'q', m: 'k' }, duda: { e: 'o', b: 's', m: 'z' }
@@ -1137,50 +1239,36 @@ function marks(B, emo) {
   else if (emo === 'alegre') B.r(42, 3, 1, 5, Y).r(40, 5, 5, 1, Y).p(3, 6, Y).r(2, 7, 3, 1, Y).p(3, 8, Y);
   else if (emo === 'picaro') B.r(42, 4, 1, 3, '#fff').r(41, 5, 3, 1, '#fff');
 }
-function portrait(p, emo) {
-  emo = emo || 'neutral';
-  const B = px(48, 48), sk = p.sk, skD = shade(sk, -.2), hr = p.h, hrD = shade(hr, -.3), hrL = shade(hr, .28), cl = p.cl, clD = shade(cl, -.26), clL = shade(cl, .25);
-  const fw = p.fat ? 12.5 : 11, hs = p.hs, bc = p.bc || hr, bcD = shade(bc, -.25);
-  const inHead = (x, y) => { const dx = (x + .5 - 24) / fw, dy = (y + .5 - 21) / 13; return dx * dx + dy * dy <= 1; };
-  /* pelo por detrás */
+const has = (p, a) => (p.acc || []).includes(a);
+/* pelo que cae por detrás de la cabeza y capa */
+function backHair(B, p, fw, full) {
+  const hr = p.h, hrD = shade(hr, -.3), hs = p.hs;
+  if (p.cs === 'cape') { const c = p.inn || '#ffcf2e'; if (full) B.r(8, 37, 32, 28, c).e(24, 65, 16, 3, c).r(8, 37, 2, 28, shade(c, -.25)).r(38, 37, 2, 28, shade(c, -.25)); else B.e(24, 49, 23, 13, c); }
   if (hs === 'long') B.e(24, 22, fw + 4.5, 16, hr).r(Math.floor(24 - fw - 4), 22, Math.round(2 * fw + 8), 19, hr).e(24, 41, fw + 4, 2.5, hrD);
   if (hs === 'wig') B.e(24, 19, fw + 5, 14, hr);
   if (hs === 'wild') { B.e(24, 17, fw + 6, 13, hr); for (let i = 0; i < 7; i++) B.e(8 + i * 5.4, 6 + (i % 2) * 2 + Math.abs(i - 3), 3, 4, hr); }
-  if (hs === 'bun') B.e(24, 4.5, 5.5, 4.5, hr).e(22.5, 3.5, 2, 1.5, hrL);
-  /* torso y cuello */
-  B.e(24, 50, 21, 13, cl).e(24, 52, 21, 12, clD).e(22, 50, 18, 12, cl);
-  B.r(20, 32, 8, 8, skD);
-  switch (p.cs) {
-    case 'toga':
-      for (let i = 0; i < 6; i++) B.r(20 + i, 38 + i, 8 - i, 1, sk);
-      B.l(9, 46, 30, 37, clD).l(9, 47, 31, 38, clD).l(14, 47, 33, 40, clL).e(33, 39, 2, 2, '#ffcf2e');
-      break;
-    case 'suit': case 'coat':
-      for (let i = 0; i < 9; i++) B.r(24 - 5 + Math.floor(i / 2), 38 + i, 10 - 2 * Math.floor(i / 2), 1, '#ffffff');
-      if (p.cs === 'suit') B.r(23, 39, 2, 3, p.tie || '#c92a26').r(23, 42, 2, 6, shade(p.tie || '#c92a26', -.2));
-      else B.e(24, 40, 4.5, 3, '#ffffff').e(24, 43, 3.5, 2.5, '#e6e2f0').r(18, 44, 1, 1, '#ffcf2e').r(30, 44, 1, 1, '#ffcf2e');
-      B.l(18, 38, 23, 47, clD).l(29, 38, 24, 47, clD);
-      break;
-    case 'lab':
-      for (let i = 0; i < 10; i++) B.r(24 - 5 + Math.floor(i / 2), 38 + i, 10 - 2 * Math.floor(i / 2), 1, p.inn || '#3ab0a0');
-      B.l(18, 38, 23, 47, clD).l(29, 38, 24, 47, clD).r(33, 43, 4, 1, clD);
-      break;
-    case 'robe': B.e(24, 39, 9, 3.2, clD).e(24, 38.5, 6, 2, skD); break;
-    case 'hoodie': B.e(24, 39, 9.5, 3.5, clD).e(24, 38.5, 5.5, 2, skD).r(21, 41, 1, 5, '#fff').r(26, 41, 1, 5, '#fff'); break;
-    default: B.e(24, 38.5, 5.5, 2.2, skD);
-  }
-  /* cabeza, orejas, sombra de la mejilla */
+  if (hs === 'bun') B.e(24, 4.5, 5.5, 4.5, hr).e(22.5, 3.5, 2, 1.5, shade(hr, .28));
+  if (hs === 'afro') { B.e(24, 15, fw + 7.5, 14.5, hr); for (let i = 0; i < 9; i++) B.p(8 + i * 4, 4 + (i * 7) % 9, shade(hr, .25)).p(10 + i * 4, 12 + (i * 5) % 11, hrD); }
+  if (hs === 'bob') B.e(24, 19, fw + 3.5, 14, hr).r(Math.floor(24 - fw - 3), 19, Math.round(2 * fw + 6), 13, hr);
+  if (hs === 'dreads') for (let i = -4; i <= 4; i++) { const x = 24 + i * 3.6; B.r(x - 1, 10, 3, 30 - Math.abs(i) * 2, hr); for (let y = 16; y < 38 - Math.abs(i) * 2; y += 4) B.r(x - 1, y, 3, 1, hrD); }
+  if (hs === 'twin') [-1, 1].forEach(s => { B.e(24 + s * (fw + 4.5), 27, 3.6, 9, hr).e(24 + s * (fw + 4.5), 34, 2.4, 3, hrD).r(24 + s * (fw + 3) - 1, 17, 3, 3, p.tie || '#e03a2f'); });
+  if (hs === 'pony') B.e(24 + fw + 4.5, 22, 3.2, 10, hr).e(24 + fw + 5, 30, 2, 3, hrD).r(24 + fw + 2, 13, 3, 3, p.tie || '#ffcf2e');
+}
+/* cabeza: cuello, orejas, pelo por delante, barba, cara, gafas y accesorios */
+function head(B, p, emo) {
+  const sk = p.sk, skD = shade(sk, -.2), hr = p.h, hrD = shade(hr, -.3), hrL = shade(hr, .28), fw = p.fat ? 12.5 : 11, hs = p.hs, bc = p.bc || hr, bcD = shade(bc, -.25);
+  const inHead = (x, y) => { const dx = (x + .5 - 24) / fw, dy = (y + .5 - 21) / 13; return dx * dx + dy * dy <= 1; };
+  B.r(20, 32, 8, 6, skD);
   B.e(24 - fw - .4, 22.5, 2, 3, sk).e(24 + fw + .4, 22.5, 2, 3, skD);
   B.e(24, 21, fw, 13, sk);
   B.swap(sk, skD, (x, y) => { const dx = (x + .5 - 24) / fw, dy = (y + .5 - 21) / 13; return inHead(x, y) && dx > .2 && dx * dx + dy * dy > .72; });
-  /* pelo por delante */
   const cap = (rx, ry, cy) => B.e(24, cy || 10.5, rx, ry, hr);
   const sides = h => B.r(Math.floor(24 - fw - 1), 12, 3, h, hr).r(Math.ceil(24 + fw - 2), 12, 3, h, hr);
   switch (hs) {
     case 'short': cap(fw + 1, 5.5); sides(8); B.e(20, 8, 3, 1.2, hrL); break;
     case 'part': cap(fw + 1, 5.5); sides(8); B.e(29, 13.5, 6.5, 3, hr).l(19, 6, 16, 13, hrD).e(27, 8, 3, 1.2, hrL); break;
     case 'long': cap(fw + 1.5, 6); sides(18); B.e(20, 8, 3, 1.2, hrL).l(24, 5, 22, 14, hrD); break;
-    case 'bun': cap(fw + 1, 5.5); sides(7); B.e(19, 9, 3, 1.2, hrL); break;
+    case 'bun': case 'pony': cap(fw + 1, 5.5); sides(7); B.e(19, 9, 3, 1.2, hrL); break;
     case 'curly': for (let i = -3; i <= 3; i++) B.e(24 + i * 3.7, 9.6 + Math.abs(i) * 1.1, 3.4, 3.4, hr); sides(9); for (let i = -3; i <= 3; i += 2) B.p(24 + i * 3.7, 8 + Math.abs(i), hrL).p(24 + i * 3.7 + 1, 8 + Math.abs(i), hrL); break;
     case 'bald': B.e(24 - fw + .5, 18, 2.5, 5, hr).e(24 + fw - .5, 18, 2.5, 5, hr).e(21, 11, 3, 1.2, shade(sk, .3)); break;
     case 'wig':
@@ -1188,15 +1276,30 @@ function portrait(p, emo) {
       [22, 27].forEach(y => { B.e(24 - fw - 2, y, 3.6, 3, hr).e(24 + fw + 2, y, 3.6, 3, hr).e(24 - fw - 2, y + 1, 2, 1, hrD).e(24 + fw + 2, y + 1, 2, 1, hrD); });
       break;
     case 'wild': cap(fw + 1.5, 6); sides(9); B.e(19, 8, 3, 1.3, hrL); break;
+    case 'afro': cap(fw + 3, 6.5, 10); sides(8); B.e(19, 7, 3, 1.3, hrL); break;
+    case 'bob': cap(fw + 1.5, 6); sides(17); B.r(Math.floor(24 - fw + 1), 13, Math.round(2 * fw - 2), 4, hr).e(20, 8, 3, 1.2, hrL); for (let x = 15; x < 34; x += 3) B.p(x, 16, hrD); break;
+    case 'twin': cap(fw + 1, 5.5); sides(7); B.r(Math.floor(24 - fw + 2), 13, Math.round(2 * fw - 4), 3, hr).l(24, 5, 24, 13, hrD).e(19, 8, 3, 1.2, hrL); break;
+    case 'dreads': cap(fw + 1.5, 6); B.r(Math.floor(24 - fw - 1), 12, 3, 20, hr).r(Math.ceil(24 + fw - 2), 12, 3, 20, hr); for (let y = 15; y < 32; y += 4) B.r(Math.floor(24 - fw - 1), y, 3, 1, hrD).r(Math.ceil(24 + fw - 2), y, 3, 1, hrD); for (let i = -3; i <= 3; i++) B.l(24 + i * 3.4, 5, 24 + i * 3.8, 13, hrD); break;
+    case 'spiky': cap(fw + 1, 5.5); sides(7); for (let i = -3; i <= 3; i++) { const x = 24 + i * 3.6, t = 2 - (i % 2 ? 0 : 3) + Math.abs(i); B.r(x - 1.5, t + 3, 3, 6, hr).r(x - 1, t + 1, 2, 3, hr).p(x - .5, t, hr).p(x - 1.5, t + 3, hrL); } break;
+    case 'mohawk':
+      B.e(24, 11, fw + .3, 5, shade(sk, -.1));
+      for (let i = 0; i < 4; i++) B.r(21 - (i % 2), i * 3, 6 + (i % 2) * 2, 4, hr);
+      B.r(21, 11, 6, 4, hr).r(22, 0, 1, 12, hrL).p(20, 1, hr).p(27, 4, hr).p(20, 7, hr);
+      break;
     case 'hat': {
       cap(fw + 1, 5.5); sides(8);
-      const hc = p.hat || '#3a3566';
-      B.r(Math.floor(24 - fw + 1), 1, Math.round(2 * fw - 2), 9, hc).r(Math.floor(24 - fw - 4), 10, Math.round(2 * fw + 8), 2, hc).r(Math.floor(24 - fw + 1), 7, Math.round(2 * fw - 2), 2, shade(hc, .35));
+      const hc = p.hat || HATC[p.hatk] || '#3a3566', hk = p.hatk;
+      if (hk === 'helmet') B.e(24, 8.5, fw + 2, 7.5, hc).r(Math.floor(24 - fw - 3), 12, Math.round(2 * fw + 6), 2, shade(hc, -.2)).r(23, 1, 2, 11, shade(hc, .4)).e(19, 6, 3, 1.5, shade(hc, .5));
+      else if (hk === 'beanie') B.e(24, 8.5, fw + 1.5, 7.5, hc).r(Math.floor(24 - fw - 1), 11, Math.round(2 * fw + 2), 4, shade(hc, -.25)).e(24, 1.2, 2.8, 2.4, '#ffffff');
+      else if (hk === 'cap') B.e(24, 9, fw + 1, 6.5, hc).r(Math.floor(24 - fw - 5), 12, fw + 8, 2, shade(hc, -.25)).e(20, 6, 3, 1.4, shade(hc, .4)).r(22, 4, 4, 4, '#ffffff');
+      else if (hk === 'sailor') B.r(Math.floor(24 - fw), 4, Math.round(2 * fw), 6, hc).r(Math.floor(24 - fw - 1), 9, Math.round(2 * fw + 2), 3, '#22386a').r(Math.floor(24 - fw), 4, Math.round(2 * fw), 1, '#ffffff').r(22, 9, 4, 3, '#ffcf2e');
+      else if (hk === 'tricorn') B.e(24, 7, fw - 2, 5, hc).r(Math.floor(24 - fw - 5), 9, Math.round(2 * fw + 10), 3, hc).r(Math.floor(24 - fw - 5), 9, Math.round(2 * fw + 10), 1, '#ffcf2e').p(24 - fw - 6, 8, hc).p(24 + fw + 5, 8, hc).e(31, 5, 2, 3, '#f4f4fa');
+      else B.r(Math.floor(24 - fw + 1), 1, Math.round(2 * fw - 2), 9, hc).r(Math.floor(24 - fw - 4), 10, Math.round(2 * fw + 8), 2, hc).r(Math.floor(24 - fw + 1), 7, Math.round(2 * fw - 2), 2, shade(hc, .35));
       break;
     }
   }
   if (p.laurel) for (let i = -4; i <= 4; i++) B.r(24 + i * 2.6 - 1, 11 + Math.abs(i) * .9, 2, 2, i % 2 ? '#3f9f4f' : '#6fcf5a');
-  /* barba */
+  if (has(p, 'band')) B.r(Math.floor(24 - fw), 13, Math.round(2 * fw), 2, p.tie || '#e03a2f').r(Math.floor(24 - fw), 13, Math.round(2 * fw), 1, shade(p.tie || '#e03a2f', .35));
   if (p.b === 1 || p.b === 2) {
     for (let y = 25; y < 36; y++) for (let x = 10; x < 38; x++) {
       const edge = Math.abs(x + .5 - 24) / fw;
@@ -1206,9 +1309,154 @@ function portrait(p, emo) {
     if (p.b === 2) { B.e(24, 36, fw - 2.5, 8, bc); for (let i = -2; i <= 2; i++) B.l(24 + i * 3, 34, 24 + i * 2, 42, bcD); }
   } else if (p.b === 3) B.r(19, 27, 10, 2, bc).p(18, 28, bc).p(29, 28, bc).p(17, 27, bc).p(30, 27, bc);
   face(B, 24, 21, emo, { dx: 5, skD, brow: p.b || hs !== 'bald' ? hrD : INK });
+  if (has(p, 'paint')) B.r(14, 26, 3, 1, '#e03a2f').r(14, 28, 3, 1, '#ffcf2e').r(31, 26, 3, 1, '#e03a2f').r(31, 28, 3, 1, '#ffcf2e');
+  if (has(p, 'pierce')) B.p(26, 27, '#d9d4e6').p(26, 28, '#d9d4e6').p(17, 17, '#d9d4e6');
+  if (has(p, 'earring')) B.r(Math.floor(24 - fw - 1), 26, 1, 3, '#ffcf2e').r(Math.ceil(24 + fw), 26, 1, 3, '#ffcf2e');
   if (p.g) B.r(16, 20, 7, 1, INK).r(16, 26, 7, 1, INK).r(15, 21, 1, 5, INK).r(22, 21, 1, 5, INK).r(26, 20, 7, 1, INK).r(26, 26, 7, 1, INK).r(25, 21, 1, 5, INK).r(32, 21, 1, 5, INK).r(23, 22, 2, 1, INK).r(12, 22, 3, 1, INK).r(33, 22, 3, 1, INK);
+  if (has(p, 'shades')) B.r(15, 20, 8, 5, INK).r(25, 20, 8, 5, INK).r(23, 21, 2, 1, INK).r(12, 21, 3, 1, INK).r(33, 21, 3, 1, INK).r(16, 21, 3, 1, '#8b90b8').r(26, 21, 3, 1, '#8b90b8');
+  if (has(p, 'monocle')) B.ring(29, 23, 4, 4, '#ffcf2e').l(32, 26, 34, 36, '#ffcf2e');
+  if (has(p, 'phones')) { for (let a = 200; a <= 340; a += 4) B.r(24 + Math.cos(a / 57.3) * (fw + 2.5), 15 + Math.sin(a / 57.3) * 11.5, 2, 2, '#3a3566'); B.r(Math.floor(24 - fw - 4), 17, 4, 9, '#e03a2f').r(Math.ceil(24 + fw), 17, 4, 9, '#e03a2f').r(Math.floor(24 - fw - 4), 17, 1, 9, '#ff8a7a'); }
+  if (has(p, 'scarf')) { const c = p.tie || '#e03a2f'; B.r(17, 33, 14, 5, c).r(17, 33, 14, 1, shade(c, .35)).r(26, 37, 5, 9, c).r(26, 40, 5, 1, shade(c, -.3)).r(26, 44, 5, 1, shade(c, -.3)); }
+}
+/* busto del retrato: hombros y cuello de la prenda */
+function bust(B, p) {
+  const sk = p.sk, skD = shade(sk, -.2), cl = p.cl, clD = shade(cl, -.26), clL = shade(cl, .25), inn = p.inn || '#3ab0a0', tie = p.tie || '#c92a26';
+  B.e(24, 50, 21, 13, cl).e(24, 52, 21, 12, clD).e(22, 50, 18, 12, cl);
+  const V = (c, n) => { for (let i = 0; i < n; i++) B.r(24 - 5 + Math.floor(i / 2), 38 + i, 10 - 2 * Math.floor(i / 2), 1, c); };
+  switch (p.cs) {
+    case 'toga': for (let i = 0; i < 6; i++) B.r(20 + i, 38 + i, 8 - i, 1, sk); B.l(9, 46, 30, 37, clD).l(9, 47, 31, 38, clD).l(14, 47, 33, 40, clL).e(33, 39, 2, 2, '#ffcf2e'); break;
+    case 'suit': V('#ffffff', 9); B.r(23, 39, 2, 3, tie).r(23, 42, 2, 6, shade(tie, -.2)).l(18, 38, 23, 47, clD).l(29, 38, 24, 47, clD); break;
+    case 'coat': V('#ffffff', 9); B.e(24, 40, 4.5, 3, '#ffffff').e(24, 43, 3.5, 2.5, '#e6e2f0').r(18, 44, 1, 1, '#ffcf2e').r(30, 44, 1, 1, '#ffcf2e').l(18, 38, 23, 47, clD).l(29, 38, 24, 47, clD); break;
+    case 'lab': V(inn, 10); B.l(18, 38, 23, 47, clD).l(29, 38, 24, 47, clD).r(33, 43, 4, 1, clD); break;
+    case 'robe': B.e(24, 39, 9, 3.2, clD).e(24, 38.5, 6, 2, skD); break;
+    case 'hoodie': B.e(24, 39, 9.5, 3.5, clD).e(24, 38.5, 5.5, 2, skD).r(21, 41, 1, 5, '#fff').r(26, 41, 1, 5, '#fff'); break;
+    case 'punk': V(inn, 10); B.l(17, 38, 22, 47, '#d9d4e6').l(30, 38, 25, 47, '#d9d4e6'); [8, 11, 14, 33, 36, 39].forEach(x => B.r(x, 43 - Math.abs(24 - x) * .12, 2, 2, '#d9d4e6')); break;
+    case 'goth': B.e(24, 38.5, 6, 2.2, skD); for (let x = 16; x < 33; x += 2) B.p(x, 40 + Math.abs(24 - x) * .15, '#f4f4fa'); B.r(24, 41, 1, 4, '#d9d4e6').r(23, 42, 3, 1, '#d9d4e6'); break;
+    case 'overalls': B.e(24, 50, 21, 13, inn).e(22, 50, 18, 12, inn).r(15, 44, 18, 4, cl).r(16, 38, 4, 7, cl).r(28, 38, 4, 7, cl).p(17, 44, '#ffcf2e').p(30, 44, '#ffcf2e').e(24, 38.5, 5, 2, skD); break;
+    case 'sailor': for (let y = 41; y < 48; y += 3) B.r(4, y, 40, 1, '#22386a'); B.e(24, 38.5, 5.5, 2.2, skD).r(20, 39, 8, 2, '#e03a2f').r(22, 41, 4, 2, '#e03a2f').p(23, 43, '#e03a2f'); break;
+    case 'apron': B.e(24, 38.5, 5.5, 2.2, skD).r(17, 43, 14, 5, inn).l(18, 43, 21, 38, inn).l(29, 43, 26, 38, inn); break;
+    case 'track': B.r(19, 36, 10, 3, clD).r(23, 39, 2, 9, '#ffffff').r(8, 44, 3, 4, '#ffffff').r(37, 44, 3, 4, '#ffffff'); break;
+    case 'cape': B.e(24, 38.5, 5.5, 2.2, skD).e(24, 39.5, 2, 2, '#ffcf2e'); break;
+    case 'dress': B.e(24, 39, 7, 3, skD).r(16, 42, 16, 1, inn); break;
+    default: B.e(24, 38.5, 5.5, 2.2, skD); if (p.pr) bits(B, ICONS[p.pr] || GLYPH[1], 22, 42, shade(cl, -.4));
+  }
+  if (has(p, 'chain')) for (let a = 20; a <= 160; a += 8) B.p(24 + Math.cos(a / 57.3) * 7, 37 + Math.sin(a / 57.3) * 6, '#d9d4e6');
+}
+/* cuerpo entero: piernas, torso, prenda y brazos (levantados en las emociones vivas). Devuelve la mano que lleva el objeto */
+function body(B, p, emo) {
+  const sk = p.sk, skD = shade(sk, -.2), cl = p.cl, clD = shade(cl, -.26), clL = shade(cl, .25), cs = p.cs, inn = p.inn || '#3ab0a0', tie = p.tie || '#c92a26';
+  const pn = cs === 'overalls' ? cl : cs === 'suit' && !p.pn ? shade(cl, -.2) : p.pn || '#3a3566', pnD = shade(pn, -.28), shoe = p.shoe || '#2a1f4d', top = cs === 'overalls' ? inn : cl, topD = shade(top, -.26);
+  const robe = cs === 'toga' || cs === 'robe', skirt = cs === 'dress' || cs === 'goth', boots = cs === 'punk' || cs === 'goth' || cs === 'overalls';
+  const upR = emo === 'alegre' || emo === 'sorpresa', upL = emo === 'sorpresa';
+  /* piernas o falda */
+  if (robe) {
+    B.r(13, 54, 22, 17, cl).r(13, 69, 22, 2, clD).l(18, 56, 17, 69, clD).l(24, 57, 24, 69, clD).l(30, 56, 31, 69, clD).r(33, 54, 2, 15, clD);
+    if (cs === 'toga') B.r(15, 71, 7, 2, sk).r(26, 71, 7, 2, sk).r(15, 71, 7, 1, '#8a5a2a').r(18, 72, 1, 1, '#8a5a2a').r(29, 72, 1, 1, '#8a5a2a');
+    else B.r(15, 71, 7, 2, shoe).r(26, 71, 7, 2, shoe);
+  } else {
+    const leg = (x, long) => {
+      if (skirt) { for (let y = 60; y < 70; y++) B.r(x + 1, y, 6, 1, cs === 'goth' && y % 2 ? inn : cs === 'goth' ? '#1d1438' : sk); }
+      else if (cs === 'coat') B.r(x, 55, 8, 8, pn).r(x + 1, 63, 6, 7, '#f4f4fa').r(x + 6, 63, 1, 7, '#c9c4d9');
+      else if (cs === 'tee' && p.shorts) B.r(x, 55, 8, 8, pn).r(x + 1, 63, 6, 7, sk);
+      else { B.r(x, 55, 8, 15, pn).r(x + 6, 55, 2, 15, pnD); if (cs === 'punk') B.r(x + 2, 60, 3, 1, sk).r(x + 3, 65, 3, 1, sk).p(x + 1, 61, sk); if (cs === 'track') B.r(x, 55, 1, 15, '#ffffff'); }
+      if (boots) B.r(x - 1, 64, 10, 10, shoe).r(x - 1, 64, 10, 1, shade(shoe, .3)).r(x - 1, 73, 10, 1, '#0e0d1f').p(x + 2, 66, '#d9d4e6').p(x + 4, 68, '#d9d4e6').p(x + 2, 70, '#d9d4e6');
+      else if (cs === 'coat') B.r(x - 1, 70, 10, 4, '#1d1438').r(x + 2, 70, 3, 2, '#ffcf2e');
+      else { B.r(x - 1, 70, 10, 4, shoe).r(x - 1, 73, 10, 1, '#f4f4fa').r(x + 1, 70, 4, 1, shade(shoe, .35)); }
+    };
+    leg(15); leg(25);
+    if (skirt) { for (let y = 52; y < 62; y++) { const h = 11 + (y - 52) * .55; B.r(Math.round(24 - h), y, Math.round(2 * h), 1, cl); } B.r(13, 61, 22, 1, clD); if (cs === 'goth') for (let x = 13; x < 35; x += 2) B.p(x, 62, inn); for (let x = 16; x < 33; x += 5) B.l(x, 54, x - 1, 60, clD); }
+  }
+  /* torso */
+  B.r(13, 38, 22, 18, top).r(15, 37, 18, 1, top).r(32, 39, 3, 17, topD);
+  const V = (c, n) => { for (let i = 0; i < n; i++) B.r(24 - 4 + Math.floor(i / 2), 37 + i, 8 - 2 * Math.floor(i / 2), 1, c); };
+  switch (cs) {
+    case 'toga': for (let i = 0; i < 5; i++) B.r(20 + i, 37 + i, 8 - i, 1, sk); B.l(13, 52, 33, 38, clD).l(13, 53, 34, 39, clD).l(15, 54, 34, 41, clL).e(33, 39, 2, 2, '#ffcf2e'); break;
+    case 'robe': B.e(24, 39, 8, 3, clD).e(24, 38.5, 5, 1.8, skD).r(13, 51, 22, 2, '#d9a85a').r(27, 53, 2, 9, '#d9a85a').r(27, 61, 2, 1, '#a87a3a'); break;
+    case 'suit': V('#ffffff', 9); B.r(23, 39, 2, 3, tie).r(23, 42, 2, 8, shade(tie, -.2)).l(19, 37, 23, 47, clD).l(28, 37, 24, 47, clD).p(24, 51, clD).p(24, 54, clD).r(28, 44, 3, 1, '#ffffff'); break;
+    case 'coat':
+      B.r(19, 41, 10, 15, inn === '#3ab0a0' ? '#e0b84a' : inn).e(24, 40, 4.5, 3, '#ffffff').e(24, 43, 3, 2, '#e6e2f0');
+      for (let y = 46; y < 56; y += 3) B.p(24, y, '#8a5a2a');
+      B.r(18, 40, 1, 16, clD).r(29, 40, 1, 16, clD).r(10, 54, 6, 10, cl).r(32, 54, 6, 10, cl).r(10, 63, 6, 1, clD).r(32, 63, 6, 1, clD).r(14, 40, 1, 16, '#ffcf2e').r(33, 40, 1, 16, '#ffcf2e');
+      break;
+    case 'lab': V(inn, 10); B.r(13, 56, 22, 8, cl).r(23, 48, 2, 16, pn).r(32, 56, 3, 8, clD).r(27, 46, 5, 5, clD).r(28, 47, 3, 3, cl).p(29, 45, '#e03a2f').p(21, 50, clD).p(21, 53, clD); break;
+    case 'hoodie': B.e(24, 38.5, 6.5, 2.6, clD).e(24, 38, 4, 1.5, skD).r(21, 40, 1, 5, '#ffffff').r(26, 40, 1, 5, '#ffffff').r(17, 48, 14, 5, clD).r(18, 49, 12, 3, cl).r(13, 54, 22, 2, clD); break;
+    case 'punk': B.r(20, 38, 8, 18, inn).l(19, 38, 22, 55, '#d9d4e6').l(28, 38, 25, 55, '#d9d4e6'); [14, 16, 31, 33].forEach(x => B.p(x, 38, '#d9d4e6').p(x, 40, '#d9d4e6')); B.r(13, 54, 22, 2, '#0e0d1f').p(16, 54, '#d9d4e6').p(20, 54, '#d9d4e6').r(23, 54, 2, 2, '#d9d4e6').p(28, 54, '#d9d4e6').p(32, 54, '#d9d4e6'); bits(B, ICONS.bone, 22, 43, '#f4f4fa'); break;
+    case 'goth': for (let x = 16; x < 33; x += 2) B.p(x, 38, '#f4f4fa'); B.r(24, 40, 1, 4, '#d9d4e6').r(23, 41, 3, 1, '#d9d4e6'); for (let y = 46; y < 54; y += 2) B.p(22, y, inn).p(24, y + 1, inn).p(26, y, inn); B.r(13, 50, 22, 1, inn); break;
+    case 'overalls': B.r(17, 42, 14, 14, cl).r(17, 37, 3, 6, cl).r(28, 37, 3, 6, cl).p(18, 42, '#ffcf2e').p(29, 42, '#ffcf2e').r(21, 46, 6, 5, clD).r(22, 47, 4, 3, cl).e(24, 38, 4, 1.5, skD); break;
+    case 'sailor': for (let y = 40; y < 56; y += 3) B.r(13, y, 22, 1, '#22386a'); B.e(24, 38, 4.5, 1.8, skD).r(20, 39, 8, 2, '#e03a2f').r(22, 41, 4, 2, '#e03a2f').p(23, 43, '#e03a2f').p(24, 43, '#e03a2f'); break;
+    case 'apron': B.e(24, 38, 4.5, 1.8, skD).r(16, 43, 16, 21, inn).r(16, 63, 16, 1, shade(inn, -.25)).l(18, 43, 21, 37, inn).l(29, 43, 26, 37, inn).r(20, 50, 8, 5, shade(inn, -.18)).p(18, 46, '#e03a2f').p(28, 58, '#3b8fe0').p(22, 60, '#ffcf2e'); break;
+    case 'track': B.r(19, 36, 10, 3, clD).r(23, 39, 2, 17, '#ffffff').r(13, 54, 22, 2, clD); break;
+    case 'cape': B.e(24, 38, 4.5, 1.8, skD).e(24, 39.5, 2, 2, '#ffcf2e').r(13, 51, 22, 2, shade(cl, -.4)).r(22, 51, 4, 2, '#ffcf2e'); break;
+    case 'dress': B.e(24, 38.5, 6, 2.6, skD).r(13, 50, 22, 2, inn).r(22, 50, 4, 3, shade(inn, .3)); break;
+    default: B.e(24, 38, 4.5, 1.8, skD); if (p.pr) bits(B, ICONS[p.pr] || GLYPH[1], 22, 44, shade(cl, -.42)); B.r(13, 55, 22, 1, clD);
+  }
+  if (has(p, 'chain')) for (let a = 20; a <= 160; a += 8) B.p(24 + Math.cos(a / 57.3) * 6, 37 + Math.sin(a / 57.3) * 6, '#d9d4e6');
+  /* brazos */
+  const short = cs === 'tee' || cs === 'sailor' || cs === 'apron' || cs === 'overalls' || cs === 'toga' || cs === 'dress', wide = cs === 'robe' ? 1 : 0;
+  const arm = (s, up) => {
+    const x = s < 0 ? 9 - wide : 35, w2 = 4 + wide, col = (y, i) => (short && i > 5 ? sk : top);
+    if (!up) {
+      for (let i = 0; i < 15; i++) B.r(x, 39 + i, w2, 1, col(0, i));
+      B.r(s < 0 ? x : x + w2 - 1, 39, 1, 15, short ? skD : topD).r(x, 54, w2, 3, sk);
+      if (cs === 'track') B.r(s < 0 ? x : x + w2 - 1, 39, 1, 15, '#ffffff');
+      if (cs === 'coat' || cs === 'suit') B.r(x, 52, w2, 2, '#ffffff');
+      return [x + 2, 55];
+    }
+    for (let i = 0; i < 13; i++) B.r(x + s * Math.round(i * .32), 41 - i, w2, 2, col(0, i < 6 ? 0 : 9));
+    B.r(x + s * 4, 26, w2, 3, sk);
+    return [x + s * 4 + 2, 27];
+  };
+  arm(-1, upL);
+  return arm(1, upR);
+}
+/* objetos en la mano (o a los pies): se dibujan sobre la figura ancha, a partir de la mano (x, y) */
+const wd = '#8a5a2a', mt = '#d9d4e6', gd = '#ffcf2e';
+const PROPS = {
+  cue: (W, x, y) => W.l(x + 1, y + 14, x + 7, y - 34, wd).l(x + 2, y + 14, x + 8, y - 34, '#c98f55').r(x + 7, y - 36, 2, 3, '#3b8fe0'),
+  flask: (W, x, y) => W.e(x + 5, y - 2, 4.5, 4.5, '#5fd07a').r(x + 3, y - 10, 4, 5, '#d6f1ff').r(x + 3, y - 11, 4, 1, wd).p(x + 4, y - 3, '#c9fff2').p(x + 7, y, '#2f9950').p(x + 5, y - 13, '#c9fff2').p(x + 7, y - 15, '#c9fff2'),
+  watch: (W, x, y) => W.l(x, y + 1, x + 4, y + 7, gd).e(x + 5, y + 11, 4, 4, gd).e(x + 5, y + 11, 3, 3, '#ffffff').r(x + 5, y + 9, 1, 3, INK).r(x + 5, y + 11, 2, 1, INK),
+  map: (W, x, y) => W.r(x + 1, y - 9, 5, 18, '#f3ead2').r(x, y - 10, 7, 2, '#d9c9a0').r(x, y + 8, 7, 2, '#d9c9a0').r(x + 1, y - 1, 5, 2, '#e03a2f').l(x + 2, y - 7, x + 4, y - 4, '#3b8fe0'),
+  hammer: (W, x, y) => W.r(x + 2, y - 12, 2, 16, wd).r(x - 1, y - 16, 9, 5, '#8b90b8').r(x - 1, y - 16, 9, 1, mt).r(x + 7, y - 15, 2, 3, '#5a5a7a'),
+  saw: (W, x, y) => { W.r(x + 2, y - 16, 6, 14, mt).r(x + 2, y - 16, 1, 14, '#ffffff').r(x + 1, y - 2, 8, 5, wd).r(x + 3, y - 1, 3, 2, '#5a3516'); for (let i = 0; i < 7; i++) W.p(x + 8, y - 15 + i * 2, INK); },
+  book: (W, x, y) => W.r(x, y - 6, 9, 11, '#c9382f').r(x, y - 6, 2, 11, '#8f201a').r(x + 2, y + 4, 7, 1, '#fff4d6').r(x + 4, y - 3, 3, 1, gd).r(x + 4, y - 1, 3, 1, gd),
+  quill: (W, x, y) => W.l(x + 1, y + 3, x + 8, y - 14, '#f4f4fa').e(x + 7, y - 11, 2.2, 5, '#f4f4fa').l(x + 6, y - 7, x + 8, y - 15, '#c9c4d9').p(x + 1, y + 4, INK),
+  atom: (W, x, y) => W.ring(x + 6, y - 10, 6, 2.6, '#3b8fe0').ring(x + 6, y - 10, 2.6, 6, '#3b8fe0').e(x + 6, y - 10, 2, 2, '#e03a2f').p(x + 11, y - 10, gd).p(x + 6, y - 15, gd),
+  cat: W => W.e(52, 68, 4.5, 4.5, '#8b90b8').e(52, 61, 3.6, 3.2, '#8b90b8').p(49, 57, '#8b90b8').p(49, 58, '#8b90b8').p(55, 57, '#8b90b8').p(55, 58, '#8b90b8').p(51, 61, '#5fd07a').p(54, 61, '#5fd07a').p(52, 63, '#ff9a8a').l(56, 70, 58, 64, '#8b90b8').e(52, 70, 2.5, 2, '#d9d4e6'),
+  gavel: (W, x, y) => W.r(x + 2, y - 10, 2, 14, wd).r(x - 2, y - 15, 10, 6, '#6a3f1c').r(x - 2, y - 15, 2, 6, gd).r(x + 6, y - 15, 2, 6, gd),
+  spray: (W, x, y) => W.r(x + 1, y - 8, 6, 11, '#e03a2f').r(x + 1, y - 8, 2, 11, '#ff8a7a').r(x + 2, y - 11, 4, 3, mt).r(x + 5, y - 12, 2, 1, INK).p(x + 9, y - 13, '#d04a9a').p(x + 11, y - 15, '#d04a9a').p(x + 10, y - 11, '#d04a9a').p(x + 12, y - 12, '#d04a9a'),
+  chain: W => { W.e(53, 69, 4.5, 4.5, '#3a3566').e(51.5, 67.5, 1.5, 1.5, '#8b90b8'); for (let i = 0; i < 5; i++) W.r(42 + i * 2, 71 - (i % 2), 2, 2, i % 2 ? mt : '#8b90b8'); },
+  abacus: (W, x, y) => { W.r(x, y - 10, 12, 12, wd).r(x + 1, y - 9, 10, 10, '#fff4d6'); [['#e03a2f', 2], ['#3b8fe0', 4], ['#2f9950', 1]].forEach(([c, o], j) => { W.r(x + 1, y - 7 + j * 3, 10, 1, '#5a3516'); for (let i = 0; i < 3; i++) W.r(x + 1 + o + i * 2, y - 8 + j * 3, 2, 3, c); }); },
+  square: (W, x, y) => { for (let i = 0; i < 13; i++) W.r(x, y - 12 + i, i + 1, 1, i === 12 || i === 0 ? '#c98a00' : gd); for (let i = 3; i < 9; i++) W.r(x + 2, y - 9 + i, i - 2, 1, null); W.r(x, y - 12, 1, 13, '#c98a00'); },
+  pointer: (W, x, y) => W.l(x + 1, y + 2, x + 10, y - 24, wd).l(x + 2, y + 2, x + 11, y - 24, '#c98f55').r(x + 10, y - 26, 2, 2, '#e03a2f'),
+  duck: (W, x, y) => W.e(x + 5, y - 2, 5, 3.6, gd).e(x + 8, y - 7, 3, 3, gd).r(x + 11, y - 7, 2, 1, '#ff7a2e').p(x + 9, y - 8, INK).e(x + 4, y - 2, 2, 1.4, '#ffe680'),
+  palette: (W, x, y) => W.e(x + 6, y - 4, 6, 5, '#c98f55').e(x + 8, y - 3, 1.5, 1.2, null).p(x + 3, y - 6, '#e03a2f').p(x + 6, y - 7, gd).p(x + 9, y - 6, '#3b8fe0').p(x + 3, y - 3, '#2f9950').p(x + 5, y - 1, '#d04a9a').l(x + 9, y - 2, x + 13, y - 14, wd).r(x + 12, y - 16, 2, 3, '#e03a2f'),
+  candle: (W, x, y) => W.r(x + 2, y - 9, 4, 11, '#fff4d6').r(x + 5, y - 9, 1, 11, '#d9c9a0').r(x + 1, y + 2, 6, 2, gd).e(x + 4, y - 13, 2, 3.4, '#ff7a2e').e(x + 4, y - 12, 1, 1.8, gd),
+  razor: (W, x, y) => W.r(x + 2, y - 16, 4, 13, mt).r(x + 2, y - 16, 1, 13, '#ffffff').r(x + 5, y - 16, 1, 13, '#8b90b8').r(x + 1, y - 3, 5, 8, '#5a3516').p(x + 3, y - 17, mt),
+  torch: (W, x, y) => W.r(x + 2, y - 8, 3, 13, wd).r(x + 1, y - 10, 5, 3, '#5a3516').e(x + 3.5, y - 15, 3.6, 5.5, '#ff7a2e').e(x + 3.5, y - 14, 2, 3.6, gd).p(x + 3, y - 21, '#ff7a2e').p(x + 6, y - 19, '#ff7a2e'),
+  wine: (W, x, y) => W.r(x + 4, y - 4, 1, 7, '#d6f1ff').r(x + 2, y + 3, 5, 1, '#d6f1ff').e(x + 4.5, y - 8, 3.6, 4, '#d6f1ff').r(x + 1, y - 8, 7, 3, '#8a2233').p(x + 2, y - 10, '#ffffff'),
+  worlds: (W, x, y) => W.e(x + 5, y - 12, 3.4, 3.4, '#3b8fe0').e(x + 4, y - 13, 1.2, 1, '#5fd07a').e(x + 11, y - 20, 2.6, 2.6, '#d04a9a').e(x + 12, y - 5, 2.2, 2.2, gd).p(x + 9, y - 16, '#ffffff').p(x + 9, y - 8, '#ffffff'),
+  blocks: W => W.r(46, 66, 7, 7, '#e03a2f').r(46, 66, 7, 1, '#ff8a7a').r(52, 60, 7, 7, '#3b8fe0').r(52, 60, 7, 1, '#8fc0ff').r(53, 67, 6, 6, gd).r(48, 59, 5, 7, '#2f9950'),
+  orrery: (W, x, y) => W.r(x + 5, y - 2, 1, 6, wd).r(x + 2, y + 4, 7, 1, wd).ring(x + 5.5, y - 9, 6.5, 3, gd).ring(x + 5.5, y - 9, 3.6, 6.5, '#c98a00').e(x + 5.5, y - 9, 2.2, 2.2, gd).e(x + 12, y - 9, 1.4, 1.4, '#3b8fe0').e(x + 5.5, y - 15.5, 1.2, 1.2, '#e03a2f'),
+  ruler: (W, x, y) => { W.r(x + 2, y - 20, 4, 24, gd).r(x + 2, y - 20, 1, 24, '#ffe680'); for (let i = 0; i < 8; i++) W.r(x + 4, y - 19 + i * 3, 2, 1, INK); },
+  hourglass: (W, x, y) => W.r(x, y - 12, 9, 2, wd).r(x, y + 1, 9, 2, wd).r(x + 1, y - 10, 7, 4, '#d6f1ff').r(x + 3, y - 6, 3, 2, '#d6f1ff').r(x + 1, y - 4, 7, 5, '#d6f1ff').r(x + 2, y - 9, 5, 2, gd).r(x + 2, y - 1, 5, 2, gd).p(x + 4, y - 4, gd),
+  thread: (W, x, y) => W.e(x + 5, y - 2, 4.5, 4.5, '#e03a2f').l(x + 2, y - 4, x + 8, y, '#ff8a7a').l(x + 2, y, x + 7, y - 5, '#a2231c').l(x + 5, y + 3, x + 9, y + 12, '#e03a2f').l(x + 9, y + 12, x + 13, y + 16, '#e03a2f'),
+  astrolabe: (W, x, y) => W.ring(x + 6, y - 9, 6, 6, gd).ring(x + 6, y - 9, 3.5, 3.5, '#c98a00').r(x + 6, y - 15, 1, 12, gd).r(x, y - 9, 12, 1, gd).r(x + 5, y - 18, 3, 3, gd).e(x + 6, y - 9, 1.2, 1.2, '#e03a2f'),
+  mirror: (W, x, y) => W.r(x + 3, y - 3, 2, 8, wd).e(x + 4, y - 9, 5, 6, gd).e(x + 4, y - 9, 3.8, 4.8, '#d6f1ff').l(x + 2, y - 11, x + 4, y - 13, '#ffffff').p(x + 5, y - 8, '#8fd3ff').p(x + 3, y - 7, '#8fd3ff'),
+  anchor: (W, x, y) => W.r(x + 4, y - 14, 2, 16, '#8b90b8').ring(x + 5, y - 16, 2, 2, '#8b90b8').r(x + 1, y - 10, 8, 2, '#8b90b8').l(x, y - 2, x + 4, y + 2, '#8b90b8').l(x + 10, y - 2, x + 6, y + 2, '#8b90b8').p(x - 1, y - 4, '#8b90b8').p(x + 11, y - 4, '#8b90b8'),
+  skate: (W, x, y) => W.r(x + 2, y - 20, 5, 30, '#2f9950').e(x + 4.5, y - 20, 2.5, 2.5, '#2f9950').e(x + 4.5, y + 10, 2.5, 2.5, '#2f9950').r(x + 4, y - 16, 1, 24, gd).r(x + 1, y - 14, 2, 3, mt).r(x + 6, y - 14, 2, 3, mt).r(x + 1, y + 4, 2, 3, mt).r(x + 6, y + 4, 2, 3, mt)
+};
+function person(p, emo, full) {
+  emo = emo || 'neutral';
+  const fw = p.fat ? 12.5 : 11, B = px(48, full ? 76 : 48);
+  backHair(B, p, fw, full);
+  let hand = null;
+  if (full) hand = body(B, p, emo); else bust(B, p);
+  head(B, p, emo);
   marks(B, emo);
-  return B.outline(INK);
+  if (!full) return B.outline(INK);
+  const W = px(60, 76).over(B, 6, 0);
+  if (p.prop && PROPS[p.prop]) PROPS[p.prop](W, hand[0] + 6 + 2, hand[1]);
+  return W.outline(INK).under(30, 73.6, 17, 2.3, SHADOW);
 }
 function ousia(emo) {
   emo = emo || 'neutral';
@@ -1227,10 +1475,65 @@ const pcache = {};
 /* dibuja en un <canvas> de 48×48 el retrato de un personaje con una emoción */
 function drawPortrait(canvas, key, p, emo) {
   const k = key + '|' + emo;
-  if (!pcache[k]) pcache[k] = (p.ousia ? ousia(emo) : portrait(p, emo)).canvas();
+  if (!pcache[k]) pcache[k] = (p.ousia ? ousia(emo) : person(p, emo, false)).canvas();
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, 48, 48);
   ctx.drawImage(pcache[k], 0, 0);
+}
+/* dibuja en un <canvas> de 60×76 la figura de cuerpo entero */
+function drawFigure(canvas, key, p, emo) {
+  const k = 'F' + key + '|' + emo;
+  if (!pcache[k]) pcache[k] = person(p, emo, true).canvas();
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 60, 76);
+  ctx.drawImage(pcache[k], 0, 0);
+}
+
+/* ---------- fondo de las disputas: paisaje de la región, o el interior del ágora ---------- */
+const bcache = {};
+function backdrop(k, indoor) {
+  const key = k + (indoor ? 'i' : 'o');
+  if (bcache[key]) return bcache[key];
+  const th = THEMES[k], c = cv(240, 160), g = c.getContext('2d'), R = rng(hash('fondo' + key));
+  const rect = (x, y, w, h, col) => { g.fillStyle = col; g.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); };
+  const dither = (y, col) => { g.fillStyle = col; for (let x = 0; x < 240; x += 2) g.fillRect(x + (y % 2), y, 1, 1); };
+  if (indoor) {
+    const wl = shade(th.acc, -.5), fl = shade(th.acc, .7);
+    rect(0, 0, 240, 100, wl); rect(0, 0, 240, 6, shade(wl, -.3)); rect(0, 92, 240, 8, shade(wl, -.35));
+    for (let y = 14; y < 92; y += 13) for (let x = (y % 2 ? 0 : 12); x < 240; x += 24) { rect(x, y, 1, 13, shade(wl, -.18)); rect(x, y, 24, 1, shade(wl, -.18)); }
+    [18, 78, 148, 208].forEach(x => { rect(x - 2, 6, 18, 5, '#ffffff'); rect(x, 11, 14, 81, '#d9d4e6'); rect(x + 2, 11, 2, 81, '#ffffff'); rect(x + 6, 11, 1, 81, '#c3bdd6'); rect(x + 10, 11, 4, 81, '#a39cc0'); rect(x - 2, 88, 18, 5, '#a39cc0'); });
+    [48, 113, 178].forEach(x => { rect(x, 10, 16, 40, th.acc); rect(x, 10, 2, 40, shade(th.acc, .4)); rect(x + 13, 10, 3, 40, shade(th.acc, -.25)); for (let i = 0; i < 4; i++) rect(x + i * 2, 50 + i * 2, 16 - i * 4, 2, th.acc); th.glyph.forEach((row, j) => { for (let i = 0; i < 5; i++) if (row[i] === 'x') rect(x + 3 + i * 2, 20 + j * 2, 2, 2, '#fff4d6'); }); });
+    rect(0, 100, 240, 60, fl);
+    for (let j = 0; j < 6; j++) { const y = 100 + j * j * 1.6 + j * 2; rect(0, y, 240, 1, shade(fl, -.2)); for (let i = -8; i <= 8; i++) if ((i + j) % 2) rect(120 + i * (14 + j * 5), y + 1, 14 + j * 5, 3 + j * 3.2, shade(fl, -.09)); }
+    rect(96, 100, 48, 60, shade(th.acc, .1)); rect(96, 100, 2, 60, shade(th.acc, .45)); rect(142, 100, 2, 60, shade(th.acc, .45));
+    return (bcache[key] = c);
+  }
+  /* cielo en franjas, sol y nubes */
+  const bands = [-.12, 0, .22, .42, .6, .74];
+  bands.forEach((f, i) => { rect(0, i * 15, 240, 16, shade(th.sky, f)); if (i) { dither(i * 15, shade(th.sky, bands[i - 1])); dither(i * 15 + 1, shade(th.sky, f)); } });
+  g.fillStyle = '#fff4d6'; g.beginPath(); g.arc(196, 24, 11, 0, 6.3); g.fill(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(196, 24, 8, 0, 6.3); g.fill();
+  for (let i = 0; i < 4; i++) { const x = 14 + i * 56 + R() * 20, y = 12 + R() * 34, w = 22 + R() * 16; rect(x, y, w, 5, '#ffffff'); rect(x + 4, y - 3, w * .5, 3, '#ffffff'); rect(x + w * .35, y - 5, w * .3, 2, '#ffffff'); rect(x + 2, y + 5, w - 6, 1, shade(th.sky, .5)); }
+  /* montes lejanos y cercanos */
+  const hills = (base, amp, f1, f2, col, ph) => { g.fillStyle = col; for (let x = 0; x < 240; x++) { const y = base + Math.sin(x / f1 + ph) * amp + Math.sin(x / f2 + ph * 2) * amp * .4; g.fillRect(x, Math.round(y), 1, 110 - Math.round(y)); } };
+  hills(76, k === 9 ? 16 : 9, 31, 11, shade(th.t, .5), k);
+  if (k === 9) { g.fillStyle = '#ffffff'; for (let x = 0; x < 240; x++) { const y = 76 + Math.sin(x / 31 + 9) * 16 + Math.sin(x / 11 + 18) * 6.4; if (y < 72) g.fillRect(x, Math.round(y), 1, 4); } }
+  /* un hito propio de cada región, en el horizonte */
+  const acc = th.acc, st = '#d9d4e6', stD = '#a39cc0';
+  if (k === 1) { rect(24, 60, 60, 4, st); for (let i = 0; i < 9; i++) rect(30 + i * 2, 58 - i * 2, 48 - i * 4, 2, st); for (let i = 0; i < 5; i++) { rect(28 + i * 12, 64, 6, 26, st); rect(32 + i * 12, 64, 2, 26, stD); } rect(24, 88, 60, 3, stD); }
+  else if (k === 2) [30, 54, 76].forEach((x, i) => { rect(x, 54 - i * 6, 10, 38 + i * 6, shade(acc, .3)); rect(x + 7, 54 - i * 6, 3, 38 + i * 6, acc); rect(x + 2, 50 - i * 6, 6, 4, shade(acc, .3)); THEMES[2].glyph.forEach((row, j) => { for (let q = 0; q < 5; q++) if (row[q] === 'x') rect(x + 2 + q, 62 - i * 6 + j * 8, 1, 1, '#ffffff'); }); });
+  else if (k === 3) for (let i = 0; i < 6; i++) { g.save(); g.translate(26 + i * 13, 90); g.rotate(i > 2 ? (i - 2) * .32 : 0); rect(0, -24, 8, 24, '#fff4d6'); rect(6, -24, 2, 24, '#d9c9a0'); rect(0, -13, 8, 1, INK); rect(3, -19, 2, 2, INK); rect(2, -8, 2, 2, INK); rect(5, -5, 2, 2, INK); g.restore(); }
+  else if (k === 4) { rect(44, 40, 18, 52, shade(acc, .25)); rect(57, 40, 5, 52, acc); for (let i = 0; i < 5; i++) rect(46 + i * 2 - 4, 38 - i * 3, 22 - i * 4 + 4, 3, shade(acc, -.2)); g.fillStyle = '#fff4d6'; g.beginPath(); g.arc(53, 52, 7, 0, 6.3); g.fill(); rect(53, 47, 1, 6, INK); rect(53, 52, 4, 1, INK); }
+  else if (k === 5) { rect(0, 86, 240, 18, th.w); for (let x = 0; x < 240; x += 9) rect(x + (x % 2) * 3, 89 + (x % 3) * 4, 5, 1, shade(th.w, .45)); rect(36, 74, 44, 10, '#8a5a2a'); rect(40, 84, 36, 4, '#6a3f1c'); rect(57, 34, 2, 40, '#5a3516'); rect(59, 38, 18, 14, '#fff4d6'); rect(40, 42, 17, 22, '#fff4d6'); rect(59, 54, 14, 12, '#f3ead2'); rect(57, 32, 8, 3, acc); }
+  else if (k === 6) [[36, 50, 9], [64, 36, 6], [88, 58, 5], [20, 30, 4]].forEach(([x, y, r], i) => { for (let j = -r; j <= r; j++) rect(x - (r - Math.abs(j)), y + j, 2 * (r - Math.abs(j)) + 1, 1, i % 2 ? shade(acc, .45) : shade(acc, .2)); rect(x - 1, y - 1, 2, 2, '#ffffff'); });
+  else if (k === 7) [[30, 22, '#e03a2f'], [30, 12, '#3b8fe0'], [42, 22, '#ffcf2e'], [42, 12, '#2f9950'], [54, 22, '#3b8fe0'], [36, 2, '#ffcf2e'], [66, 22, '#e03a2f']].forEach(([x, h, col]) => { rect(x, 92 - h - 10, 12, 10, col); rect(x, 92 - h - 10, 12, 2, shade(col, .4)); rect(x + 10, 92 - h - 10, 2, 10, shade(col, -.3)); rect(x + 3, 92 - h - 12, 2, 2, col); rect(x + 7, 92 - h - 12, 2, 2, col); });
+  else if (k === 8) { rect(52, 56, 3, 36, '#6a3f1c'); rect(34, 58, 20, 7, '#d9a85a'); rect(30, 60, 4, 3, '#d9a85a'); rect(54, 68, 20, 7, '#d9a85a'); rect(74, 70, 4, 3, '#d9a85a'); rect(37, 61, 12, 1, INK); rect(58, 71, 12, 1, INK); }
+  else if (k === 0) [[30, '#c9483c'], [58, '#3b6fd0']].forEach(([x, col]) => { rect(x, 74, 22, 18, '#f6e7c1'); rect(x - 2, 66, 26, 9, col); rect(x - 2, 66, 26, 2, shade(col, .35)); rect(x + 9, 82, 5, 10, '#7a4a22'); rect(x + 3, 78, 4, 4, '#8fd3ff'); rect(x + 16, 78, 4, 4, '#8fd3ff'); });
+  hills(92, 5, 47, 17, shade(th.g, -.2), k * 2 + 1);
+  /* suelo */
+  rect(0, 104, 240, 56, th.g);
+  for (let j = 0; j < 7; j++) { const y = 104 + j * j * 1.1 + j * 3; rect(0, y, 240, 1 + (j > 3 ? 1 : 0), shade(th.g, j % 2 ? .14 : -.1)); }
+  for (let i = 0; i < 90; i++) { const x = R() * 240, y = 106 + R() * 52, t = R(); if (t < .6) { rect(x, y, 1, 2, shade(th.g, -.28)); rect(x + 1, y - 1, 1, 2, shade(th.g, .2)); } else if (t < .85) { rect(x, y, 2, 1, shade(th.g, -.18)); } else { rect(x, y, 1, 1, ['#ffffff', '#ffd23e', '#ff6b8a'][i % 3]); rect(x, y + 1, 1, 1, shade(th.g, -.35)); } }
+  return (bcache[key] = c);
 }
 
 /* ---------- criaturas-idea: una por carta, simétrica, salida del nombre ---------- */
@@ -1250,7 +1553,7 @@ function idea(id, col, type) {
   return (icache[id] = B.outline(INK).canvas());
 }
 
-return { INK, cv, px, shade, rng, hash, THEMES, tileset, building, sheet, ousiaSheet, drawPortrait, idea, EMOS, ousia };
+return { INK, cv, px, shade, rng, hash, THEMES, ICONS, tileset, prop, building, sheet, ousiaSheet, drawPortrait, drawFigure, backdrop, idea, EMOS, ousia, person };
 })();
 
 /* Metafísica Advance — contenido: problemas, cartas (teorías, argumentos, conceptos), coherencia del sistema,
@@ -1321,7 +1624,7 @@ const CARDS = {
   estructuralismo: { t: 'T', p: 'num', n: 'Estructuralismo', by: 'Benacerraf · Shapiro · Resnik', w: 0, d: 'La matemática no trata de objetos sueltos sino de estructuras. El 2 no es nada por sí mismo: es solo el lugar que sigue al 1 en la estructura de los naturales.',
     cl: ['La matemática estudia estructuras.', 'Un número es solo un lugar en una estructura.', 'No hay nada más en el 2 que sus relaciones con los otros números.'], inc: ['El 2 tiene una naturaleza propia, aparte de los demás números.', 'El 2 es exactamente el conjunto {∅, {∅}}.'] },
   indispens: { t: 'A', p: 'num', n: 'Indispensabilidad', by: 'Quine · Putnam', d: 'Debemos creer en todo aquello sin lo cual nuestras mejores teorías científicas no funcionan. La física no funciona sin números. Luego debemos creer que los números existen.',
-    vs: { ficc_mat: 2 }, pro: ['plat_mat', 'estructuralismo'], rep: ['conservat'] },
+    vs: { ficc_mat: 2 }, pro: ['plat_mat', 'estructuralismo'], rep: ['conservat', 'nominalizacion'] },
   benepist: { t: 'A', p: 'num', n: 'Dilema del acceso', by: 'Paul Benacerraf', d: 'Para conocer algo hay que tener algún contacto causal con ello. Los objetos abstractos no causan nada. Entonces, ¿cómo podría alguien saber algo de los números?',
     vs: { plat_mat: 2, platonismo: 1, estructuralismo: 1 }, pro: ['ficc_mat'], rep: ['apriori'] },
   benid: { t: 'A', p: 'num', n: '¿Qué conjunto es el 2?', by: 'Paul Benacerraf', d: 'Para Zermelo el 2 es {{∅}}; para von Neumann, {∅, {∅}}. Ambas reducciones sirven igual y nada decide entre ellas. Luego el 2 no es ningún objeto en particular.',
@@ -1348,7 +1651,7 @@ const CARDS = {
   accidental: { t: 'A', p: 'caus', n: 'Regularidad accidental', d: 'Todas las monedas de mi bolsillo son de cobre, y al canto del gallo le sigue siempre el amanecer. Hay sucesión constante y, sin embargo, ninguna causalidad.',
     vs: { regularidad: 2 }, pro: ['contrafactica', 'poderes'], rep: ['ley'] },
   causacomun: { t: 'A', p: 'caus', n: 'Causa común', d: 'Siempre que cae el barómetro, hay tormenta. Pero el barómetro no causa la tormenta: ambos son efectos de la baja presión. La regularidad no distingue causas de síntomas.',
-    vs: { regularidad: 2 }, pro: ['poderes', 'contrafactica'], rep: [] },
+    vs: { regularidad: 2 }, pro: ['poderes', 'contrafactica'], rep: ['intervencion'] },
   preempcion: { t: 'A', p: 'caus', n: 'Causa de reserva', d: 'Ana lanza una piedra y rompe la ventana. Beto estaba listo para lanzar la suya si Ana fallaba. Sin el tiro de Ana, la ventana se habría roto igual… y, aun así, Ana la rompió.',
     vs: { contrafactica: 2 }, pro: ['poderes', 'regularidad'], rep: ['cadena'] },
   sobredet: { t: 'A', p: 'caus', n: 'Sobredeterminación', d: 'Dos balas alcanzan el corazón al mismo tiempo. Sin cualquiera de ellas, la muerte habría ocurrido igual: según el análisis contrafáctico, ninguna la causó.',
@@ -1374,7 +1677,7 @@ const CARDS = {
   mctaggart: { t: 'A', p: 'tiempo', n: 'Paradoja de McTaggart', by: 'J. M. E. McTaggart', d: 'Todo suceso es futuro, es presente y es pasado: tres rasgos incompatibles. Decir que los tiene «en momentos distintos» presupone el paso del tiempo que había que explicar.',
     vs: { presentismo: 2, bloque: 2 }, pro: ['eternalismo', 'irrealidad'], rep: ['tensado'] },
   relatividad: { t: 'A', p: 'tiempo', n: 'Simultaneidad relativa', by: 'Putnam · Rietdijk', d: 'Según la relatividad especial, qué sucesos son simultáneos depende del observador. No hay un «ahora» único para todo el universo, así que no puede haber un presente privilegiado.',
-    vs: { presentismo: 2, bloque: 2 }, pro: ['eternalismo'], rep: [] },
+    vs: { presentismo: 2, bloque: 2 }, pro: ['eternalismo'], rep: ['foliacion'] },
   hacedores: { t: 'A', p: 'tiempo', n: 'Verdades sobre el pasado', d: '«César cruzó el Rubicón» es verdadera. Toda verdad necesita algo existente que la haga verdadera. Si el pasado no existe, nada hace verdadera esa oración.',
     vs: { presentismo: 2 }, pro: ['eternalismo', 'bloque'], rep: ['tensado'] },
   gracias: { t: 'A', p: 'tiempo', n: '¡Menos mal que ya pasó!', by: 'A. N. Prior', d: 'Al salir del dentista siento alivio porque el dolor *ya pasó*. Ese alivio no tiene sentido si solo es verdad que el dolor «es anterior a las 15:00»: lo que importa es que quedó atrás.',
@@ -1406,7 +1709,7 @@ const CARDS = {
   estatua: { t: 'A', p: 'pers', n: 'La estatua y la arcilla', d: 'La estatua y su trozo de arcilla ocupan el mismo lugar. Pero la arcilla sobreviviría a ser aplastada y la estatua no: por la Ley de Leibniz son dos cosas… en el mismo sitio y con los mismos átomos.',
     vs: { endurantismo: 2 }, pro: ['perdurantismo'], rep: ['constitucion'] },
   teseo: { t: 'A', p: 'pers', n: 'El barco de Teseo', by: 'Plutarco · Hobbes', d: 'Se cambian una a una todas las tablas del barco, y con las viejas se arma otro. El reparado conserva la continuidad; el rearmado, la materia. Los dos no pueden ser el barco original.',
-    vs: { endurantismo: 1 }, pro: ['perdurantismo', 'esencialismo_mer'], rep: [] },
+    vs: { endurantismo: 1 }, pro: ['perdurantismo', 'esencialismo_mer'], rep: ['sortal'] },
   variacion: { t: 'A', p: 'pers', n: 'Variación no es cambio', by: 'D. H. Mellor', d: 'Un camino angosto en un tramo y ancho en otro no cambia: solo varía de una parte a otra. Si persistir es tener partes temporales distintas, entonces nada cambia jamás.',
     vs: { perdurantismo: 2 }, pro: ['endurantismo'], rep: [] },
   tiza: { t: 'A', p: 'pers', n: 'Partes de la nada', by: 'Judith Jarvis Thomson', d: 'Sostengo una tiza. Según el perdurantista, a cada instante aparece de la nada una nueva parte temporal de tiza, completa y lista. Es una metafísica disparatada.',
@@ -1485,7 +1788,7 @@ const CARDS = {
   consecuencia: { t: 'A', p: 'lib', n: 'Argumento de la consecuencia', by: 'Peter van Inwagen', d: 'Si el determinismo es verdadero, mis actos se siguen de las leyes y del pasado remoto. No depende de mí el pasado ni dependen de mí las leyes. Luego mis actos tampoco dependen de mí.',
     vs: { compatibilismo: 2 }, pro: ['det_duro', 'libertarismo'], rep: ['condicional'] },
   manipulacion: { t: 'A', p: 'lib', n: 'Argumento de la manipulación', by: 'Derk Pereboom', d: 'Un neurocientífico programa a Plum para que desee robar y actúe «según sus propios deseos». Plum no es libre. Pero el determinismo hace lo mismo que el neurocientífico, solo que sin intención.',
-    vs: { compatibilismo: 2 }, pro: ['det_duro', 'libertarismo'], rep: [] },
+    vs: { compatibilismo: 2 }, pro: ['det_duro', 'libertarismo'], rep: ['razones'] },
   azar: { t: 'A', p: 'lib', n: 'Objeción del azar', d: 'Si mi decisión no está determinada por nada —ni siquiera por mis razones y mi carácter—, ocurre por azar. Y un acto azaroso no es más libre ni más mío que un tic nervioso.',
     vs: { libertarismo: 2 }, pro: ['compatibilismo', 'det_duro'], rep: ['agente'] },
   basico: { t: 'A', p: 'lib', n: 'El argumento básico', by: 'Galen Strawson', d: 'Actúas como actúas por cómo eres. Para ser responsable de tus actos tendrías que ser responsable de cómo eres; para eso, haberte elegido a ti mismo; y así sin fin. Nadie es causa de sí.',
@@ -1524,7 +1827,31 @@ const CARDS = {
   holismo: { t: 'C', p: 'meta', n: 'Holismo', by: 'W. V. O. Quine', fx: 'dist', d: 'Nuestras teorías se confirman como un todo. Si la ciencia confirma una teoría que cuantifica sobre números, confirma los números igual que los electrones: no hay «afuera» del marco.' },
   ontologues: { t: 'C', p: 'meta', n: 'Ontologués', by: 'Theodore Sider', fx: 'dist', d: 'Entre todos los sentidos posibles de «existe» hay uno privilegiado: el que corta la realidad por sus articulaciones. En ese idioma la disputa no es verbal.' },
   tolerancia: { t: 'C', p: 'meta', n: 'Principio de tolerancia', by: 'Rudolf Carnap', fx: 'dist', d: 'No se afirma una tesis: se propone un lenguaje. Y las propuestas no son verdaderas ni falsas, sino más o menos útiles.' },
-  fundamentacion: { t: 'C', p: 'meta', n: 'Fundamentación', by: 'Kit Fine', fx: 'dist', d: 'Relación por la que unos hechos se dan *en virtud de* otros. El conjunto {Sócrates} existe porque existe Sócrates, y no al revés, aunque ninguno pueda existir sin el otro.' }
+  fundamentacion: { t: 'C', p: 'meta', n: 'Fundamentación', by: 'Kit Fine', fx: 'dist', d: 'Relación por la que unos hechos se dan *en virtud de* otros. El conjunto {Sócrates} existe porque existe Sócrates, y no al revés, aunque ninguno pueda existir sin el otro.' },
+
+  /* ---------- conceptos técnicos: se encuentran dentro de las casas (tech: 1) ---------- */
+  superveniencia: { t: 'C', p: 'gen', tech: 1, n: 'Superveniencia', fx: 'prec', d: 'Los hechos A supervienen sobre los hechos B cuando no puede haber una diferencia en A sin una diferencia en B. Fija B y queda fijado A; no dice por qué.' },
+  criterio_id: { t: 'C', p: 'gen', tech: 1, n: 'Criterio de identidad', by: 'W. V. O. Quine', fx: 'dist', d: '«No hay entidad sin identidad»: solo debemos admitir un tipo de cosas si sabemos decir cuándo dos de ellas son la misma. Los conjuntos lo cumplen: mismos miembros, mismo conjunto.' },
+  escasas: { t: 'C', p: 'univ', tech: 1, n: 'Propiedades escasas', by: 'David Lewis', fx: 'prec', d: 'Las propiedades abundantes son una por cada predicado, por raro que sea. Las escasas son pocas: las que hacen que las cosas se parezcan de verdad y cortan la naturaleza por sus articulaciones.' },
+  copresencia: { t: 'C', p: 'univ', tech: 1, n: 'Copresencia', by: 'Russell · Williams', fx: 'dist', d: 'La relación que reúne en un mismo objeto a varios tropos: la rojez, la redondez y el peso de esta manzana están copresentes. Es el pegamento de la teoría del haz.' },
+  indiscernibles: { t: 'C', p: 'univ', tech: 1, n: 'Identidad de los indiscernibles', by: 'Leibniz · Max Black', fx: 'prec', d: 'Si x e y comparten todas sus propiedades, son la misma cosa. Contraejemplo de Black: un universo con solo dos esferas idénticas. Mal asunto para quien dice que un objeto es solo su haz.' },
+  principio_hume: { t: 'C', p: 'num', tech: 1, n: 'Principio de Hume', by: 'Frege · Crispin Wright', fx: 'prec', d: 'El número de los F es igual al número de los G si y solo si los F y los G pueden emparejarse uno a uno. De este principio, más lógica de segundo orden, sale toda la aritmética.' },
+  nominalizacion: { t: 'C', p: 'num', tech: 1, n: 'Nominalización', by: 'Hartry Field', fx: 'dist', d: 'Reescribir una teoría física sin mencionar números: en vez de «la distancia es 3», relaciones entre los puntos mismos del espacio. Field lo hizo con la gravitación de Newton.' },
+  inus: { t: 'C', p: 'caus', tech: 1, n: 'Condición INUS', by: 'J. L. Mackie', fx: 'prec', d: 'Una causa es una parte Insuficiente pero Necesaria de una condición Innecesaria pero Suficiente. El cortocircuito no basta para el incendio ni es la única vía, pero es pieza indispensable de una receta que sí basta.' },
+  intervencion: { t: 'C', p: 'caus', tech: 1, n: 'Intervención', by: 'James Woodward', fx: 'dist', d: 'A causa B si manipular A, dejando quieto todo lo demás, cambiaría B. Mover a mano la aguja del barómetro no trae tormentas: por eso el barómetro no las causa.' },
+  especioso: { t: 'C', p: 'tiempo', tech: 1, n: 'Presente especioso', by: 'William James', fx: 'heal', d: 'El «ahora» que vivimos no es un instante sin duración: abarca un breve lapso, lo bastante largo para oír una melodía y no solo una nota.' },
+  foliacion: { t: 'C', p: 'tiempo', tech: 1, n: 'Foliación privilegiada', fx: 'dist', d: 'Una manera de rebanar el espacio-tiempo en «ahoras» absolutos. La relatividad no la necesita, pero tampoco la prohíbe: puede existir aunque ningún experimento la detecte.' },
+  estadios: { t: 'C', p: 'pers', tech: 1, n: 'Teoría de estadios', by: 'Sider · Hawley', fx: 'prec', d: 'Variante del cuatridimensionalismo: tú no eres el gusano entero, sino el estadio presente. «Fui niño» es verdad porque un estadio anterior, tu contraparte temporal, lo fue.' },
+  fision: { t: 'C', p: 'pers', tech: 1, n: 'Fisión', by: 'Derek Parfit', fx: 'prec', d: 'Cada mitad de tu cerebro se trasplanta a un cuerpo distinto y ambos despiertan con tus recuerdos. No puedes ser los dos. Parfit concluye que lo que importa no es la identidad, sino la continuidad.' },
+  sortal: { t: 'C', p: 'pers', tech: 1, n: 'Concepto sortal', by: 'David Wiggins', fx: 'dist', d: 'Preguntar «¿es el mismo?» está incompleto: ¿el mismo *qué*? Un sortal («barco», «persona», «montón de tablas») dice qué tipo de cosa es algo y bajo qué cambios sigue existiendo.' },
+  accesibilidad: { t: 'C', p: 'modal', tech: 1, n: 'Accesibilidad', by: 'Saul Kripke', fx: 'prec', d: 'Relación entre mundos que fija qué cuenta como posible *desde* cada uno. Si es reflexiva, lo necesario es verdadero; si además es transitiva y simétrica, se obtiene el sistema S5.' },
+  rigido: { t: 'C', p: 'modal', tech: 1, n: 'Designador rígido', by: 'Saul Kripke', fx: 'prec', d: 'Expresión que designa lo mismo en todos los mundos posibles. «Aristóteles» es rígido; «el maestro de Alejandro» no. Por eso «el agua es H₂O», si es verdad, es necesaria.' },
+  haecceidad: { t: 'C', p: 'modal', tech: 1, n: 'Haecceidad', by: 'Duns Escoto · R. M. Adams', fx: 'heal', d: 'La «estidad» de un individuo: ser *este* y no otro, más allá de todas sus cualidades. Permitiría que dos mundos iguales en todo difirieran solo en quién es quién.' },
+  fusion: { t: 'C', p: 'comp', tech: 1, n: 'Fusión mereológica', fx: 'prec', d: 'La fusión de unas cosas es aquello que las tiene a todas como partes y no tiene ninguna parte ajena a ellas. Para el universalista, toda colección tiene exactamente una.' },
+  extensionalidad: { t: 'C', p: 'comp', tech: 1, n: 'Extensionalidad', fx: 'dist', d: 'Principio de la mereología clásica: dos cosas con exactamente las mismas partes propias son la misma cosa. La estatua y la arcilla lo ponen en aprietos.' },
+  fuente: { t: 'C', p: 'lib', tech: 1, n: 'Control de fuente', fx: 'prec', d: 'Dos maneras de entender la libertad: tener alternativas abiertas, o ser el *origen* último de lo que haces. Quien sostiene la segunda puede aceptar los casos Frankfurt.' },
+  razones: { t: 'C', p: 'lib', tech: 1, n: 'Sensibilidad a razones', by: 'Fischer · Ravizza', fx: 'dist', d: 'Eres responsable si el mecanismo por el que actúas es tuyo y respondería a razones: de haber habido buenos motivos para hacer otra cosa, los habría reconocido y seguido.' },
+  segundo_orden: { t: 'C', p: 'lib', tech: 1, n: 'Voliciones de segundo orden', by: 'Harry Frankfurt', fx: 'heal', d: 'Además de desear cosas, deseamos tener ciertos deseos. Eres libre cuando el deseo que te mueve es el que quieres que te mueva. El adicto que no quiere su adicción no lo es.' }
 };
 
 /* ---------- coherencia del sistema: sinergias y tensiones entre posturas de problemas distintos ---------- */
@@ -1562,66 +1889,82 @@ const SYS = {
 const SK = { a: '#f6d7b8', b: '#eebf94', c: '#d9a06c', d: '#b87a4a', e: '#8a5a3a' };
 const CH = {
   ousia: { n: 'OUSÍA', v: 'ou', p: { ousia: 1 } },
-  sofia: { n: 'PROF. SOFÍA', v: 'hi', p: { sk: SK.c, h: '#5b3a8c', hs: 'bun', g: 1, cl: '#f4f4fa', cs: 'lab', inn: '#3ab0a0' } },
-  guille: { n: 'GUILLE', v: 'mid', p: { sk: SK.b, h: '#e0702a', hs: 'wild', cl: '#c9382f', cs: 'hoodie', pn: '#2a3a66' } },
-  av0: { n: '', v: 'mid', p: { sk: SK.b, h: '#3a2a20', hs: 'short', cl: '#e03a2f', cs: 'tee', pn: '#2a3a8a' } },
-  av1: { n: '', v: 'hi', p: { sk: SK.c, h: '#2a1f4d', hs: 'long', cl: '#3b8fe0', cs: 'tee', pn: '#3a3566' } },
-  av2: { n: '', v: 'mid', p: { sk: SK.e, h: '#1d1438', hs: 'curly', cl: '#ffcf2e', cs: 'hoodie', pn: '#2f8a4a' } },
-  av3: { n: '', v: 'hi', p: { sk: SK.a, h: '#d04a9a', hs: 'bun', cl: '#6a47b8', cs: 'tee', pn: '#2a1f4d' } },
-  av4: { n: '', v: 'low', p: { sk: SK.d, h: '#1d1438', hs: 'part', g: 1, cl: '#2f9950', cs: 'hoodie', pn: '#5a4038' } },
-  av5: { n: '', v: 'mid', p: { sk: SK.a, h: '#e2c13a', hs: 'hat', hat: '#e03a2f', cl: '#f4f4fa', cs: 'tee', pn: '#33479e' } },
+  sofia: { n: 'PROF. SOFÍA', v: 'hi', p: { sk: SK.c, h: '#5b3a8c', hs: 'bun', g: 1, cl: '#f4f4fa', cs: 'lab', inn: '#3ab0a0', pn: '#3a3566', prop: 'book' } },
+  guille: { n: 'GUILLE', v: 'mid', p: { sk: SK.b, h: '#e0702a', hs: 'spiky', cl: '#1d1438', cs: 'punk', inn: '#c9382f', pn: '#2a3a66', acc: ['band', 'earring'], tie: '#ffcf2e', prop: 'razor' } },
+  av0: { n: '', v: 'mid', p: { sk: SK.b, h: '#3a2a20', hs: 'short', cl: '#e03a2f', cs: 'tee', pn: '#2a3a8a', pr: 'globe' } },
+  av1: { n: '', v: 'hi', p: { sk: SK.c, h: '#2a1f4d', hs: 'long', cl: '#3b8fe0', cs: 'overalls', inn: '#fff4d6' } },
+  av2: { n: '', v: 'mid', p: { sk: SK.e, h: '#1d1438', hs: 'afro', cl: '#ffcf2e', cs: 'hoodie', pn: '#2f8a4a' } },
+  av3: { n: '', v: 'hi', p: { sk: SK.a, h: '#d04a9a', hs: 'twin', cl: '#6a47b8', cs: 'dress', inn: '#ffcf2e', tie: '#ffcf2e' } },
+  av4: { n: '', v: 'low', p: { sk: SK.d, h: '#1d1438', hs: 'part', g: 1, cl: '#2f9950', cs: 'track', pn: '#2f9950' } },
+  av5: { n: '', v: 'mid', p: { sk: SK.a, h: '#e2c13a', hs: 'hat', hatk: 'cap', hat: '#e03a2f', cl: '#f4f4fa', cs: 'tee', pn: '#33479e', shorts: 1, pr: 'bone' } },
   /* guías */
-  hipatia: { n: 'HIPATIA', v: 'hi', p: { sk: SK.c, h: '#2a1f2d', hs: 'long', cl: '#f3ead2', cs: 'toga', laurel: 1 } },
-  teano: { n: 'TEANO', v: 'hi', p: { sk: SK.d, h: '#3a2a20', hs: 'curly', cl: '#7fb8ff', cs: 'toga' } },
-  emilie: { n: 'ÉMILIE', v: 'hi', p: { sk: SK.a, h: '#e9e4f0', hs: 'bun', cl: '#d0608a', cs: 'coat' } },
-  agustin: { n: 'AGUSTÍN', v: 'low', p: { sk: SK.d, h: '#5a4038', hs: 'bald', b: 1, cl: '#5a4a3a', cs: 'robe' } },
-  ariadna: { n: 'CAP. ARIADNA', v: 'mid', p: { sk: SK.c, h: '#7a2a2a', hs: 'hat', hat: '#22386a', cl: '#22386a', cs: 'coat', tie: '#ffcf2e' } },
-  ruth: { n: 'PROF. RUTH', v: 'mid', p: { sk: SK.a, h: '#b9b4c8', hs: 'short', g: 1, cl: '#8a4a6a', cs: 'suit', tie: '#ffcf2e' } },
-  democrito: { n: 'DEMÓCRITO', v: 'low', p: { sk: SK.c, h: '#e9e4f0', hs: 'bald', b: 2, cl: '#e0a020', cs: 'toga', fat: 1 } },
-  simone: { n: 'SIMONE', v: 'hi', p: { sk: SK.b, h: '#3a2a20', hs: 'bun', cl: '#2a2a3a', cs: 'suit', tie: '#d04a9a' } },
+  hipatia: { n: 'HIPATIA', v: 'hi', p: { sk: SK.c, h: '#2a1f2d', hs: 'long', cl: '#f3ead2', cs: 'toga', laurel: 1, prop: 'astrolabe' } },
+  teano: { n: 'TEANO', v: 'hi', p: { sk: SK.d, h: '#3a2a20', hs: 'curly', cl: '#7fb8ff', cs: 'toga', acc: ['earring'], prop: 'abacus' } },
+  emilie: { n: 'ÉMILIE', v: 'hi', p: { sk: SK.a, h: '#e9e4f0', hs: 'bun', cl: '#d0608a', cs: 'dress', inn: '#fff4d6', prop: 'quill' } },
+  agustin: { n: 'AGUSTÍN', v: 'low', p: { sk: SK.d, h: '#5a4038', hs: 'bald', b: 1, cl: '#5a4a3a', cs: 'robe', prop: 'hourglass' } },
+  ariadna: { n: 'CAP. ARIADNA', v: 'mid', p: { sk: SK.c, h: '#7a2a2a', hs: 'hat', hatk: 'tricorn', hat: '#22386a', cl: '#22386a', cs: 'coat', inn: '#c9382f', tie: '#ffcf2e', pn: '#f4f4fa', prop: 'thread' } },
+  ruth: { n: 'PROF. RUTH', v: 'mid', p: { sk: SK.a, h: '#b9b4c8', hs: 'bob', g: 1, cl: '#8a4a6a', cs: 'suit', tie: '#ffcf2e', prop: 'book' } },
+  democrito: { n: 'DEMÓCRITO', v: 'low', p: { sk: SK.c, h: '#e9e4f0', hs: 'bald', b: 2, cl: '#e0a020', cs: 'toga', fat: 1, prop: 'atom' } },
+  simone: { n: 'SIMONE', v: 'hi', p: { sk: SK.b, h: '#3a2a20', hs: 'bun', cl: '#2a2a3a', cs: 'dress', inn: '#d04a9a', acc: ['band', 'scarf'], tie: '#d04a9a', prop: 'book' } },
   /* líderes */
-  platon: { n: 'PLATÓN', v: 'low', p: { sk: SK.c, h: '#e9e4f0', hs: 'bald', b: 2, cl: '#f3ead2', cs: 'toga' } },
-  frege: { n: 'FREGE', v: 'low', p: { sk: SK.a, h: '#b9b4c8', hs: 'part', b: 2, g: 1, cl: '#2a2a3a', cs: 'suit', tie: '#33479e' } },
-  hume: { n: 'HUME', v: 'mid', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#b0362f', cs: 'coat', fat: 1 } },
-  mctaggart: { n: 'McTAGGART', v: 'low', p: { sk: SK.a, h: '#5a4038', hs: 'part', b: 3, cl: '#3a3a4a', cs: 'suit', tie: '#8a5ad0' } },
-  heraclito: { n: 'HERÁCLITO', v: 'low', p: { sk: SK.d, h: '#3a2a20', hs: 'wild', b: 2, cl: '#5a4a6a', cs: 'toga' } },
-  lewis: { n: 'DAVID LEWIS', v: 'mid', p: { sk: SK.a, h: '#8a6a4a', hs: 'wild', b: 2, g: 1, cl: '#6a4a3a', cs: 'suit', tie: '#2f9950' } },
-  lesniewski: { n: 'LEŚNIEWSKI', v: 'mid', p: { sk: SK.a, h: '#2a2a3a', hs: 'part', b: 3, g: 1, cl: '#3a4a3a', cs: 'suit', tie: '#e0a020' } },
-  laplace: { n: 'LAPLACE', v: 'mid', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#22386a', cs: 'coat' } },
-  carnap: { n: 'CARNAP', v: 'low', p: { sk: SK.a, h: '#8b90b8', hs: 'part', g: 1, cl: '#5a5a6a', cs: 'suit', tie: '#1d1438' } },
+  platon: { n: 'PLATÓN', v: 'low', p: { sk: SK.c, h: '#e9e4f0', hs: 'bald', b: 2, cl: '#f3ead2', cs: 'toga', prop: 'map' } },
+  frege: { n: 'FREGE', v: 'low', p: { sk: SK.a, h: '#b9b4c8', hs: 'part', b: 2, g: 1, cl: '#2a2a3a', cs: 'suit', tie: '#33479e', prop: 'pointer' } },
+  hume: { n: 'HUME', v: 'mid', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#b0362f', cs: 'coat', pn: '#5a3516', fat: 1, prop: 'wine' } },
+  mctaggart: { n: 'McTAGGART', v: 'low', p: { sk: SK.a, h: '#5a4038', hs: 'hat', hat: '#2a2a3a', b: 3, cl: '#3a3a4a', cs: 'suit', tie: '#8a5ad0', acc: ['monocle'], prop: 'cat' } },
+  heraclito: { n: 'HERÁCLITO', v: 'low', p: { sk: SK.d, h: '#3a2a20', hs: 'wild', b: 2, cl: '#5a4a6a', cs: 'toga', prop: 'torch' } },
+  lewis: { n: 'DAVID LEWIS', v: 'mid', p: { sk: SK.a, h: '#8a6a4a', hs: 'wild', b: 2, g: 1, cl: '#6a4a3a', cs: 'suit', tie: '#2f9950', prop: 'worlds' } },
+  lesniewski: { n: 'LEŚNIEWSKI', v: 'mid', p: { sk: SK.a, h: '#2a2a3a', hs: 'part', b: 3, g: 1, cl: '#3a4a3a', cs: 'suit', tie: '#e0a020', prop: 'blocks' } },
+  laplace: { n: 'LAPLACE', v: 'mid', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#22386a', cs: 'coat', inn: '#f4f4fa', pn: '#f4f4fa', prop: 'orrery' } },
+  carnap: { n: 'CARNAP', v: 'low', p: { sk: SK.a, h: '#8b90b8', hs: 'part', g: 1, cl: '#5a5a6a', cs: 'suit', tie: '#1d1438', prop: 'ruler' } },
   /* contrincantes */
-  rosalina: { n: 'NOVICIA ROSALINA', v: 'hi', p: { sk: SK.b, h: '#5a4038', hs: 'long', cl: '#5a4a3a', cs: 'robe' } },
-  donaldo: { n: 'TROPISTA DONALDO', v: 'mid', p: { sk: SK.c, h: '#e2c13a', hs: 'part', cl: '#2f9950', cs: 'tee' } },
-  pitias: { n: 'PERIPATÉTICA PITIAS', v: 'hi', p: { sk: SK.c, h: '#7a2a2a', hs: 'bun', cl: '#f3ead2', cs: 'toga' } },
-  hartry: { n: 'CONTADOR HARTRY', v: 'mid', p: { sk: SK.a, h: '#3a2a20', hs: 'short', g: 1, cl: '#3a5a8a', cs: 'suit', tie: '#ffcf2e' } },
-  estela: { n: 'ARQUITECTA ESTELA', v: 'hi', p: { sk: SK.e, h: '#1d1438', hs: 'curly', cl: '#3b8fe0', cs: 'hoodie' } },
-  berto: { n: 'LOGICISTA BERTO', v: 'low', p: { sk: SK.b, h: '#8a6a4a', hs: 'short', b: 1, cl: '#5a4038', cs: 'suit', tie: '#c92a26' } },
-  dana: { n: 'BILLARISTA DANA', v: 'hi', p: { sk: SK.d, h: '#1d1438', hs: 'short', cl: '#2f9950', cs: 'tee' } },
-  argan: { n: 'BOTICARIO ARGÁN', v: 'low', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', b: 3, cl: '#6a47b8', cs: 'coat' } },
-  catalina: { n: 'APRENDIZ CATALINA', v: 'hi', p: { sk: SK.b, h: '#e0702a', hs: 'long', cl: '#b0362f', cs: 'coat' } },
-  arturo: { n: 'RELOJERO ARTURO', v: 'mid', p: { sk: SK.b, h: '#5a4038', hs: 'part', b: 3, g: 1, cl: '#8a5a2a', cs: 'suit', tie: '#1d1438' } },
-  minka: { n: 'CARTÓGRAFA MINKA', v: 'hi', p: { sk: SK.a, h: '#2a1f4d', hs: 'bun', g: 1, cl: '#6a47b8', cs: 'lab', inn: '#ffcf2e' } },
-  brenda: { n: 'CONSTRUCTORA BRENDA', v: 'mid', p: { sk: SK.d, h: '#3a2a20', hs: 'hat', hat: '#e0a020', cl: '#d9542f', cs: 'tee' } },
-  wanda: { n: 'MARINERA WANDA', v: 'hi', p: { sk: SK.c, h: '#e2c13a', hs: 'short', cl: '#f4f4fa', cs: 'tee' } },
-  teodoro: { n: 'CARPINTERO TEODORO', v: 'low', p: { sk: SK.e, h: '#1d1438', hs: 'short', b: 1, cl: '#8a5a2a', cs: 'tee' } },
-  cratilo: { n: 'BAÑISTA CRÁTILO', v: 'mid', p: { sk: SK.c, h: '#3a2a20', hs: 'curly', b: 1, cl: '#7fb8ff', cs: 'toga' } },
-  alvina: { n: 'NOVELISTA ALVINA', v: 'hi', p: { sk: SK.a, h: '#7a2a2a', hs: 'long', g: 1, cl: '#d04a9a', cs: 'suit', tie: '#fff4d6' } },
-  gideon: { n: 'CUENTISTA GIDEÓN', v: 'mid', p: { sk: SK.b, h: '#3a2a20', hs: 'curly', cl: '#7a5ad0', cs: 'hoodie' } },
-  hubert: { n: 'DOBLE HUBERT', v: 'low', p: { sk: SK.a, h: '#b9b4c8', hs: 'part', cl: '#33479e', cs: 'suit', tie: '#c92a26' } },
-  leucipa: { n: 'ATOMISTA LEUCIPA', v: 'hi', p: { sk: SK.c, h: '#2a1f2d', hs: 'bun', cl: '#e0a020', cs: 'toga' } },
-  petra: { n: 'VETERINARIA PETRA', v: 'mid', p: { sk: SK.b, h: '#8a6a4a', hs: 'long', cl: '#f4f4fa', cs: 'lab', inn: '#2f9950' } },
-  ned: { n: 'CARPINTERO NED', v: 'low', p: { sk: SK.a, h: '#e0702a', hs: 'short', b: 1, cl: '#3a7fd0', cs: 'tee' } },
-  roberta: { n: 'REBELDE ROBERTA', v: 'hi', p: { sk: SK.d, h: '#d04a9a', hs: 'wild', cl: '#1d1438', cs: 'hoodie' } },
-  harriet: { n: 'JUEZA HARRIET', v: 'mid', p: { sk: SK.e, h: '#f0ecf6', hs: 'wig', g: 1, cl: '#1d1438', cs: 'robe' } },
-  holbach: { n: 'FATALISTA PAUL-HENRI', v: 'low', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#3a5a3a', cs: 'coat' } },
+  rosalina: { n: 'NOVICIA ROSALINA', v: 'hi', p: { sk: SK.b, h: '#8a5ad0', hs: 'bob', cl: '#3a2f4a', cs: 'robe', acc: ['pierce', 'earring'], prop: 'candle' } },
+  donaldo: { n: 'TROPISTA DONALDO', v: 'mid', p: { sk: SK.c, h: '#e2c13a', hs: 'dreads', cl: '#2f9950', cs: 'apron', inn: '#fff4d6', acc: ['band'], tie: '#d04a9a', pn: '#5a4038', prop: 'palette' } },
+  pitias: { n: 'PERIPATÉTICA PITIAS', v: 'hi', p: { sk: SK.c, h: '#7a2a2a', hs: 'pony', cl: '#f3ead2', cs: 'toga', acc: ['band'], tie: '#ffcf2e', prop: 'map' } },
+  hartry: { n: 'CONTADOR HARTRY', v: 'mid', p: { sk: SK.a, h: '#3a2a20', hs: 'part', cl: '#1b7d6b', cs: 'suit', tie: '#ffcf2e', acc: ['monocle'], prop: 'abacus' } },
+  estela: { n: 'ARQUITECTA ESTELA', v: 'hi', p: { sk: SK.e, h: '#1d1438', hs: 'afro', cl: '#3b8fe0', cs: 'overalls', inn: '#ffcf2e', acc: ['phones'], prop: 'square' } },
+  berto: { n: 'LOGICISTA BERTO', v: 'low', p: { sk: SK.b, h: '#8a6a4a', hs: 'short', b: 1, cl: '#5a4038', cs: 'suit', tie: '#c92a26', acc: ['scarf'], prop: 'pointer' } },
+  dana: { n: 'BILLARISTA DANA', v: 'hi', p: { sk: SK.d, h: '#1fb8d0', hs: 'mohawk', cl: '#2f9950', cs: 'track', pn: '#1d1438', acc: ['shades', 'earring'], prop: 'cue' } },
+  argan: { n: 'BOTICARIO ARGÁN', v: 'low', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', b: 3, cl: '#6a47b8', cs: 'coat', inn: '#2f9950', pn: '#3a2f4a', acc: ['monocle'], prop: 'flask' } },
+  catalina: { n: 'APRENDIZ CATALINA', v: 'hi', p: { sk: SK.b, h: '#e0702a', hs: 'twin', cl: '#1d1438', cs: 'goth', inn: '#b0362f', tie: '#b0362f', acc: ['paint'], prop: 'book' } },
+  arturo: { n: 'RELOJERO ARTURO', v: 'mid', p: { sk: SK.b, h: '#5a4038', hs: 'part', b: 3, cl: '#8a5a2a', cs: 'apron', inn: '#3a3566', pn: '#3a2a20', acc: ['monocle'], prop: 'watch' } },
+  minka: { n: 'CARTÓGRAFA MINKA', v: 'hi', p: { sk: SK.a, h: '#2a1f4d', hs: 'bun', g: 1, cl: '#6a47b8', cs: 'cape', inn: '#ffcf2e', pn: '#3a2f4a', prop: 'map' } },
+  brenda: { n: 'CONSTRUCTORA BRENDA', v: 'mid', p: { sk: SK.d, h: '#3a2a20', hs: 'hat', hatk: 'helmet', cl: '#d9542f', cs: 'overalls', inn: '#f4f4fa', prop: 'hammer' } },
+  wanda: { n: 'MARINERA WANDA', v: 'hi', p: { sk: SK.c, h: '#e2c13a', hs: 'hat', hatk: 'sailor', cl: '#f4f4fa', cs: 'sailor', pn: '#22386a', acc: ['earring'], prop: 'anchor' } },
+  teodoro: { n: 'CARPINTERO TEODORO', v: 'low', p: { sk: SK.e, h: '#1d1438', hs: 'dreads', b: 1, cl: '#8a5a2a', cs: 'overalls', inn: '#c9382f', prop: 'saw' } },
+  cratilo: { n: 'BAÑISTA CRÁTILO', v: 'mid', p: { sk: SK.c, h: '#3a2a20', hs: 'curly', b: 1, cl: '#7fb8ff', cs: 'toga', prop: 'duck' } },
+  alvina: { n: 'NOVELISTA ALVINA', v: 'hi', p: { sk: SK.a, h: '#7a2a2a', hs: 'long', g: 1, cl: '#d04a9a', cs: 'dress', inn: '#1d1438', acc: ['scarf'], tie: '#ffcf2e', prop: 'quill' } },
+  gideon: { n: 'CUENTISTA GIDEÓN', v: 'mid', p: { sk: SK.b, h: '#3a2a20', hs: 'curly', cl: '#3a2f4a', cs: 'cape', inn: '#7a5ad0', pn: '#1d1438', acc: ['earring', 'paint'], prop: 'book' } },
+  hubert: { n: 'DOBLE HUBERT', v: 'low', p: { sk: SK.a, h: '#b9b4c8', hs: 'part', cl: '#33479e', cs: 'suit', tie: '#c92a26', acc: ['shades'], prop: 'mirror' } },
+  leucipa: { n: 'ATOMISTA LEUCIPA', v: 'hi', p: { sk: SK.c, h: '#2a1f2d', hs: 'mohawk', cl: '#e0a020', cs: 'toga', acc: ['paint', 'earring'], prop: 'atom' } },
+  petra: { n: 'VETERINARIA PETRA', v: 'mid', p: { sk: SK.b, h: '#8a6a4a', hs: 'pony', cl: '#f4f4fa', cs: 'lab', inn: '#2f9950', pn: '#2f9950', tie: '#ff6b8a', prop: 'cat' } },
+  ned: { n: 'CARPINTERO NED', v: 'low', p: { sk: SK.a, h: '#e0702a', hs: 'hat', hatk: 'cap', hat: '#3a7fd0', b: 1, cl: '#3a7fd0', cs: 'overalls', inn: '#c9382f', prop: 'hammer' } },
+  roberta: { n: 'REBELDE ROBERTA', v: 'hi', p: { sk: SK.d, h: '#d04a9a', hs: 'mohawk', cl: '#1d1438', cs: 'punk', inn: '#d04a9a', pn: '#3a3566', acc: ['pierce', 'earring', 'chain'], prop: 'spray' } },
+  harriet: { n: 'JUEZA HARRIET', v: 'mid', p: { sk: SK.e, h: '#f0ecf6', hs: 'wig', g: 1, cl: '#1d1438', cs: 'robe', prop: 'gavel' } },
+  holbach: { n: 'FATALISTA PAUL-HENRI', v: 'low', p: { sk: SK.a, h: '#f0ecf6', hs: 'wig', cl: '#3a5a3a', cs: 'coat', pn: '#2a2a3a', prop: 'chain' } },
   /* vecinos */
-  guardia: { n: 'GUARDIA', v: 'low', p: { sk: SK.c, h: '#3a2a20', hs: 'hat', hat: '#33479e', cl: '#33479e', cs: 'coat', tie: '#ffcf2e' } },
-  v1: { n: 'VECINA', v: 'hi', p: { sk: SK.b, h: '#7a2a2a', hs: 'long', cl: '#2f9950', cs: 'tee' } },
-  v2: { n: 'VECINO', v: 'low', p: { sk: SK.d, h: '#1d1438', hs: 'short', b: 1, cl: '#d9843a', cs: 'tee' } },
-  v3: { n: 'ABUELA', v: 'mid', p: { sk: SK.a, h: '#e9e4f0', hs: 'bun', g: 1, cl: '#8a4a6a', cs: 'robe' } },
-  v4: { n: 'NIÑO', v: 'hi', p: { sk: SK.c, h: '#e2c13a', hs: 'hat', hat: '#2f9950', cl: '#ffcf2e', cs: 'tee' } },
-  v5: { n: 'ESTUDIANTE', v: 'mid', p: { sk: SK.e, h: '#2a1f4d', hs: 'curly', g: 1, cl: '#3b8fe0', cs: 'hoodie' } },
-  v6: { n: 'PESCADOR', v: 'low', p: { sk: SK.b, h: '#b9b4c8', hs: 'hat', hat: '#8a6a4a', b: 1, cl: '#5a7a8a', cs: 'tee' } }
+  guardia: { n: 'GUARDIA', v: 'low', p: { sk: SK.c, h: '#3a2a20', hs: 'hat', hat: '#33479e', cl: '#33479e', cs: 'coat', inn: '#f4f4fa', tie: '#ffcf2e', pn: '#22386a' } },
+  v1: { n: 'VECINA', v: 'hi', p: { sk: SK.b, h: '#7a2a2a', hs: 'long', cl: '#2f9950', cs: 'dress', inn: '#ffcf2e' } },
+  v2: { n: 'VECINO', v: 'low', p: { sk: SK.d, h: '#1d1438', hs: 'short', b: 1, cl: '#d9843a', cs: 'apron', inn: '#fff4d6' } },
+  v3: { n: 'ABUELA', v: 'mid', p: { sk: SK.a, h: '#e9e4f0', hs: 'bun', g: 1, cl: '#8a4a6a', cs: 'dress', inn: '#fff4d6', acc: ['scarf'], tie: '#3b8fe0' } },
+  v4: { n: 'NIÑO', v: 'hi', p: { sk: SK.c, h: '#e2c13a', hs: 'hat', hatk: 'beanie', hat: '#2f9950', cl: '#ffcf2e', cs: 'tee', shorts: 1, pr: 'blocks' } },
+  v5: { n: 'ESTUDIANTE', v: 'mid', p: { sk: SK.e, h: '#2a1f4d', hs: 'curly', g: 1, cl: '#3b8fe0', cs: 'hoodie', acc: ['phones'] } },
+  mama: { n: 'MAMÁ', v: 'hi', p: { sk: SK.b, h: '#3a2a20', hs: 'pony', cl: '#d0608a', cs: 'apron', inn: '#fff4d6', tie: '#ffcf2e' } },
+  abuelo: { n: 'ABUELO', v: 'low', p: { sk: SK.a, h: '#e9e4f0', hs: 'bald', b: 3, g: 1, cl: '#5a7a8a', cs: 'suit', tie: '#8a5a2a' } },
+  alfarero: { n: 'ALFARERO', v: 'low', p: { sk: SK.d, h: '#1d1438', hs: 'curly', b: 1, cl: '#c9703a', cs: 'apron', inn: '#8a5a2a', acc: ['band'], tie: '#f3ead2' } },
+  frutera: { n: 'FRUTERA', v: 'hi', p: { sk: SK.c, h: '#c9382f', hs: 'twin', cl: '#2f9950', cs: 'apron', inn: '#fff4d6', tie: '#ffcf2e' } },
+  abaquista: { n: 'ABAQUISTA', v: 'mid', p: { sk: SK.a, h: '#2a1f4d', hs: 'bob', g: 1, cl: '#3b8fe0', cs: 'robe' } },
+  tabernero: { n: 'TABERNERO', v: 'low', p: { sk: SK.b, h: '#5a4038', hs: 'bald', b: 3, cl: '#f4f4fa', cs: 'apron', inn: '#2f9950', fat: 1 } },
+  dominera: { n: 'DOMINERA', v: 'hi', p: { sk: SK.e, h: '#ffcf2e', hs: 'afro', cl: '#d9542f', cs: 'overalls', inn: '#1d1438', acc: ['earring'] } },
+  relojera: { n: 'RELOJERA', v: 'mid', p: { sk: SK.a, h: '#8a5ad0', hs: 'bun', cl: '#3a2f4a', cs: 'suit', tie: '#ffcf2e', acc: ['monocle'] } },
+  curadora: { n: 'CURADORA', v: 'hi', p: { sk: SK.d, h: '#3a2a20', hs: 'long', g: 1, cl: '#8a6a4a', cs: 'cape', inn: '#6a47b8' } },
+  calafate: { n: 'CALAFATE', v: 'low', p: { sk: SK.c, h: '#b9b4c8', hs: 'hat', hatk: 'beanie', hat: '#22386a', b: 2, cl: '#f4f4fa', cs: 'sailor', pn: '#22386a' } },
+  agente: { n: 'AGENTE DE VIAJES', v: 'hi', p: { sk: SK.b, h: '#d04a9a', hs: 'bob', cl: '#7a5ad0', cs: 'suit', tie: '#ffcf2e', acc: ['shades'] } },
+  librero: { n: 'LIBRERO', v: 'low', p: { sk: SK.a, h: '#8a6a4a', hs: 'wild', b: 1, g: 1, cl: '#5a4038', cs: 'hoodie', acc: ['scarf'], tie: '#d04a9a' } },
+  mueblera: { n: 'MUEBLERA', v: 'mid', p: { sk: SK.c, h: '#e0702a', hs: 'pony', cl: '#3a7fd0', cs: 'overalls', inn: '#ffcf2e' } },
+  juguetero: { n: 'JUGUETERO', v: 'mid', p: { sk: SK.b, h: '#2f9950', hs: 'spiky', cl: '#ffcf2e', cs: 'tee', pr: 'blocks', pn: '#c9382f', acc: ['paint'] } },
+  secretario: { n: 'SECRETARIO', v: 'mid', p: { sk: SK.d, h: '#1d1438', hs: 'part', g: 1, cl: '#2a2a3a', cs: 'suit', tie: '#3ab0a0' } },
+  neuro: { n: 'NEUROCIENTÍFICA', v: 'hi', p: { sk: SK.a, h: '#1fb8d0', hs: 'mohawk', g: 1, cl: '#f4f4fa', cs: 'lab', inn: '#d04a9a', pn: '#1d1438', acc: ['earring'] } },
+  v6: { n: 'PESCADOR', v: 'low', p: { sk: SK.b, h: '#b9b4c8', hs: 'hat', hatk: 'beanie', hat: '#8a6a4a', b: 1, cl: '#f4f4fa', cs: 'sailor', pn: '#5a7a8a' } }
 };
 
 /* ---------- disputas ----------
@@ -1759,7 +2102,7 @@ const BT = {
    Cada mapa es una cuadrícula de letras:
      T árbol   . pasto   , hierba alta (ideas salvajes)   = camino   ~ agua   f flores   # cerca   o roca
      S cartel  D monumento   * libro con una carta   < > salidas al oeste y al este
-     G ágora (5×3)   L biblioteca (4×3)   H I casas (3×3): la puerta queda abajo, en la columna del medio
+     G ágora (5×3)   L biblioteca (4×3)   H I casas (3×3) con interior propio: la puerta queda abajo, en la columna del medio
      letras minúsculas declaradas en «npcs»: personajes
    Líneas de diálogo: 'quién:emoción:texto' (o solo el texto, y habla el personaje del lugar). */
 
@@ -1800,6 +2143,24 @@ const GYM = [
   'W_____^_____W',
   'WWWWWWxWWWWWW'
 ];
+/* interiores de las casas: B estante, P mesa con el objeto que da tema a la casa, E cama, V planta, N ventana, r quien vive ahí */
+const HOME = [[
+  'WWNWWWNWWWW',
+  'WBB___P__VW',
+  'W_______*_W',
+  'W_r_:::___W',
+  'W___:::_*_W',
+  'W*________W',
+  'W____^___EW',
+  'WWWWWxWWWWW'], [
+  'WWWNWWWNWWW',
+  'WV__P___BBW',
+  'W_*_______W',
+  'W___:::_r_W',
+  'W_*_:::___W',
+  'W________*W',
+  'WE___^____W',
+  'WWWWWxWWWWW']];
 const TREES = 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT';
 const ROAD = '<=====================================z>';
 const guard = (prob, next) => ({ ch: 'guardia', d: 'left', hide: 'badge:' + prob, l: ['guardia:neutral:Alto. El camino a ' + next + ' es solo para quien porte el *' + PROB[prob].sello + '*.', 'guardia:picaro:Lo entrega el líder del ágora. Suerte con eso.'] });
@@ -1829,7 +2190,11 @@ const REG = [
     },
     sign: 'VILLA UMBRAL — «Donde empiezan las preguntas.» Al este: Universalia.',
     decor: 'Un monumento con un signo de interrogación. Debajo: «¿Por qué hay algo en vez de nada?».',
-    houses: { H: 'Tu casa. Huele a pan y a preguntas sin responder.', I: 'Toc, toc. —«¡Estamos cenando! Vuelva cuando haya resuelto algo.»' },
+    houses: {
+      H: { n: 'TU CASA', icon: 'hearth', ch: 'mama', look: 'La chimenea de casa. El fuego es el mismo de siempre… ¿o es otro cada vez?', items: ['superveniencia'],
+        l: ['mama:alegre:¡{name}! ¿Ya te vas de viaje? Llévate el libro del estante: era de tu abuelo.', 'mama:picaro:Y abrígate. La metafísica se piensa mejor con los pies calientes.'] },
+      I: { n: 'CASA DEL ABUELO', icon: 'teapot', ch: 'abuelo', look: 'Un juego de té. Seis tazas idénticas: ¿cómo sabes cuál es cuál?', items: ['criterio_id'],
+        l: ['abuelo:pensar:Quine venía a tomar el té y repetía: «no hay entidad sin identidad». Nunca supe si hablaba de las tazas.'] } },
     items: ['virtudes'] },
 
   /* ---------- 1 · Universalia ---------- */
@@ -1859,7 +2224,11 @@ const REG = [
     },
     sign: 'UNIVERSALIA — «Lo uno en lo múltiple.» Ágora de PLATÓN al norte.',
     decor: 'Una estatua del Triángulo en Sí. Ningún triángulo dibujado le hace justicia.',
-    houses: { H: 'Toc, toc. —«¡Aquí no hay nadie! Bueno, hay alguien, pero muy particular.»', I: 'Un cartel: «Se venden manzanas rojas. La rojez no se vende por separado.»' },
+    houses: {
+      H: { n: 'ALFARERÍA DE LAS FORMAS', icon: 'mold', ch: 'alfarero', look: 'Un molde de jarrón. Todos los jarrones del pueblo salieron de él, y ninguno es él.', items: ['escasas', 'indiscernibles'],
+        l: ['alfarero:alegre:Hago cien jarrones con un solo molde. El molde es uno; los jarrones, muchos. ¿Te suena?', 'alfarero:pensar:Aunque no todo predicado merece molde. «Ser jarrón o ser martes» no corta nada por sus articulaciones.'] },
+      I: { n: 'FRUTERÍA LA ROJEZ', icon: 'apple', ch: 'frutera', look: 'Una canasta de manzanas. Cada una con su rojo, o todas con el mismo: aquí no se ponen de acuerdo.', items: ['copresencia'],
+        l: ['frutera:picaro:Manzanas rojas, redondas y dulces. Si le quito el rojo, lo redondo y lo dulce… ¿qué me queda para venderte?', 'frutera:alegre:Los del haz dicen que nada: la manzana es sus cualidades, bien juntas.'] } },
     items: ['semejanza', 'refabstracta'],
     guide: { ch: 'hipatia', offer: ['aristotelismo', 'nominalismo', 'tropos'], gift: ['instanciacion', 'particular'], arg: { aristotelismo: 'unomuchos', nominalismo: 'tercerhombre', tropos: 'tercerhombre' },
       l: ['hipatia:alegre:Te doy la bienvenida a Universalia. Soy Hipatia y cuido la biblioteca.',
@@ -1898,7 +2267,9 @@ const REG = [
     },
     sign: 'NUMERIA — «Todo es número… si es que hay números.» Ágora de FREGE al sur.',
     decor: 'Un obelisco con cifras talladas. Alguien escribió con tiza: «¿y esto dónde queda?».',
-    houses: { H: 'Toc, toc. —«Somos dos en casa. O uno y uno. Estamos discutiéndolo.»' },
+    houses: {
+      H: { n: 'CASA DEL ÁBACO', icon: 'abacus', ch: 'abaquista', look: 'Un ábaco. Las cuentas están ahí; los números, quién sabe.', items: ['principio_hume', 'nominalizacion'],
+        l: ['abaquista:neutral:Para saber si hay tantos cuchillos como tenedores no hace falta contar: basta emparejarlos.', 'abaquista:picaro:De esa idea tan modesta, Frege quiso sacar la aritmética entera. Mira en el estante.'] } },
     items: ['conservat', 'aplicab'],
     guide: { ch: 'teano', offer: ['ficc_mat', 'estructuralismo'], gift: ['abstracto'], arg: { ficc_mat: 'benepist', estructuralismo: 'benid' },
       l: ['teano:alegre:¡Salud y números! Soy Teano. En Numeria contamos todo… menos qué es contar.',
@@ -1936,7 +2307,11 @@ const REG = [
     },
     sign: 'CAUSALIA — «A todo efecto, su disputa.» Ágora de HUME al norte.',
     decor: 'Una flecha de piedra. Apunta de la causa al efecto. O eso suponemos.',
-    houses: { H: 'Toc, toc. Golpeas la puerta y luego se oye un ruido. No te atreves a decir que lo causaste.', I: 'Un cartel: «Taller de billar. Se dan clases de sucesión regular.»' },
+    houses: {
+      H: { n: 'SALÓN DE BILLAR', icon: 'billiard', ch: 'tabernero', look: 'Una mesa de billar. La bola blanca espera a que alguien la convierta en causa.', items: ['inus'],
+        l: ['tabernero:neutral:El señor Hume viene cada tarde. Mira las bolas chocar y murmura: «solo sucesión, solo sucesión».', 'tabernero:picaro:Yo le digo que el golpe es parte de una receta: taco, bola, paño y pulso. Quita uno y no hay carambola.'] },
+      I: { n: 'TALLER DE DOMINÓS', icon: 'domino', ch: 'dominera', look: 'Una hilera de fichas a medio armar. Falta una, y por eso no cae nada más allá.', items: ['intervencion'],
+        l: ['dominera:alegre:¿Quieres saber qué causa qué? No mires: ¡mete la mano! Saca una ficha y fíjate qué deja de caer.'] } },
     items: ['cadena'],
     guide: { ch: 'emilie', offer: ['contrafactica', 'poderes'], gift: ['conexion'], arg: { contrafactica: 'accidental', poderes: 'accidental' },
       l: ['emilie:alegre:Bienvenue a Causalia. Soy Émilie: traduzco a Newton y discuto con todos.',
@@ -1974,7 +2349,11 @@ const REG = [
     },
     sign: 'CRONÓPOLIS — «Siempre es ahora.» (Alguien tachó «siempre».) Ágora de McTAGGART al norte.',
     decor: 'Un reloj de piedra sin agujas. La placa dice: «Hora exacta: esta».',
-    houses: { H: 'Toc, toc. —«Vuelva más tarde.» —«¿Y si "más tarde" no existe?» —«Entonces no vuelva.»', I: 'Un cartel: «Relojería. Se reparan presentes. No se aceptan devoluciones del pasado.»' },
+    houses: {
+      H: { n: 'RELOJERÍA EL AHORA', icon: 'clock', ch: 'relojera', look: 'Un reloj detenido en las 3:07. Lleva años siendo puntual dos veces al día.', items: ['especioso'],
+        l: ['relojera:pensar:Mis relojes marcan instantes. Pero tú nunca has vivido un instante: tu «ahora» siempre dura un poquito.'] },
+      I: { n: 'MUSEO DEL AYER', icon: 'bone', ch: 'curadora', look: 'Un hueso enorme. El animal ya no existe, o existe allá lejos, en el pasado.', items: ['foliacion'],
+        l: ['curadora:neutral:Este hueso es de un dinosaurio. Los presentistas entran, lo miran y preguntan: «¿de un qué?».', 'curadora:picaro:Yo guardo un secreto en el estante: una manera de tener un «ahora» para todo el universo.'] } },
     items: ['tensado', 'indexical'],
     guide: { ch: 'agustin', offer: ['presentismo', 'eternalismo', 'bloque'], gift: ['seriesab', 'hacedor'], arg: { presentismo: 'gracias', eternalismo: 'mctaggart', bloque: 'gracias' },
       l: ['agustin:pensar:¿Qué es el tiempo? Si nadie me lo pregunta, lo sé. Si quiero explicárselo a quien me lo pregunta, no lo sé.',
@@ -2012,7 +2391,9 @@ const REG = [
     },
     sign: 'PUERTO TESEO — «Mismo puerto, otras tablas.» Ágora de HERÁCLITO al sur.',
     decor: 'El ancla del barco de Teseo. Es la original. O la número catorce: nadie llevó la cuenta.',
-    houses: { H: 'Toc, toc. —«El que vivía aquí ya no es el mismo. Pero pase, pase.»' },
+    houses: {
+      H: { n: 'ASTILLERO', icon: 'ship', ch: 'calafate', look: 'La maqueta del barco de Teseo. Es la original: nadie le ha cambiado nada. Todavía.', items: ['sortal', 'estadios', 'fision'],
+        l: ['calafate:neutral:Aquí reparamos el barco de Teseo desde hace siglos. La gente pregunta si es el mismo. Yo pregunto: ¿el mismo *qué*?', 'calafate:pensar:Como barco, sigue. Como montón de tablas, hace rato que no.'] } },
     items: ['indexada', 'constitucion'],
     guide: { ch: 'ariadna', offer: ['endurantismo', 'perdurantismo'], gift: ['identidad', 'leibniz'], arg: { endurantismo: 'atomo', perdurantismo: 'atomo' },
       l: ['ariadna:alegre:¡Ah del muelle! Capitana Ariadna. Te doy la bienvenida a Puerto Teseo.',
@@ -2050,7 +2431,11 @@ const REG = [
     },
     sign: 'MODALIA — «Pudo ser de otro modo.» Ágora de DAVID LEWIS al norte.',
     decor: 'Un rombo de cristal: el símbolo de «es posible que». Refleja cosas que no están aquí.',
-    houses: { H: 'Toc, toc. —«No estoy. Pero podría haber estado: vuelva a ese mundo.»', I: 'Un cartel: «Agencia de viajes a otros mundos. CERRADO: están causalmente aislados.»' },
+    houses: {
+      H: { n: 'AGENCIA DE VIAJES A OTROS MUNDOS', icon: 'globe', ch: 'agente', look: 'Un globo terráqueo de un mundo que no es este. Los continentes están donde podrían haber estado.', items: ['accesibilidad', 'haecceidad'],
+        l: ['agente:alegre:¡Destinos posibles a precios necesarios! El único problema es llegar: desde aquí no todos los mundos son accesibles.'] },
+      I: { n: 'LIBRERÍA DE NOVELAS COMPLETAS', icon: 'novel', ch: 'librero', look: 'Una novela tan completa que dice todo sobre todo. Pesa lo suyo.', items: ['rigido'],
+        l: ['librero:neutral:En todas mis novelas sale Aristóteles. En algunas no fue filósofo; en otras ni se llamaba así. Pero es él.', 'librero:picaro:Los nombres son tercos: señalan a lo mismo aunque cambie todo lo demás.'] } },
     items: ['primitivo'],
     guide: { ch: 'ruth', offer: ['ersatzismo', 'ficc_modal'], gift: ['mundo', 'dere'], arg: { ersatzismo: 'humphrey', ficc_modal: 'aislados' },
       l: ['ruth:neutral:Soy la profesora Ruth. Modalia es el pueblo de lo que pudo ser.',
@@ -2089,7 +2474,11 @@ const REG = [
     },
     sign: 'MEREÓPOLIS — «El todo y sus partes (si los hay).» Ágora de LEŚNIEWSKI al norte.',
     decor: 'Un monumento hecho de cuatro bloques. ¿O son cinco cosas: los cuatro bloques y el monumento?',
-    houses: { H: 'Toc, toc. —«¿Golpeó usted la puerta, o solo unas tablas dispuestas en forma de puerta?»', I: 'Un cartel: «Mueblería. Mesas garantizadas (su existencia, no).»' },
+    houses: {
+      H: { n: 'MUEBLERÍA', icon: 'chair', ch: 'mueblera', look: 'Una silla. O cuatro patas, un asiento y un respaldo. O todo eso y además la silla.', items: ['extensionalidad'],
+        l: ['mueblera:enojo:¡Otro que viene a decirme que no vendo sillas, sino «partículas dispuestas en forma de silla»!', 'mueblera:neutral:Mismas partes, misma cosa: eso dice la teoría. Entonces dime si esta silla y su madera son una cosa o dos.'] },
+      I: { n: 'JUGUETERÍA DE BLOQUES', icon: 'blocks', ch: 'juguetero', look: 'Una torre de bloques. Si la desarmas, ¿destruyes algo o solo lo desordenas?', items: ['fusion'],
+        l: ['juguetero:alegre:Junta dos bloques y tienes… ¿dos bloques, o dos bloques y una torre? Los niños lo tienen clarísimo.'] } },
     items: ['cuantificador', 'compid'],
     guide: { ch: 'democrito', offer: ['nihilismo_mer', 'organicismo', 'sentidocomun'], gift: ['composicion'], arg: { nihilismo_mer: 'extranos', organicismo: 'extranos', sentidocomun: 'extranos' },
       l: ['democrito:alegre:¡Ja, ja! ¡Bienvenida la visita! Soy Demócrito, y me río porque todo es átomos y vacío.',
@@ -2127,7 +2516,11 @@ const REG = [
     },
     sign: 'VILLA ALBEDRÍO — «Elija su camino. (El resultado puede estar determinado.)» Ágora de LAPLACE al norte.',
     decor: 'Una bifurcación de piedra. Un camino dice «lo que hiciste»; el otro, «lo que pudiste hacer».',
-    houses: { H: 'Toc, toc. —«No pude evitar no abrirle. Las leyes de la física, usted entiende.»', I: 'Un cartel: «Juzgado. Hoy: La Sociedad contra las Condiciones Iniciales del Universo.»' },
+    houses: {
+      H: { n: 'JUZGADO', icon: 'scale', ch: 'secretario', look: 'La balanza de la justicia. Un platillo dice «pudo hacer otra cosa»; el otro, «lo hizo por sí mismo».', items: ['razones', 'fuente'],
+        l: ['secretario:neutral:La jueza no pregunta si el acusado pudo hacer otra cosa. Pregunta si habría atendido a razones.', 'secretario:picaro:Y si el acto salió de él y de nadie más. Está todo en los expedientes del estante.'] },
+      I: { n: 'LABORATORIO', icon: 'brain', ch: 'neuro', look: 'Un cerebro en un frasco. Tiene deseos; lo que no se sabe es si los aprueba.', items: ['segundo_orden'],
+        l: ['neuro:picaro:¿Black? ¿El del dispositivo en el cerebro de Jones? Colega mío. Nunca tuvo que encenderlo.', 'neuro:pensar:A mí me interesa otra cosa: no qué deseas, sino qué *quieres* desear.'] } },
     items: ['condicional'],
     guide: { ch: 'simone', offer: ['libertarismo', 'compatibilismo'], gift: ['determinismo', 'ppa'], arg: { libertarismo: 'reactivas', compatibilismo: 'reactivas' },
       l: ['simone:neutral:Soy Simone. En Villa Albedrío los caminos se bifurcan, y cada quien cree que elige el suyo.',
@@ -2180,6 +2573,11 @@ function MAPDEF(id) {
     return { id, n: 'ÁGORA DE ' + r.n, k: r.k, prob: r.prob, song: 'gym', inside: r.id, rows: GYM,
       npcs: { v: { ch: BT[r.gym.v].ch, d: 'left', bt: r.gym.v, sight: 3 }, l: { ch: BT[r.gym.l].ch, d: 'down', bt: r.gym.l } }, items: [], houses: {} };
   }
+  if (id.indexOf('house:') === 0) {
+    const p = id.split(':'), r = REG.find(x => x.id === p[1]), h = r.houses[p[2]];
+    return { id, n: h.n, k: r.k, prob: r.prob, song: r.song, inside: r.id, home: 1, icon: h.icon, look: h.look, rows: HOME[p[2] === 'H' ? 0 : 1],
+      npcs: { r: { ch: h.ch, d: 'down', l: h.l } }, items: h.items, houses: {} };
+  }
   return REG.find(x => x.id === id);
 }
 
@@ -2191,6 +2589,7 @@ const WILD = {};
     (r.items || []).forEach(c => { src[c] = 1; });
     if (r.guide) r.guide.offer.concat(r.guide.gift).forEach(c => { src[c] = 1; });
     Object.keys(r.npcs).forEach(k => { if (r.npcs[k].gift) src[r.npcs[k].gift] = 1; });
+    Object.keys(r.houses || {}).forEach(k => r.houses[k].items.forEach(c => { src[c] = 1; }));
   });
   Object.keys(BT).forEach(k => { src[BT[k].th] = 1; (BT[k].rw || []).forEach(c => { src[c] = 1; }); });
   Object.keys(CARDS).forEach(id => { if (!src[id]) (WILD[CARDS[id].p] = WILD[CARDS[id].p] || []).push(id); });
@@ -2205,7 +2604,7 @@ const FAST = () => !!window.MA_FAST;      // pruebas: sin esperas ni animaciones
 const KEY = 'metafisica-advance-v1';
 const ORDER = REG.map(r => r.id);
 const DIRS = ['up', 'down', 'left', 'right'], DV = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }, OPP = { up: 'down', down: 'up', left: 'right', right: 'left' };
-const SOLID = 'T~#oSDWc';
+const SOLID = 'T~#oSDWcBEPVN';
 const $ = (s, r) => (r || document).querySelector(s);
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 const wait = ms => new Promise(r => setTimeout(r, FAST() ? 0 : ms));
@@ -2271,7 +2670,7 @@ const LEG = {
   world: '<b>✚</b> caminar · <b>A</b> hablar, leer · <b>B</b> correr · <b>START</b> menú',
   menu: '<b>✚</b> mover · <b>A</b> elegir · <b>B</b> volver',
   text: '<b>A</b> continuar',
-  battle: '<b>A</b> elegir · <b>B</b> volver · <b>SELECT</b> pista de Ousía'
+  battle: '<b>A</b> elegir · <b>B</b> volver o abandonar · <b>SELECT</b> pista de Ousía'
 };
 function legend(k) { if (legendEl) legendEl.innerHTML = LEG[k || (mode === 'world' ? 'world' : 'menu')]; }
 
@@ -2329,6 +2728,7 @@ function anyKey(min) {
 }
 const chOf = who => (who === 'yo' ? Object.assign({}, CH['av' + S.av], { n: S.name.toUpperCase() }) : CH[who]);
 function setPor(canvas, who, emo) { const key = who === 'yo' ? 'av' + S.av : who; G.drawPortrait(canvas, key, CH[key].p, emo || 'neutral'); }
+function setFig(canvas, who, emo) { const key = who === 'yo' ? 'av' + S.av : who; G.drawFigure(canvas, key, CH[key].p, emo || 'neutral'); }
 async function say(who, emo, text) {
   const c = who ? chOf(who) : null;
   dlg.hidden = false; dlg.classList.toggle('nar', !c);
@@ -2399,8 +2799,8 @@ const repliedBy = id => Object.keys(CARDS).filter(k => CARDS[k].t === 'A' && (CA
 const li = a => a.map(x => '<li>' + esc(x) + '</li>').join('');
 function cardHtml(id, brief) {
   const C = CARDS[id], own = S.cards[id];
-  if (!own && !S.seen[id]) return '<div class="cd"><h3>? ? ?</h3><p class="dim">Todavía no te has cruzado con esta idea. Búscala en ' + (C.p === 'gen' ? 'Villa Umbral' : 'la región de ' + PROB[C.p].n) + '.</p></div>';
-  let h = '<div class="cd"><div class="chd">' + ideaImg(id) + '<div><i class="chip t' + C.t + '">' + TYPE[C.t].n + '</i><h3>' + esc(C.n) + '</h3>' + (C.by ? '<small>' + esc(C.by) + '</small>' : '') + '</div></div><p>' + fmt(C.d) + '</p>';
+  if (!own && !S.seen[id]) return '<div class="cd"><h3>? ? ?</h3><p class="dim">Todavía no te has cruzado con esta idea. Búscala ' + (C.tech ? 'dentro de las casas de ' : 'en ') + (C.p === 'gen' ? 'Villa Umbral' : 'la región de ' + PROB[C.p].n) + '.</p></div>';
+  let h = '<div class="cd"><div class="chd">' + ideaImg(id) + '<div><i class="chip t' + C.t + '">' + TYPE[C.t].n + (C.tech ? ' TÉCNICO' : '') + '</i><h3>' + esc(C.n) + '</h3>' + (C.by ? '<small>' + esc(C.by) + '</small>' : '') + '</div></div><p>' + fmt(C.d) + '</p>';
   if (!own) h += '<p class="dim">La viste, pero todavía no es tuya.</p>';
   else if (brief) { if (C.t === 'C') h += '<p class="dim">' + FX[C.fx] + '</p>'; }
   else if (C.t === 'T') h += '<h4>COMPROMISOS</h4><ul>' + li(C.cl) + '</ul><h4>INCOMPATIBLE CON</h4><ul class="no">' + li(C.inc) + '</ul>';
@@ -2456,27 +2856,44 @@ function loadMap(id) {
   }
   Object.keys(blds).forEach(k => { const b = blds[k]; b.door = { x: b.x0 + Math.floor((b.x1 - b.x0 + 1) / 2), y: b.y1 }; grid[b.door.y][b.door.x].door = k; });
   const at = (x, y) => (grid[y] || [])[x];
+  const HOMEMAP = { _: 'hf', W: 'hw', ':': 'hr' }, vi = (x, y, n) => (x * 7 + y * 13) % n;
   const layers = [0, 1].map(f => {
     const c = G.cv(w * 16, h * 16), g = c.getContext('2d');
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       const cl = grid[y][x], N = at(x, y - 1), So = at(x, y + 1), W = at(x - 1, y), E = at(x + 1, y);
       let t = cl.t;
-      if (t === '=' && ((N && N.t === '~') || (So && So.t === '~'))) t = 'b';
+      if (t === '=' && !inside && ((N && N.t === '~') || (So && So.t === '~'))) t = 'b';
+      if (def.home && HOMEMAP[t]) t = t === 'W' && y > 0 ? 'hx' : HOMEMAP[t];
       const tile = T[t] || T['.'];
-      g.drawImage(tile[T.anim[t] ? f : (x * 3 + y * 5) % 2], x * 16, y * 16);
+      g.drawImage(tile[T.anim[t] ? f : vi(x, y, tile.length)], x * 16, y * 16);
+      if (t === 'P' && def.icon) g.drawImage(G.prop(def.icon, def.k), x * 16, y * 16 - 4);
       if (t === '=' || t === '~') {
+        /* borde con lo que no es camino (o agua) y esquinas redondeadas */
+        const th = t === '=' ? 1 : 2, X = x * 16, Y = y * 16, same = n => n && (n.t === t || (t === '~' && n.t === '=')), n = !same(N), s = !same(So), ww = !same(W), e = !same(E);
         g.fillStyle = t === '=' ? G.shade(T.th.p, -.2) : G.shade(T.th.w, .45);
-        const th = t === '=' ? 1 : 2, X = x * 16, Y = y * 16, same = n => n && (n.t === t || (t === '~' && n.t === '=' ));
-        if (!same(N)) g.fillRect(X, Y, 16, th);
-        if (!same(So)) g.fillRect(X, Y + 16 - th, 16, th);
-        if (!same(W)) g.fillRect(X, Y, th, 16);
-        if (!same(E)) g.fillRect(X + 16 - th, Y, th, 16);
+        if (n) g.fillRect(X, Y, 16, th);
+        if (s) g.fillRect(X, Y + 16 - th, 16, th);
+        if (ww) g.fillRect(X, Y, th, 16);
+        if (e) g.fillRect(X + 16 - th, Y, th, 16);
+        g.fillStyle = T.th.g;
+        const corner = (cx, cy, dx, dy) => { g.fillRect(cx, cy, 1, 1); g.fillRect(cx + dx, cy, 1, 1); g.fillRect(cx, cy + dy, 1, 1); g.fillRect(cx + 2 * dx, cy, 1, 1); g.fillRect(cx, cy + 2 * dy, 1, 1); };
+        if (n && ww) corner(X, Y, 1, 1);
+        if (n && e) corner(X + 15, Y, -1, 1);
+        if (s && ww) corner(X, Y + 15, 1, -1);
+        if (s && e) corner(X + 15, Y + 15, -1, -1);
       }
     }
-    Object.keys(blds).forEach(k => { const b = blds[k]; g.drawImage(G.building(k, b.x1 - b.x0 + 1, def.k), b.x0 * 16, b.y0 * 16); });
+    Object.keys(blds).forEach(k => { const b = blds[k], hs = def.houses && def.houses[k]; g.drawImage(G.building(k, b.x1 - b.x0 + 1, def.k, hs && hs.icon), b.x0 * 16, b.y0 * 16); });
     return c;
   });
-  M = { id, def, w, h, grid, blds, npcs, items, exits, entry, layers, T };
+  /* las copas de los árboles van por encima de los personajes */
+  let over = null;
+  if (!inside) {
+    over = G.cv(w * 16, h * 16);
+    const og = over.getContext('2d');
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (grid[y][x].t === 'T') og.drawImage(T.Ttop[vi(x, y, T.Ttop.length)], x * 16, y * 16 - 8);
+  }
+  M = { id, def, w, h, grid, blds, npcs, items, exits, entry, layers, over, T };
   refresh();
 }
 function hiddenNpc(d) {
@@ -2566,7 +2983,9 @@ function draw(now) {
   if (S.flags.intro && (F.x !== P.x || F.y !== P.y || F.mv)) { const q = ppx(F, now); list.push([q[1] - 1, G.ousiaSheet()[F.dir][Math.floor(now / 300) % 2], Math.round(q[0]), Math.round(q[1]) - 6, null]); }
   put(P, G.sheet('av' + S.av, CH['av' + S.av].p));
   list.sort((a, b) => a[0] - b[0]);
+  list.forEach(l => { if (l[1].height === 20) ctx.drawImage(M.T.shadow, l[2] - cx + 2, l[3] - cy + 17); });
   list.forEach(l => { ctx.drawImage(l[1], l[2] - cx, l[3] - cy); if (l[4] && l[4].bang) ctx.drawImage(M.T.bang, l[2] - cx + 2, l[3] - cy - 13); });
+  if (M.over) ctx.drawImage(M.over, -cx, -cy);
 }
 function worldPress(b) {
   if (DIRS.includes(b)) { if (!P.mv) tryMove(b); return; }   // un toque corto también da un paso
@@ -2578,6 +2997,10 @@ function worldPress(b) {
     else if (c && c.t === 'S') run(() => lines(['::' + M.def.sign]));
     else if (c && c.t === 'D') run(() => lines(['::' + M.def.decor]));
     else if (c && c.t === '~') run(() => lines(['::El agua corre. ¿Es la misma de hace un momento?']));
+    else if (c && c.t === 'P') run(() => lines(['::' + (M.def.look || 'Una mesa de madera.')]));
+    else if (c && c.t === 'B') run(() => lines(['::Libros apretados lomo contra lomo. Los que valen la pena están sueltos por la casa.']));
+    else if (c && c.t === 'E') run(() => lines(['::Una cama bien hecha. No es momento de dormir: quedan problemas abiertos.']));
+    else if (c && c.t === 'V') run(() => lines(['::Una planta. Pierde hojas y echa otras, y nadie duda de que es la misma.']));
   } else if (b === 'start') run(menu);
 }
 
@@ -2638,9 +3061,16 @@ async function door(k) {
   else if (k === 'L') {
     S.hp = maxHp(); S.resp = { map: M.id, x: b.door.x, y: b.door.y + 1 }; AU.sfx.good(); hud();
     await lines(['::Entras a la BIBLIOTECA y repasas tus apuntes con calma. Tu *autorización* vuelve a estar completa.', 'ousia:alegre:(Ousía hojea un libro al revés. Si pierdes una disputa, volverás aquí.)']);
-  } else await lines(['::' + (M.def.houses[k] || 'La puerta está cerrada.')]);
+  } else if (M.def.houses[k]) {
+    /* casas con tema: se entra y se recorren */
+    AU.sfx.ok(); await fade(1); S.ret = { map: M.id, x: b.door.x, y: b.door.y + 1 }; enter('house:' + M.id + ':' + k, 'entry'); await fade(0);
+  } else await lines(['::La puerta está cerrada.']);
 }
-async function pick(it) { S.taken[M.id + ':' + it.i] = 1; it.off = true; await lines(['::Encuentras un libro entre el pasto. Tiene algo subrayado.']); await give(it.id); }
+async function pick(it) {
+  S.taken[M.id + ':' + it.i] = 1; it.off = true;
+  await lines([M.def.home ? '::Un tratado con las esquinas dobladas. Alguien anotó los márgenes: es de los difíciles.' : '::Encuentras un libro entre el pasto. Tiene algo subrayado.']);
+  await give(it.id);
+}
 /* la guía de la región: plantea el problema y deja elegir la postura inicial */
 async function lesson() {
   const g = M.def.guide, n = M.npcs.find(x => x.def.guide);
@@ -2696,12 +3126,15 @@ async function duel(n) {
 /* ---------- disputas ---------- */
 function scene(kc, wildId) {
   const root = el('div', 'battle', '<div class="sky"></div><div class="plat pf"></div><div class="plat pm"></div>' +
-    '<div class="fig foe">' + (wildId ? ideaImg(wildId) : '<canvas width="48" height="48"></canvas>') + '</div>' +
-    '<div class="fig me"><canvas width="48" height="48"></canvas></div><div class="fig ou"><canvas width="48" height="48"></canvas></div>' +
+    '<div class="fig foe">' + (wildId ? ideaImg(wildId) : '<canvas width="60" height="76"></canvas>') + '</div>' +
+    '<div class="fig me"><canvas width="60" height="76"></canvas></div><div class="fig ou"><canvas width="48" height="48"></canvas></div>' +
     '<div class="bx fbox"><div class="r1"><b></b><i></i></div><div class="th"></div><div class="bar"><i></i></div></div>' +
     '<div class="bx mbox"><div class="r1"><b></b><i></i></div><div class="th"></div><div class="bar"><i></i></div><div class="hp"></div></div>' +
     '<div class="bmsg"><div class="tx"></div><i class="nx" hidden>▼</i></div>');
   root.style.setProperty('--kc', kc);
+  /* fondo: el paisaje de la región, o la sala del ágora */
+  const bk = M.def.k + (M.def.inside ? 'i' : 'o');
+  root.querySelector('.sky').style.backgroundImage = 'url(' + (IMG['bg' + bk] || (IMG['bg' + bk] = G.backdrop(M.def.k, !!M.def.inside).toDataURL())) + ')';
   const q = s => $(s, root);
   const sc = {
     root, q, foeC: q('.foe canvas'), meC: q('.me canvas'), ouC: q('.ou canvas'), box: { tx: q('.bmsg .tx'), nx: q('.bmsg .nx') },
@@ -2713,7 +3146,7 @@ function scene(kc, wildId) {
     },
     hit(side) { const f = q('.' + side); f.classList.remove('hit'); void f.offsetWidth; f.classList.add('hit'); }
   };
-  setPor(sc.meC, 'yo', 'neutral'); setPor(sc.ouC, 'ousia', 'neutral');
+  setFig(sc.meC, 'yo', 'neutral'); setPor(sc.ouC, 'ousia', 'neutral');
   q('.mbox b').textContent = S.name.toUpperCase(); q('.mbox .r1 i').textContent = 'Nv ' + level();
   return sc;
 }
@@ -2749,7 +3182,7 @@ async function battle(id) {
   sc.q('.fbox b').textContent = foe.n; sc.q('.fbox .r1 i').textContent = b.title || '';
   sc.q('.fbox .th').textContent = CARDS[b.th].n;
   const upd = () => { sc.bar('fbox', st.fhp, b.hp); sc.bar('mbox', S.hp, mx); sc.q('.mbox .th').textContent = CARDS[my].n; };
-  const face = (who, emo) => setPor(who === 'foe' ? sc.foeC : who === 'me' ? sc.meC : sc.ouC, who === 'foe' ? b.ch : who === 'me' ? 'yo' : 'ousia', emo);
+  const face = (who, emo) => (who === 'ou' ? setPor(sc.ouC, 'ousia', emo) : setFig(who === 'foe' ? sc.foeC : sc.meC, who === 'foe' ? b.ch : 'yo', emo));
   const ou = async (emo, t) => { face('ou', emo); await sc.say(t, 'ou'); };
   face('foe', 'picaro');
   ui.appendChild(sc.root); upd();
@@ -2878,20 +3311,31 @@ async function battle(id) {
     await sc.say(msg + ' (−' + d + ')');
   };
 
-  const ACTS = [{ t: 'ARGÜIR' }, { t: 'PEDIR RAZONES' }, { t: 'CONCEPTO' }, { t: 'POSTURA' }];
+  const ACTS = [{ t: 'ARGÜIR' }, { t: 'PEDIR RAZONES' }, { t: 'CONCEPTO' }, { t: 'POSTURA' }, { t: 'PISTA' }, { t: 'ABANDONAR' }];
+  const pen = Math.min(S.xp, (lead ? 30 : 12) + 3 * kIdx), lv0 = level();   // lo que cuesta dejar la disputa a medias
   let result = null;
   while (!result) {
     sc.box.tx.innerHTML = fmt('¿Qué hará *' + S.name + '*?');
-    const a = await choose(ACTS, { cls: 'grid', cols: 2, cancel: false, idx: st.last, keys: { select: () => 9 } });
-    if (a < 4) st.last = a;
+    const a = await choose(ACTS, { cls: 'grid', cols: 3, idx: st.last, keys: { select: () => 4 } });
+    if (a >= 0 && a < 4) st.last = a;
+    if (a === 5 || a === -1) {
+      const c = await choose([{ t: 'Seguir disputando' }, { t: 'Abandonar la disputa', s: 'pierdes ' + (pen ? pen + ' puntos de rigor y ' : '') + '10 de autorización' }], { cls: 'full', title: '¿Abandonar? *' + foe.n + '* se quedará con la última palabra.' });
+      if (c === 1) result = 'flee';
+      continue;
+    }
     const acted = a === 0 ? await argue() : a === 1 ? await probe() : a === 2 ? await concept() : a === 3 ? await stance() : (await hint(), false);
     if (!acted) continue;
     if (st.fhp <= 0) result = 'win';
     else if (S.hp <= 0) result = 'lose';
     else { await foeTurn(); if (S.hp <= 0) result = 'lose'; }
   }
-  const won = result === 'win';
-  if (won) {
+  const won = result === 'win', fled = result === 'flee';
+  if (fled) {
+    S.xp -= pen; S.hp = Math.max(1, S.hp - 10);
+    face('me', 'duda'); face('foe', 'picaro'); face('ou', 'triste'); AU.sfx.back(); upd();
+    await sc.say('Dejas la disputa sin cerrar: pierdes ' + (pen ? pen + ' puntos de rigor y ' : '') + '10 de autorización' + (level() < lv0 ? ', y tu rigor baja al nivel ' + level() : '') + '.');
+    await sc.say(foe.n + ': «' + (lead ? 'Vuelve cuando tengas mejores razones. Aquí estaré.' : 'Las razones quedan pendientes. Cuando quieras, seguimos.') + '»', foe.v);
+  } else if (won) {
     face('foe', 'triste'); face('me', 'alegre'); face('ou', 'alegre'); AU.play('win');
     await sc.say('¡' + foe.n + ' se queda sin autorización para sostener su tesis!');
     await sc.say(foe.n + ': «' + b.win + '»', foe.v);
@@ -2909,10 +3353,10 @@ async function battle(id) {
   }
   await fade(1);
   sc.root.remove(); mode = 'world'; hudEl.hidden = false;
-  if (won) AU.play(M.def.song); else { S.hp = maxHp(); enter(S.resp.map, S.resp); }
+  if (won || fled) AU.play(M.def.song); else { S.hp = maxHp(); enter(S.resp.map, S.resp); }
   refresh();
   await fade(0);
-  if (!won) await lines(['ousia:triste:(Ousía te trajo hasta la biblioteca. Repasar un rato te devolvió la autorización.)']);
+  if (!won && !fled) await lines(['ousia:triste:(Ousía te trajo hasta la biblioteca. Repasar un rato te devolvió la autorización.)']);
   return won;
 }
 
@@ -2958,12 +3402,12 @@ async function wild(id) {
   const o = shuffle(q.o.map((t, i) => ({ t, ok: i === 0 })));
   const i = await choose(o.map(x => ({ t: x.t })), { cls: 'full', title: q.q, cancel: false });
   if (o[i].ok) {
-    AU.sfx.good(); setPor(sc.meC, 'yo', 'alegre'); setPor(sc.ouC, 'ousia', 'alegre'); sc.q('.foe').classList.add('caught');
+    AU.sfx.good(); setFig(sc.meC, 'yo', 'alegre'); setPor(sc.ouC, 'ousia', 'alegre'); sc.q('.foe').classList.add('caught');
     S.xp += 8;
     await sc.say('¡Entendido! ' + q.ok);
     await give(id);
   } else {
-    AU.sfx.bad(); setPor(sc.meC, 'yo', 'duda'); setPor(sc.ouC, 'ousia', 'triste'); sc.q('.foe').classList.add('fled');
+    AU.sfx.bad(); setFig(sc.meC, 'yo', 'duda'); setPor(sc.ouC, 'ousia', 'triste'); sc.q('.foe').classList.add('fled');
     await sc.say('No era eso… Lo correcto: «' + q.o[0] + '»');
     await sc.say('*' + C.n + '* se escabulle entre la hierba. Volverá a aparecer.');
   }
