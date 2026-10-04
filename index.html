@@ -2665,7 +2665,7 @@ function hud() {
   S.hp = Math.min(S.hp, maxHp());
   $('.aut', hudEl).textContent = 'AUT ' + Math.max(0, Math.ceil(S.hp)) + '/' + maxHp() + ' · Nv ' + level();
 }
-function banner(t) { const b = el('div', 'banner', esc(t)); topEl.appendChild(b); setTimeout(() => b.remove(), 2600); }
+function banner(t) { topEl.querySelectorAll('.banner').forEach(o => o.remove()); const b = el('div', 'banner', esc(t)); topEl.appendChild(b); setTimeout(() => b.remove(), 2600); }
 const LEG = {
   world: '<b>✚</b> caminar · <b>A</b> hablar, leer · <b>B</b> correr · <b>START</b> menú',
   menu: '<b>✚</b> mover · <b>A</b> elegir · <b>B</b> volver',
