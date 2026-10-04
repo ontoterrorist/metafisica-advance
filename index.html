@@ -253,6 +253,50 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .cast .pimg:nth-child(2n) { animation-delay: .7s; }
 .cast .pimg:nth-child(2), .cast .pimg:nth-child(3) { width: 6em; height: 6em; }
 
+/* ---------- escenario vertical (20 × 30 em): celular de pie, con la letra más grande ---------- */
+.stage.tall { width: 20em; height: 30em; }
+.tall .dlg, .tall .bmsg { height: 5.85em; padding: .5em .7em; }
+.tall .dlg .tx, .tall .bmsg .tx { height: 4.4em; }
+.tall .dlg .por { width: 6.4em; height: 6.4em; }
+.tall .dlg .nm { left: 6.8em; max-width: 12.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tall .banner { font-size: 1.1em; }
+.tall .got { white-space: normal; width: 18em; }
+.tall .menu.side { width: 13.5em; max-height: 20em; }
+.tall .menu.grid { left: .5em; width: auto; height: 5.85em; }
+.tall .menu.detail, .tall .menu.page { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+.tall .menu.detail { height: 20em; }
+.tall .menu.detail .mt, .tall .menu.page .mt { grid-column: 1; }
+.tall .menu.detail .ml { max-height: 6.9em; }
+.tall .menu.page .ml { max-height: 9.7em; }
+.tall .menu .md { margin-top: .25em; padding: .3em .3em .2em; border-left: 0; border-top: .1em dashed var(--panel-lo); }
+.tall .menu.full { max-height: 21em; }
+.tall .menu.avatars { width: 19em; top: 3em; }
+.tall .menu.names { top: 8em; }
+.tall .menu.names .ml { grid-template-columns: repeat(3, 1fr); }
+.tall .cd.score { grid-template-columns: minmax(0, 1fr); gap: .2em; }
+.tall .logo { font-size: 2.35em; }
+.tall .title { padding-top: 2.6em; }
+.tall .sub { max-width: 17em; line-height: 1.15; }
+.tall .cast { margin-top: 1.2em; }
+.tall .cast .pimg { width: 3.5em; height: 3.5em; }
+.tall .cast .pimg:nth-child(2), .tall .cast .pimg:nth-child(3) { width: 4.3em; height: 4.3em; }
+.tall .menu.titlem { bottom: 2.4em; }
+.tall .fbox { left: .5em; top: 2.1em; width: 13.5em; }
+.tall .foe { right: 1.3em; top: 5.6em; width: 8.2em; }
+.tall .pf { right: .1em; top: 12.1em; width: 11.6em; height: 2.5em; }
+.tall .wild .foe { right: 2.6em; top: 7.4em; width: 5.6em; }
+.tall .mbox { right: .5em; bottom: 6.85em; width: 13.5em; }
+.tall .me { left: .7em; bottom: 11.9em; width: 7.6em; }
+.tall .ou { left: 8.6em; bottom: 11.9em; width: 3.9em; }
+.tall .pm { left: .1em; bottom: 10.8em; width: 13.4em; height: 2.6em; }
+.tall .shot.to-foe { animation-name: tofoe-t; }
+.tall .shot.to-me { animation-name: tome-t; }
+@keyframes tofoe-t { from { left: 6em; bottom: 15em; transform: scale(.6); } to { left: 13em; bottom: 21em; transform: scale(1.3) rotate(360deg); } }
+@keyframes tome-t { from { left: 13em; bottom: 21em; transform: scale(.6); } to { left: 3.5em; bottom: 15em; transform: scale(1.3) rotate(-360deg); } }
+.tall .vs { flex-direction: column; gap: .1em; background: linear-gradient(172deg, #33479e 0 49%, #1d1438 49% 51%, #b0362f 51% 100%); }
+.tall .vs > div { width: 18em; }
+.tall .vs .pimg { width: 7em; height: 7em; }
+
 /* ---------- pantallas angostas: el mando pasa abajo ---------- */
 @media (max-width: 860px) and (min-height: 521px) {
   body { font-size: 20px; padding: max(8px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
@@ -2201,10 +2245,20 @@ const hudEl = el('div', 'hud', '<span class="loc"></span><span class="aut"></spa
 hudEl.hidden = true; ui.appendChild(hudEl);
 const dlg = el('div', 'dlg', '<canvas class="por" width="48" height="48"></canvas><b class="nm"></b><div class="tx"></div><i class="nx">▼</i>');
 dlg.hidden = true; ui.appendChild(dlg);
+/* tamaño de la vista en píxeles de juego: apaisada 240×160 (30×20 em) o, en pantallas verticales, 160×240 (20×30 em),
+   que deja la letra bastante más grande */
+let VW = 240, VH = 160;
 function fit() {
   const w = app.clientWidth, h = app.clientHeight;
   if (w < 40 || h < 40) return;
-  stage.style.fontSize = (Math.min(w, h * 1.5) / 30).toFixed(2) + 'px';
+  const wide = Math.min(w, h * 1.5) / 30, high = Math.min(w, h * 2 / 3) / 20, tall = high > wide * 1.15;
+  stage.classList.toggle('tall', tall);
+  stage.style.fontSize = (tall ? high : wide).toFixed(2) + 'px';
+  const vw = tall ? 160 : 240, vh = tall ? 240 : 160;
+  if (vw !== VW || vh !== VH || ctx.canvas.width !== vw) {
+    VW = vw; VH = vh;
+    [ctx.canvas, fctx.canvas].forEach(c => { c.width = VW; c.height = VH; });
+  }
 }
 function hud() {
   if (!M) return;
@@ -2501,9 +2555,9 @@ function ppx(e, now) {
 }
 function draw(now) {
   const W = M.w * 16, H = M.h * 16, pp = ppx(P, now);
-  const cx = Math.round(W <= 240 ? (W - 240) / 2 : Math.max(0, Math.min(W - 240, pp[0] + 8 - 120)));
-  const cy = Math.round(H <= 160 ? (H - 160) / 2 : Math.max(0, Math.min(H - 160, pp[1] + 8 - 80)));
-  ctx.fillStyle = '#0e0d1f'; ctx.fillRect(0, 0, 240, 160);
+  const cx = Math.round(W <= VW ? (W - VW) / 2 : Math.max(0, Math.min(W - VW, pp[0] + 8 - VW / 2)));
+  const cy = Math.round(H <= VH ? (H - VH) / 2 : Math.max(0, Math.min(H - VH, pp[1] + 8 - VH / 2)));
+  ctx.fillStyle = '#0e0d1f'; ctx.fillRect(0, 0, VW, VH);
   ctx.drawImage(M.layers[Math.floor(now / 480) % 2], -cx, -cy);
   const list = [];
   M.items.forEach(it => { if (!it.off) list.push([it.y * 16, M.T.item[Math.floor(now / 400) % 2], it.x * 16, it.y * 16 - 2, null]); });
@@ -2536,9 +2590,10 @@ function anim(dur, f) {
     requestAnimationFrame(tick);
   });
 }
-const fade = to => anim(240, p => { fctx.clearRect(0, 0, 240, 160); fctx.fillStyle = 'rgba(14,13,31,' + (to ? p : 1 - p) + ')'; fctx.fillRect(0, 0, 240, 160); });
-const SPIRAL = (function () {
-  const out = []; let x0 = 0, y0 = 0, x1 = 14, y1 = 9;
+const fade = to => anim(240, p => { fctx.clearRect(0, 0, VW, VH); fctx.fillStyle = 'rgba(14,13,31,' + (to ? p : 1 - p) + ')'; fctx.fillRect(0, 0, VW, VH); });
+/* casillas de 16 px de la vista, en espiral hacia el centro */
+function spiral() {
+  const out = []; let x0 = 0, y0 = 0, x1 = VW / 16 - 1, y1 = VH / 16 - 1;
   while (x0 <= x1 && y0 <= y1) {
     for (let x = x0; x <= x1; x++) out.push([x, y0]);
     for (let y = y0 + 1; y <= y1; y++) out.push([x1, y]);
@@ -2547,19 +2602,20 @@ const SPIRAL = (function () {
     x0++; y0++; x1--; y1--;
   }
   return out;
-})();
+}
 /* entrada a una disputa: destellos y luego el telón (espiral, barras o persiana) */
 async function transition(kind) {
-  await anim(430, p => { fctx.clearRect(0, 0, 240, 160); if (Math.floor(p * 6) % 2 === 0) { fctx.fillStyle = 'rgba(255,255,255,.8)'; fctx.fillRect(0, 0, 240, 160); } });
+  const SP = spiral();
+  await anim(430, p => { fctx.clearRect(0, 0, VW, VH); if (Math.floor(p * 6) % 2 === 0) { fctx.fillStyle = 'rgba(255,255,255,.8)'; fctx.fillRect(0, 0, VW, VH); } });
   await anim(kind === 'spiral' ? 760 : 560, p => {
-    fctx.clearRect(0, 0, 240, 160); fctx.fillStyle = DARK;
-    if (kind === 'spiral') { const n = Math.floor(p * SPIRAL.length); for (let i = 0; i < n; i++) fctx.fillRect(SPIRAL[i][0] * 16, SPIRAL[i][1] * 16, 16, 16); }
-    else if (kind === 'bars') for (let i = 0; i < 10; i++) { const w = Math.ceil(p * 240); fctx.fillRect(i % 2 ? 240 - w : 0, i * 16, w, 16); }
-    else { const h = Math.ceil(p * 80); fctx.fillRect(0, 0, 240, h); fctx.fillRect(0, 160 - h, 240, h); for (let i = 0; i < 6; i++) { const w = Math.ceil(p * 120); fctx.fillRect(i % 2 ? 240 - w : 0, 28 + i * 18, w, 6); } }
+    fctx.clearRect(0, 0, VW, VH); fctx.fillStyle = DARK;
+    if (kind === 'spiral') { const n = Math.floor(p * SP.length); for (let i = 0; i < n; i++) fctx.fillRect(SP[i][0] * 16, SP[i][1] * 16, 16, 16); }
+    else if (kind === 'bars') for (let i = 0; i < VH / 16; i++) { const w = Math.ceil(p * VW); fctx.fillRect(i % 2 ? VW - w : 0, i * 16, w, 16); }
+    else { const h = Math.ceil(p * VH / 2); fctx.fillRect(0, 0, VW, h); fctx.fillRect(0, VH - h, VW, h); for (let i = 0; i < 6; i++) { const w = Math.ceil(p * VW / 2); fctx.fillRect(i % 2 ? VW - w : 0, VH / 2 - 52 + i * 18, w, 6); } }
   });
-  fctx.fillStyle = DARK; fctx.fillRect(0, 0, 240, 160);
+  fctx.fillStyle = DARK; fctx.fillRect(0, 0, VW, VH);
 }
-const reveal = () => anim(420, p => { fctx.clearRect(0, 0, 240, 160); fctx.fillStyle = DARK; const h = Math.floor(80 * (1 - p)); fctx.fillRect(0, 0, 240, h); fctx.fillRect(0, 160 - h, 240, h); });
+const reveal = () => anim(420, p => { fctx.clearRect(0, 0, VW, VH); fctx.fillStyle = DARK; const h = Math.floor(VH / 2 * (1 - p)); fctx.fillRect(0, 0, VW, h); fctx.fillRect(0, VH - h, VW, h); });
 async function vsBanner(b) {
   const v = el('div', 'vs', '<div class="va">' + porImg('av' + S.av, 'enojo') + '<b>' + esc(S.name.toUpperCase()) + '</b></div><i>VS</i><div class="vb">' + porImg(b.ch, 'picaro') + '<b>' + esc(CH[b.ch].n) + '</b><small>' + esc(b.title + ' · ' + CARDS[b.th].n) + '</small></div>');
   topEl.appendChild(v);
