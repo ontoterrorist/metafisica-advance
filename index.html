@@ -197,12 +197,12 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .battle .sky { position: absolute; inset: 0; background-color: color-mix(in srgb, var(--kc) 30%, #fff4d6); background-size: cover; background-position: 50% 62%; image-rendering: pixelated; }
 .plat { position: absolute; border-radius: 50%; background: color-mix(in srgb, var(--kc) 62%, #fff); box-shadow: 0 0 0 .13em var(--line), inset 0 -.4em 0 0 rgba(0, 0, 0, .16), inset 0 .25em 0 0 rgba(255, 255, 255, .35); }
 .pf { right: 1.1em; top: 8.45em; width: 12.2em; height: 2.1em; }
-.pm { left: .1em; bottom: 4.5em; width: 13.4em; height: 2.6em; }
+.pm { left: .1em; bottom: 4.2em; width: 13.4em; height: 2.6em; }
 .fig { position: absolute; }
 .fig canvas, .fig img { display: block; width: 100%; height: auto; }
 .foe { right: 3.4em; top: .1em; width: 7.6em; animation: in-r .5s steps(8) both; }
-.me { left: 1.3em; bottom: 5.45em; width: 8.2em; animation: in-l .5s steps(8) both; }
-.ou { left: 9.9em; bottom: 5.7em; width: 4em; animation: in-l .7s steps(8) both, bob 1.2s .7s steps(2) infinite; }
+.me { left: 1.6em; bottom: 5.1em; width: 8em; animation: in-l .5s steps(8) both; }
+.ou { left: 10.2em; bottom: 5.7em; width: 4em; animation: in-l .7s steps(8) both, bob 1.2s .7s steps(2) infinite; }
 .wild .foe { right: 4.6em; top: 1.3em; width: 6em; }
 .wild .fbox .bar { display: none; }
 .wild .foe img { width: 100%; height: auto; animation: hop .7s steps(3) infinite; }
@@ -286,14 +286,14 @@ img.idea { flex: none; width: 1.45em; height: 1.45em; }
 .tall .foe { right: 1em; top: 5.3em; width: 7.4em; }
 .tall .pf { right: .1em; top: 13.4em; width: 10em; height: 1.9em; }
 .tall .wild .foe { right: 2.6em; top: 7.4em; width: 5.6em; }
-.tall .mbox { right: .5em; bottom: 6.85em; width: 13.5em; }
-.tall .me { left: .4em; bottom: 10.9em; width: 7.4em; }
-.tall .ou { left: 7.9em; bottom: 11em; width: 3.4em; }
-.tall .pm { left: 0; bottom: 10.2em; width: 12em; height: 2em; }
+.tall .mbox { right: .5em; bottom: 6.85em; width: 10.6em; }
+.tall .me { left: .5em; bottom: 6.2em; width: 7.8em; }
+.tall .ou { left: 9.4em; bottom: 10.9em; width: 3.4em; }
+.tall .pm { left: 0; bottom: 5.4em; width: 10.4em; height: 2.4em; }
 .tall .shot.to-foe { animation-name: tofoe-t; }
 .tall .shot.to-me { animation-name: tome-t; }
-@keyframes tofoe-t { from { left: 6em; bottom: 15em; transform: scale(.6); } to { left: 13em; bottom: 21em; transform: scale(1.3) rotate(360deg); } }
-@keyframes tome-t { from { left: 13em; bottom: 21em; transform: scale(.6); } to { left: 3.5em; bottom: 15em; transform: scale(1.3) rotate(-360deg); } }
+@keyframes tofoe-t { from { left: 6em; bottom: 13em; transform: scale(.6); } to { left: 13em; bottom: 21em; transform: scale(1.3) rotate(360deg); } }
+@keyframes tome-t { from { left: 13em; bottom: 21em; transform: scale(.6); } to { left: 3.5em; bottom: 11em; transform: scale(1.3) rotate(-360deg); } }
 .tall .vs { flex-direction: column; gap: .1em; background: linear-gradient(172deg, #33479e 0 49%, #1d1438 49% 51%, #b0362f 51% 100%); }
 .tall .vs > div { width: 18em; }
 .tall .vs .pimg { width: 7em; height: 7em; }
@@ -1458,6 +1458,96 @@ function person(p, emo, full) {
   if (p.prop && PROPS[p.prop]) PROPS[p.prop](W, hand[0] + 6 + 2, hand[1]);
   return W.outline(INK).under(30, 73.6, 17, 2.3, SHADOW);
 }
+/* quien juega, en las disputas: medio cuerpo visto de espaldas (48×60), como los entrenadores de Pokémon.
+   La emoción se lee en los brazos y en los signos alrededor de la cabeza */
+function back(p, emo) {
+  emo = emo || 'neutral';
+  const B = px(48, 60), fw = p.fat ? 12.5 : 11, sk = p.sk, skD = shade(sk, -.2), hr = p.h, hrD = shade(hr, -.3), hrL = shade(hr, .28), hs = p.hs;
+  const cl = p.cl, clD = shade(cl, -.26), clL = shade(cl, .25), cs = p.cs, inn = p.inn || '#3ab0a0', tie = p.tie || '#e03a2f';
+  const pn = cs === 'overalls' ? cl : cs === 'suit' && !p.pn ? shade(cl, -.2) : p.pn || '#3a3566', top = cs === 'overalls' ? inn : cl, topD = shade(top, -.26);
+  const low = cs === 'toga' || cs === 'robe' || cs === 'dress' || cs === 'goth' ? cl : pn;
+  const upR = emo === 'alegre' || emo === 'sorpresa', upL = emo === 'sorpresa';
+  if (cs === 'cape') B.r(8, 38, 32, 22, p.inn || '#ffcf2e');
+  /* cadera, torso y cuello */
+  B.r(13, 55, 22, 5, low).r(32, 55, 3, 5, shade(low, -.28)).r(23, 57, 2, 3, shade(low, -.28));
+  B.r(13, 38, 22, 18, top).r(15, 37, 18, 1, top).r(32, 39, 3, 17, topD);
+  B.r(20, 31, 8, 7, sk).r(26, 31, 2, 7, skD);
+  switch (cs) {
+    case 'overalls': B.r(16, 47, 16, 9, cl).r(30, 47, 2, 9, clD).l(17, 37, 28, 47, cl).l(18, 37, 29, 47, cl).l(30, 37, 19, 47, cl).l(29, 37, 18, 47, cl).p(17, 48, '#ffcf2e').p(30, 48, '#ffcf2e').r(20, 51, 7, 5, clD).r(21, 52, 5, 3, cl).r(19, 37, 10, 1, topD); break;
+    case 'hoodie': B.e(24, 41.5, 9.5, 5.5, clD).e(24, 40.5, 8, 4.2, cl).e(24, 39, 5, 2, clD).e(21, 39.5, 2, 1, clL).r(13, 54, 22, 2, clD); break;
+    case 'dress': B.e(24, 38, 5.5, 2.2, sk).l(24, 40, 24, 49, clD).r(13, 50, 22, 2, inn).r(19, 48, 4, 6, inn).r(25, 48, 4, 6, inn).r(23, 50, 2, 2, shade(inn, -.3)).r(19, 53, 4, 1, shade(inn, -.3)).r(25, 53, 4, 1, shade(inn, -.3)); break;
+    case 'goth': B.e(24, 38, 5.5, 2.2, sk).r(13, 50, 22, 1, inn); for (let y = 40; y < 50; y += 2) B.p(23, y, inn).p(25, y + 1, inn); break;
+    case 'track': B.r(19, 35, 10, 3, clD).r(13, 42, 22, 1, '#ffffff').r(13, 54, 22, 2, clD).r(18, 46, 12, 1, clD); break;
+    case 'cape': { const c = p.inn || '#ffcf2e', cD = shade(c, -.25); B.r(11, 38, 26, 22, c).r(17, 36, 14, 3, cD).l(17, 41, 16, 59, cD).l(24, 41, 24, 59, cD).l(31, 41, 32, 59, cD).r(35, 39, 2, 21, cD); break; }
+    case 'suit': case 'coat': case 'lab': B.r(18, 35, 12, 3, clD).l(24, 39, 24, 55, clD).r(13, 55, 22, 1, clD); if (cs !== 'suit') B.r(13, 55, 22, 5, cl).r(23, 50, 2, 10, clD); break;
+    case 'toga': B.l(13, 52, 33, 38, clD).l(13, 53, 34, 39, clD).l(15, 55, 34, 42, clL).l(18, 59, 34, 47, clD); break;
+    case 'robe': B.e(24, 39.5, 8, 4, clD).e(24, 39, 6.5, 2.8, cl).r(13, 51, 22, 2, '#d9a85a'); break;
+    case 'punk': [14, 16, 31, 33].forEach(x => B.p(x, 38, '#d9d4e6').p(x, 40, '#d9d4e6')); B.r(18, 35, 12, 3, clD).r(13, 54, 22, 2, '#0e0d1f'); bits(B, ICONS.bone, 22, 43, '#f4f4fa'); break;
+    case 'sailor': for (let y = 46; y < 56; y += 3) B.r(13, y, 22, 1, '#22386a'); B.r(16, 36, 16, 8, '#22386a').r(17, 42, 14, 1, '#ffffff'); break;
+    case 'apron': B.r(19, 37, 10, 1, topD).l(18, 38, 23, 50, inn).l(30, 38, 25, 50, inn).r(13, 50, 22, 1, inn).r(21, 49, 3, 3, inn).r(25, 49, 3, 3, inn).l(22, 52, 21, 57, inn).l(26, 52, 27, 57, inn); break;
+    default: B.r(19, 37, 10, 1, topD).r(13, 55, 22, 1, clD).l(24, 40, 24, 46, clD);
+  }
+  /* brazos */
+  const short = cs === 'tee' || cs === 'sailor' || cs === 'apron' || cs === 'overalls' || cs === 'toga' || cs === 'dress', wide = cs === 'robe' ? 1 : 0;
+  const arm = (s, up) => {
+    const x = s < 0 ? 9 - wide : 35, w2 = 4 + wide;
+    if (!up) {
+      for (let i = 0; i < 15; i++) B.r(x, 39 + i, w2, 1, short && i > 5 ? sk : top);
+      B.r(s < 0 ? x : x + w2 - 1, 39, 1, 15, short ? skD : topD).r(x, 54, w2, 3, sk);
+      if (cs === 'track') B.r(s < 0 ? x : x + w2 - 1, 39, 1, 15, '#ffffff');
+      if (cs === 'coat' || cs === 'suit') B.r(x, 52, w2, 2, '#ffffff');
+      return;
+    }
+    for (let i = 0; i < 13; i++) B.r(x + s * Math.round(i * .32), 41 - i, w2, 2, short && i >= 6 ? sk : top);
+    B.r(x + s * 4, 26, w2, 3, sk);
+  };
+  arm(-1, upL); arm(1, upR);
+  /* el morral de las cartas, en bandolera */
+  if (cs !== 'cape') B.l(15, 38, 31, 53, '#5a3516').l(16, 38, 32, 53, '#8a5a2a').l(17, 38, 33, 53, '#8a5a2a');
+  B.r(29, 51, 10, 9, '#8a5a2a').r(29, 51, 10, 4, '#a87a3a').r(29, 54, 10, 1, '#5a3516').r(33, 54, 2, 2, '#ffcf2e').r(38, 51, 1, 9, '#5a3516');
+  /* cabeza: nuca, orejas y pelo */
+  const lft = Math.floor(24 - fw), wd2 = Math.round(2 * fw);
+  B.e(24 - fw - .4, 22.5, 2, 3, sk).e(24 + fw + .4, 22.5, 2, 3, skD);
+  B.e(24, 21, fw, 13, sk);
+  B.swap(sk, skD, (x, y) => { const dx = (x + .5 - 24) / fw, dy = (y + .5 - 21) / 13; return dx * dx + dy * dy <= 1 && dx > .2 && dx * dx + dy * dy > .72; });
+  if (p.g || has(p, 'shades')) B.r(lft - 2, 21, 3, 1, INK).r(lft + wd2 - 1, 21, 3, 1, INK);
+  const cap = () => B.e(24, 17.5, fw + 1, 12.5, hr).e(19, 9, 3.5, 1.3, hrL).p(25, 11, hrD).p(26, 12, hrD).p(24, 12, hrD);
+  const fringe = () => { for (let i = -3; i <= 3; i++) B.l(24 + i * 3, 24, 24 + i * 2.7, 29 - Math.abs(i) * .5, hrD); };
+  switch (hs) {
+    case 'long': B.e(24, 20, fw + 2.5, 15, hr).r(lft - 2, 20, wd2 + 4, 19, hr).e(24, 39, fw + 2.5, 2.5, hrD).e(19, 9, 4, 1.5, hrL).l(17, 14, 16, 38, hrD).l(24, 12, 24, 39, hrD).l(31, 14, 32, 38, hrD).l(21, 22, 20, 36, hrL); break;
+    case 'afro': B.e(24, 15.5, fw + 7.5, 15, hr); for (let i = 0; i < 12; i++) B.p(7 + i * 3, 5 + (i * 7) % 11, hrL).p(9 + i * 3, 13 + (i * 5) % 13, hrD).p(8 + i * 3, 22 + (i * 3) % 6, hrD); break;
+    case 'twin': cap(); B.l(24, 5, 24, 29, hrD); [-1, 1].forEach(s => { B.e(24 + s * (fw + 4.5), 27, 3.6, 9, hr).e(24 + s * (fw + 4.5), 34, 2.4, 3, hrD).r(24 + s * (fw + 3) - 1, 17, 3, 3, tie); }); break;
+    case 'pony': cap(); B.e(24, 30, 3.4, 11, hr).e(24, 39, 2.2, 3, hrD).l(23, 22, 23, 38, hrL).r(22, 18, 5, 3, p.tie || '#ffcf2e'); break;
+    case 'bun': cap(); fringe(); B.e(24, 9, 5.5, 5, hr).e(22.5, 7.5, 2, 1.5, hrL).e(24, 13, 5, 1, hrD); break;
+    case 'bob': B.e(24, 18, fw + 3, 13.5, hr).r(lft - 3, 18, wd2 + 6, 15, hr).r(lft - 3, 32, wd2 + 6, 1, hrD).e(19, 9, 4, 1.5, hrL); for (let x = 13; x < 36; x += 4) B.l(x, 20, x, 31, hrD); break;
+    case 'dreads': cap(); for (let i = -4; i <= 4; i++) { const x = 24 + i * 3.3; B.r(x - 1, 12, 3, 30 - Math.abs(i) * 2, hr); for (let y = 16; y < 40 - Math.abs(i) * 2; y += 4) B.r(x - 1, y, 3, 1, hrD); } break;
+    case 'mohawk': B.e(24, 13, fw + .3, 6, shade(sk, -.1)); for (let i = 0; i < 9; i++) B.r(21 - (i % 2), i * 3, 6 + (i % 2) * 2, 4, hr); B.r(22, 0, 1, 27, hrL); break;
+    case 'bald': for (let y = 18; y < 30; y++) for (let x = 10; x < 38; x++) { const dx = (x + .5 - 24) / fw, dy = (y + .5 - 21) / 13; if (dx * dx + dy * dy <= 1.05) B.p(x, y, hr); } B.e(21, 11, 3, 1.2, shade(sk, .3)); break;
+    case 'wig': B.e(24, 18, fw + 4, 14, hr).e(19, 8, 4, 1.5, hrL); [16, 22, 28].forEach(y => { for (let x = 12; x < 37; x += 6) B.e(x + (y % 4), y, 2.6, 2, hrD).e(x + (y % 4), y - .6, 2, 1.2, hr); }); B.r(22, 30, 5, 2, '#1d1438').e(24, 35, 2.4, 5, hr); break;
+    case 'wild': B.e(24, 17, fw + 5, 13.5, hr); for (let i = 0; i < 7; i++) B.e(8 + i * 5.4, 6 + (i % 2) * 2 + Math.abs(i - 3), 3, 4, hr); for (let i = -3; i <= 3; i++) B.l(24 + i * 4, 12, 24 + i * 5, 27, hrD); break;
+    case 'curly': cap(); for (let j = 0; j < 4; j++) for (let i = -3; i <= 3; i++) B.e(24 + i * 3.7 + (j % 2) * 1.8, 9 + j * 5.5 + Math.abs(i), 3.2, 3.2, hr).p(24 + i * 3.7 + (j % 2) * 1.8, 8 + j * 5.5 + Math.abs(i), hrL); break;
+    case 'spiky': cap(); fringe(); for (let i = -3; i <= 3; i++) { const x = 24 + i * 3.6, t = 2 - (i % 2 ? 0 : 3) + Math.abs(i); B.r(x - 1.5, t + 3, 3, 6, hr).r(x - 1, t + 1, 2, 3, hr).p(x - .5, t, hr).p(x - 1.5, t + 3, hrL); } break;
+    case 'hat': {
+      cap(); fringe();
+      const hc = p.hat || HATC[p.hatk] || '#3a3566', hcD = shade(hc, -.25), hk = p.hatk;
+      if (hk === 'cap') B.e(24, 9.5, fw + 1.5, 7.5, hc).r(lft - 1, 14, wd2 + 2, 3, hcD).e(24, 16, 3.5, 2.5, hr).r(20, 17, 8, 1, hcD).e(19, 6, 3, 1.4, shade(hc, .4)).r(23, 2, 2, 2, hcD).r(lft + wd2 - 1, 11, 6, 2, hcD);
+      else if (hk === 'beanie') B.e(24, 8.5, fw + 1.5, 7.5, hc).r(lft - 1, 11, wd2 + 2, 4, hcD).e(24, 1.2, 2.8, 2.4, '#ffffff');
+      else if (hk === 'helmet') B.e(24, 9.5, fw + 2, 8.5, hc).r(lft - 3, 16, wd2 + 6, 2, hcD).r(23, 1, 2, 15, shade(hc, .4));
+      else if (hk === 'sailor') B.r(lft, 4, wd2, 6, hc).r(lft - 1, 9, wd2 + 2, 3, '#22386a').r(lft, 4, wd2, 1, '#ffffff').l(23, 12, 21, 18, '#22386a').l(25, 12, 27, 18, '#22386a');
+      else if (hk === 'tricorn') B.e(24, 7, fw - 2, 5, hc).r(lft - 5, 9, wd2 + 10, 3, hc).r(lft - 5, 9, wd2 + 10, 1, '#ffcf2e').p(24, 12, hc).p(24, 13, hc);
+      else B.r(lft + 1, 1, wd2 - 2, 9, hc).r(lft - 4, 10, wd2 + 8, 2, hc).r(lft + 1, 7, wd2 - 2, 2, shade(hc, .35));
+      break;
+    }
+    case 'part': cap(); fringe(); B.l(19, 6, 17, 15, hrD); break;
+    default: cap(); fringe();
+  }
+  if (p.laurel) for (let i = -4; i <= 4; i++) B.r(24 + i * 2.6 - 1, 13 + Math.abs(i) * .9, 2, 2, i % 2 ? '#3f9f4f' : '#6fcf5a');
+  if (has(p, 'band')) B.r(lft, 13, wd2, 2, tie).r(22, 15, 2, 5, tie).r(25, 15, 2, 4, tie);
+  if (has(p, 'phones')) { for (let a = 200; a <= 340; a += 4) B.r(24 + Math.cos(a / 57.3) * (fw + 2.5), 15 + Math.sin(a / 57.3) * 11.5, 2, 2, '#3a3566'); B.r(lft - 4, 17, 4, 9, '#e03a2f').r(lft + wd2, 17, 4, 9, '#e03a2f'); }
+  if (has(p, 'scarf')) B.r(17, 33, 14, 5, tie).r(17, 33, 14, 1, shade(tie, .35)).r(19, 37, 5, 10, tie).r(19, 41, 5, 1, shade(tie, -.3));
+  marks(B, emo);
+  return B.outline(INK);
+}
 function ousia(emo) {
   emo = emo || 'neutral';
   const B = px(48, 48), c = '#7fe3d0', cD = '#3fb7a8', cL = '#c9fff2';
@@ -1486,6 +1576,14 @@ function drawFigure(canvas, key, p, emo) {
   if (!pcache[k]) pcache[k] = person(p, emo, true).canvas();
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, 60, 76);
+  ctx.drawImage(pcache[k], 0, 0);
+}
+/* dibuja en un <canvas> de 48×60 a quien juega, de espaldas y a medio cuerpo */
+function drawBack(canvas, key, p, emo) {
+  const k = 'B' + key + '|' + emo;
+  if (!pcache[k]) pcache[k] = back(p, emo).canvas();
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 48, 60);
   ctx.drawImage(pcache[k], 0, 0);
 }
 
@@ -1553,7 +1651,7 @@ function idea(id, col, type) {
   return (icache[id] = B.outline(INK).canvas());
 }
 
-return { INK, cv, px, shade, rng, hash, THEMES, ICONS, tileset, prop, building, sheet, ousiaSheet, drawPortrait, drawFigure, backdrop, idea, EMOS, ousia, person };
+return { INK, cv, px, shade, rng, hash, THEMES, ICONS, tileset, prop, building, sheet, ousiaSheet, drawPortrait, drawFigure, drawBack, backdrop, idea, EMOS, ousia, person };
 })();
 
 /* Metafísica Advance — contenido: problemas, cartas (teorías, argumentos, conceptos), coherencia del sistema,
@@ -2728,7 +2826,8 @@ function anyKey(min) {
 }
 const chOf = who => (who === 'yo' ? Object.assign({}, CH['av' + S.av], { n: S.name.toUpperCase() }) : CH[who]);
 function setPor(canvas, who, emo) { const key = who === 'yo' ? 'av' + S.av : who; G.drawPortrait(canvas, key, CH[key].p, emo || 'neutral'); }
-function setFig(canvas, who, emo) { const key = who === 'yo' ? 'av' + S.av : who; G.drawFigure(canvas, key, CH[key].p, emo || 'neutral'); }
+/* figura de las disputas: el rival de cuerpo entero; quien juega, de espaldas y a medio cuerpo */
+function setFig(canvas, who, emo) { const key = who === 'yo' ? 'av' + S.av : who; (who === 'yo' ? G.drawBack : G.drawFigure)(canvas, key, CH[key].p, emo || 'neutral'); }
 async function say(who, emo, text) {
   const c = who ? chOf(who) : null;
   dlg.hidden = false; dlg.classList.toggle('nar', !c);
@@ -3127,7 +3226,7 @@ async function duel(n) {
 function scene(kc, wildId) {
   const root = el('div', 'battle', '<div class="sky"></div><div class="plat pf"></div><div class="plat pm"></div>' +
     '<div class="fig foe">' + (wildId ? ideaImg(wildId) : '<canvas width="60" height="76"></canvas>') + '</div>' +
-    '<div class="fig me"><canvas width="60" height="76"></canvas></div><div class="fig ou"><canvas width="48" height="48"></canvas></div>' +
+    '<div class="fig me"><canvas width="48" height="60"></canvas></div><div class="fig ou"><canvas width="48" height="48"></canvas></div>' +
     '<div class="bx fbox"><div class="r1"><b></b><i></i></div><div class="th"></div><div class="bar"><i></i></div></div>' +
     '<div class="bx mbox"><div class="r1"><b></b><i></i></div><div class="th"></div><div class="bar"><i></i></div><div class="hp"></div></div>' +
     '<div class="bmsg"><div class="tx"></div><i class="nx" hidden>▼</i></div>');
