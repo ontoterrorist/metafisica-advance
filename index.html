@@ -3125,7 +3125,7 @@ fctx.fillStyle = DARK;
 requestAnimationFrame(frame);
 window.MA = {
   press, down, up, run, give, battle, wild, enter, quiz, menu, ontodex, sistema, cardHtml, level, maxHp, system, LOG,
-  save: () => S, state: () => ({ mode, busy, map: M && M.id, x: P.x, y: P.y, dir: P.dir, h: hstack.length }),
+  save: () => S, state: () => ({ mode, busy, map: M && M.id, x: P.x, y: P.y, dir: P.dir, h: hstack.length, mv: !!P.mv }),
   warp: (id, x, y) => { enter(id, { x, y }); }
 };
 title();
